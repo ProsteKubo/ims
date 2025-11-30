@@ -214,7 +214,7 @@ The tolerance asymmetry is critical: $k_{\text{out}} \ll k_{\text{in}}$ explains
 - Domain: $\mathbb{R} \cup \{\text{finite}\}$ (continuous accumulation)
 - Initial marking: $m_0 = 1.0$
 - Dynamics:
-  $$\frac{dm}{dt} = \lambda_{\text{pain}} \cdot \text{Pain\_Level} - \lambda_{\text{dose}} \cdot \delta(\text{dose\_event})$$
+  $\frac{dm}{dt} = \lambda_{\text{pain}} \cdot \text{Pain\_Level} - \lambda_{\text{dose}} \cdot \delta(\text{dose\_event})$
   where:
   - $\lambda_{\text{pain}} \approx 0.1$ [unit/h per pain level]
   - $\lambda_{\text{dose}} = 2$ [units removed per dose]
