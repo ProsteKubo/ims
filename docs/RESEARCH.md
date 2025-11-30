@@ -43,14 +43,14 @@
 
 **1. Absorption from Gastrointestinal Tract**
 
-$$`\frac{dA}{dt} = -k_a \cdot A(t)`$$
+$$\frac{dA}{dt} = -k_a \cdot A(t)$$
 
 where:
 - $`k_a`$ = absorption rate constant [h⁻¹] – typical 1.5 to 2.5 h⁻¹
 
 **2. Central Compartment (Blood)**
 
-$$`\frac{dC}{dt} = \frac{k_a \cdot A(t) + k_{pC} \cdot P(t) - k_{Cp} \cdot C(t) - \text{Cl}_{\text{NL}}(C)}{V_c}`$$
+$$\frac{dC}{dt} = \frac{k_a \cdot A(t) + k_{pC} \cdot P(t) - k_{Cp} \cdot C(t) - \text{Cl}_{\text{NL}}(C)}{V_c}$$
 
 where:
 - $`k_a`$ = absorption from GI tract
@@ -61,14 +61,14 @@ where:
 
 **3. Peripheral Compartment (Tissues)**
 
-$$`\frac{dP}{dt} = \frac{k_{Cp} \cdot C(t) - k_{pC} \cdot P(t)}{V_p}`$$
+$$\frac{dP}{dt} = \frac{k_{Cp} \cdot C(t) - k_{pC} \cdot P(t)}{V_p}$$
 
 where:
 - $`V_p`$ = peripheral volume [L/kg]
 
 **4. Effect Site (Pharmacodynamic Site)**
 
-$$`\frac{dC_e}{dt} = \frac{k_e \cdot (C(t) - C_e(t))}{\tau_e}`$$
+$$\frac{dC_e}{dt} = \frac{k_e \cdot (C(t) - C_e(t))}{\tau_e}$$
 
 where:
 - $`k_e`$ = equilibration rate to effect site [h⁻¹]
@@ -79,11 +79,11 @@ where:
 
 **5. Tolerance Development (Operational Model)**
 
-$$`\frac{d\text{Tol}}{dt} = k_{\text{in}} \cdot \text{Signal}(C_e(t)) - k_{\text{out}} \cdot \text{Tol}(t)`$$
+$$\frac{d\text{Tol}}{dt} = k_{\text{in}} \cdot \text{Signal}(C_e(t)) - k_{\text{out}} \cdot \text{Tol}(t)$$
 
 where the feedback signal is:
 
-$$`\text{Signal}(C_e) = \frac{C_e(t)}{EC_{50,\text{signal}} + C_e(t)}`$$
+$$\text{Signal}(C_e) = \frac{C_e(t)}{EC_{50,\text{signal}} + C_e(t)}$$
 
 Parameters:
 - $`k_{\text{in}}`$ = tolerance induction rate [h⁻¹] – typical range 0.01–0.2 h⁻¹
@@ -100,7 +100,7 @@ Parameters:
 
 **Michaelis-Menten Kinetics [4,5,6]:**
 
-$$`\text{Cl}_{\text{NL}}(C) = \frac{V_{\max} \cdot C(t)}{K_m + C(t)}`$$
+$$\text{Cl}_{\text{NL}}(C) = \frac{V_{\max} \cdot C(t)}{K_m + C(t)}$$
 
 where:
 - $`V_{\max}`$ = maximum metabolic capacity [mg/h]
@@ -116,13 +116,13 @@ where:
 The saturation zone exhibits three regimes:
 
 1. **Linear Regime** ($`C \ll K_m`$): 
-   $$`\text{Cl}_{\text{NL}} \approx \frac{V_{\max}}{K_m} \cdot C \quad \text{(first-order kinetics)}`$$
+   $$\text{Cl}_{\text{NL}} \approx \frac{V_{\max}}{K_m} \cdot C \quad \text{(first-order kinetics)}$$
 
 2. **Saturation Regime** ($`C \approx K_m`$): 
-   $$`\text{Cl}_{\text{NL}} \approx \frac{V_{\max}}{2} \quad \text{(mixed order)}`$$
+   $$\text{Cl}_{\text{NL}} \approx \frac{V_{\max}}{2} \quad \text{(mixed order)}$$
 
 3. **Plateau Regime** ($`C \gg K_m`$): 
-   $$`\text{Cl}_{\text{NL}} \approx V_{\max} \quad \text{(zero-order kinetics)}`$$
+   $$\text{Cl}_{\text{NL}} \approx V_{\max} \quad \text{(zero-order kinetics)}$$
 
 **Empirical Data [5,6]:**
 - CYP3A4 $`K_m`$ for fentanyl: $`7.67 \pm 3.54`$ μM (HLM data, 2024)
@@ -136,7 +136,7 @@ The saturation zone exhibits three regimes:
 
 #### Effect Model (Sigmoid Emax)
 
-$$`\text{Effect}(t) = \frac{E_{\max} \cdot C_e(t)^n}{EC_{50}(\text{Tol})^n + C_e(t)^n}`$$
+$$\text{Effect}(t) = \frac{E_{\max} \cdot C_e(t)^n}{EC_{50}(\text{Tol})^n + C_e(t)^n}$$
 
 where:
 - $`E_{\max}`$ = maximum possible effect [%]
@@ -145,7 +145,7 @@ where:
   - Sedation: 80–85%
 
 - $`EC_{50}(\text{Tol})`$ = half-maximal effective concentration [μg/mL], modified by tolerance:
-  $$`EC_{50}(\text{Tol}) = EC_{50,0} \cdot (1 + \text{Tol}(t))`$$
+  $$EC_{50}(\text{Tol}) = EC_{50,0} \cdot (1 + \text{Tol}(t))$$
   
   Baseline values:
   - Morphine analgesia: $`EC_{50,0} \approx 2–4`$ μg/mL
@@ -185,7 +185,7 @@ Tolerance to opioids develops through multiple mechanisms:
 
 **Mathematical Expression (Operational Model) [7,8]:**
 
-$$`\frac{d\text{Tol}}{dt} = k_{\text{in}} \left( \frac{C_e(t)}{EC_{50,\text{signal}} + C_e(t)} \right) - k_{\text{out}} \cdot \text{Tol}(t)`$$
+$$\frac{d\text{Tol}}{dt} = k_{\text{in}} \left( \frac{C_e(t)}{EC_{50,\text{signal}} + C_e(t)} \right) - k_{\text{out}} \cdot \text{Tol}(t)$$
 
 The tolerance asymmetry is critical: $`k_{\text{out}} \ll k_{\text{in}}`$ explains why tolerance builds rapidly but recovers slowly.
 
@@ -246,11 +246,11 @@ The tolerance asymmetry is critical: $`k_{\text{out}} \ll k_{\text{in}}`$ explai
 - $`\text{PatientAlive} = 1`$
 
 **Guard (Decision Logic):**
-$$`\text{Action} = \begin{cases}
+$$\text{Action} = \begin{cases}
 \text{INCREASE\_DOSE} & \text{if } \text{Pain\_Level} \geq 2 \text{ AND } \text{Relief\_State} = 0 \text{ AND } \text{Motivation} > 1.5 \\
 \text{MAINTAIN\_DOSE} & \text{if } \text{Pain\_Level} \leq 1 \text{ AND } \text{Relief\_State} = 1 \\
 \text{SKIP\_DOSE} & \text{otherwise}
-\end{cases}`$$
+\end{cases}$$
 
 ---
 
@@ -266,10 +266,10 @@ $$`\text{Action} = \begin{cases}
 **Action:**
 
 New dose calculated as:
-$$`\text{dose}_{\text{new}} = \text{dose}_{\text{current}} \cdot (1 + f_{\text{escalation}})`$$
+$$\text{dose}_{\text{new}} = \text{dose}_{\text{current}} \cdot (1 + f_{\text{escalation}})$$
 
 where the escalation factor is:
-$$`f_{\text{escalation}} = 0.10 + 0.15 \cdot \text{Tol}(t)`$$
+$$f_{\text{escalation}} = 0.10 + 0.15 \cdot \text{Tol}(t)$$
 
 This captures the patient's unknowing self-titration proportional to accumulated tolerance.
 
@@ -312,12 +312,12 @@ This captures the patient's unknowing self-titration proportional to accumulated
 **Transition T5: OVERDOSE_DETECTED** (TERMINAL)
 
 **Precondition (Guard):**
-$$`\text{Trigger} = \begin{cases}
+$$\text{Trigger} = \begin{cases}
 \text{TRUE} & \text{if } C(t) > C_{\text{critical}} \text{ (e.g., 50 μg/mL)} \\
 \text{TRUE} & \text{if } C_e(t) > C_{e,\text{critical}} \\
 \text{TRUE} & \text{if } \text{Effect}_{\text{respiration}} > 95\% \\
 \text{TRUE} & \text{if } \text{RR} < 3 \text{ breaths/min}
-\end{cases}`$$
+\end{cases}$$
 
 **Action:**
 - Instantaneous: $`\text{PatientAlive} := 0`$
@@ -338,8 +338,8 @@ $$`\text{Trigger} = \begin{cases}
 **Action:**
 
 Naloxone effect (competitive antagonism):
-$$`C_{\text{after}} = C_{\text{before}} \cdot (1 - \eta_{\text{naloxone}})`$$
-$$`C_{e,\text{after}} = C_{e,\text{before}} \cdot 0.2`$$
+$$C_{\text{after}} = C_{\text{before}} \cdot (1 - \eta_{\text{naloxone}})$$
+$$C_{e,\text{after}} = C_{e,\text{before}} \cdot 0.2$$
 
 where $`\eta_{\text{naloxone}} \approx 0.3–0.5`$ (30–50% effective blockade)
 
@@ -379,7 +379,7 @@ where $`\eta_{\text{naloxone}} \approx 0.3–0.5`$ (30–50% effective blockade)
 
 After 2–3 doses, system reaches steady-state:
 
-$$`C_{\text{ss}} = \frac{K_m \cdot D/\Delta t}{V_{\max} - D/\Delta t}`$$
+$$C_{\text{ss}} = \frac{K_m \cdot D/\Delta t}{V_{\max} - D/\Delta t}$$
 
 where $`D`$ is dose magnitude and $`\Delta t`$ is dosing interval.
 
@@ -403,7 +403,7 @@ where $`D`$ is dose magnitude and $`\Delta t`$ is dosing interval.
 **Protocol:**
 - Initial dose: 10 mg morphine (or fentanyl equivalent)
 - Escalation logic: Applied at each 12-hour assessment
-  $$`\text{dose}_{\text{new}} = \text{dose}_{\text{current}} \cdot (1 + 0.10 + 0.15 \cdot \text{Tol}(t))`$$
+  $$\text{dose}_{\text{new}} = \text{dose}_{\text{current}} \cdot (1 + 0.10 + 0.15 \cdot \text{Tol}(t))$$
 - Petri net: fully enabled (autonomous behavioral feedback)
 - Duration: until overdose or 60 days
 
@@ -431,10 +431,10 @@ where $`D`$ is dose magnitude and $`\Delta t`$ is dosing interval.
 
 When $`C(t)`$ crosses into saturation zone ($`C > 3 K_m`$):
 
-$$`\frac{dC_{\text{saturation}}}{d\text{dose}} \gg \frac{dC_{\text{linear}}}{d\text{dose}}`$$
+$$\frac{dC_{\text{saturation}}}{d\text{dose}} \gg \frac{dC_{\text{linear}}}{d\text{dose}}$$
 
 The Michaelis-Menten curve steepens:
-$$`\frac{d}{dC}\left(\frac{V_{\max} \cdot C}{K_m + C}\right) = \frac{V_{\max} \cdot K_m}{(K_m + C)^2}`$$
+$$\frac{d}{dC}\left(\frac{V_{\max} \cdot C}{K_m + C}\right) = \frac{V_{\max} \cdot K_m}{(K_m + C)^2}$$
 
 At $`C = K_m`$: this derivative is maximum (sensitivity peak).  
 At $`C \gg K_m`$: derivative $`\to 0`$ (clearance plateaus).
@@ -474,7 +474,7 @@ Visually, the dose increase looks identical to earlier escalations. But **pharma
   * Duration: 30–90 minutes (then wears off if opioid still in circulation)
 
 **Naloxone Pharmacokinetics:**
-$$`C_{\text{naloxone}}(t) = C_{\text{naloxone},0} \cdot \exp(-k_{\text{naloxone}} \cdot t)`$$
+$$C_{\text{naloxone}}(t) = C_{\text{naloxone},0} \cdot \exp(-k_{\text{naloxone}} \cdot t)$$
 
 where $`k_{\text{naloxone}} \approx 0.02–0.04`$ h⁻¹ (naloxone half-life: $`\approx 1–1.5`$ hours)
 
@@ -518,7 +518,7 @@ where $`k_{\text{naloxone}} \approx 0.02–0.04`$ h⁻¹ (naloxone half-life: $`
 | **$`\text{Tol}(t)`$** | $`\frac{d\text{Tol}}{dt} = k_{\text{in}} \cdot \frac{C_e}{EC_{50,\text{sig}} + C_e} - k_{\text{out}} \cdot \text{Tol}`$ | $`k_{\text{in}}=0.01–0.2`$; $`k_{\text{out}}=0.001–0.01`$ | –, 1/h | Operational tolerance model; asymmetric development/recovery |
 
 **Nonlinear Elimination (Michaelis-Menten):**
-$$`\text{Cl}_{\text{NL}}(C) = \frac{V_{\max} \cdot C}{K_m + C}`$$
+$$\text{Cl}_{\text{NL}}(C) = \frac{V_{\max} \cdot C}{K_m + C}$$
 
 **Typical values (Morphine, healthy adult liver):**
 - $`V_{\max} \approx 10`$ mg/h
@@ -564,7 +564,7 @@ $$`\text{Cl}_{\text{NL}}(C) = \frac{V_{\max} \cdot C}{K_m + C}`$$
 
 For fentanyl, the respiratory depression EC₅₀ is **LOWER** than the analgesia EC₅₀:
 
-$$`EC_{50,\text{resp}} < EC_{50,\text{analgesia}}`$$
+$$EC_{50,\text{resp}} < EC_{50,\text{analgesia}}$$
 
 **Implication:**
 - Patient feels pain relief at $`C_e \approx 0.7`$ μg/mL
@@ -665,11 +665,11 @@ Boolean state: is patient currently in "relief" (desired state)?
 Initial marking: $`m_0 = 0`$ (no relief at baseline)
 
 Transition rule with hysteresis:
-$$`\text{Relief\_State}(t) = \begin{cases}
+$$\text{Relief\_State}(t) = \begin{cases}
 1 & \text{if } \text{Effect}(C_e(t)) > 60\% \\
 0 & \text{if } \text{Effect}(C_e(t)) < 40\% \\
 \text{Relief\_State}(t-1) & \text{otherwise (hysteresis)}
-\end{cases}`$$
+\end{cases}$$
 
 ---
 
@@ -680,7 +680,7 @@ Continuous accumulation of urgency to dose.
 Initial marking: $`m_0 = 1.0`$
 
 Continuous dynamics:
-$$`\frac{dm}{dt} = \lambda_{\text{pain}} \cdot \text{Pain\_Level}(t) - \lambda_{\text{dose}} \cdot \delta_{\text{dose}}(t)`$$
+$$\frac{dm}{dt} = \lambda_{\text{pain}} \cdot \text{Pain\_Level}(t) - \lambda_{\text{dose}} \cdot \delta_{\text{dose}}(t)$$
 
 Parameters:
 - $`\lambda_{\text{pain}} = 0.1`$ [unit/h per pain level] – pain drives motivation
@@ -734,35 +734,35 @@ Once 0, remains 0 (irreversible without T6: naloxone).
 **Firing Time:** Every 12 hours ($`\text{TimeCounter} = 0, 12, 24, 36, \ldots`$)
 
 **Precondition:**
-$$`\text{Enable T1} \iff (\text{TimeCounter} \bmod 12 = 0) \wedge (\text{PatientAlive} = 1)`$$
+$$\text{Enable T1} \iff (\text{TimeCounter} \bmod 12 = 0) \wedge (\text{PatientAlive} = 1)$$
 
 **Deterministic Dispatch:**
 
 Evaluates conditions and enables exactly one of T2, T3, or T4:
 
-$$`\begin{cases}
+$$\begin{cases}
 \text{Enable T2 (INCREASE\_DOSE)} & \text{if } \text{Pain\_Level} \geq 2 \wedge \text{Relief\_State} = 0 \wedge \text{Motivation} > 1.5 \\
 \text{Enable T3 (MAINTAIN\_DOSE)} & \text{if } \text{Pain\_Level} \leq 1 \wedge \text{Relief\_State} = 1 \\
 \text{Enable T4 (SKIP\_DOSE)} & \text{otherwise}
-\end{cases}`$$
+\end{cases}$$
 
 ---
 
 **Transition T2: INCREASE_DOSE**
 
 **Precondition (Guard Conjunction):**
-$$`\text{Enable T2} \iff \begin{cases}
+$$\text{Enable T2} \iff \begin{cases}
 \text{Pain\_Level}(t) \geq 2 \\
 \land \text{Relief\_State}(t) = 0 \\
 \land \text{Motivation}(t) > 1.5 \\
 \land (t - t_{\text{last\_dose}}) > 6 \text{ h} \\
 \land \text{PatientAlive}(t) = 1
-\end{cases}`$$
+\end{cases}$$
 
 **Dose Calculation:**
 
 New dose depends on current tolerance:
-$$`\text{dose}_{\text{new}} = \text{dose}_{\text{current}} \times \left(1 + 0.10 + 0.15 \times \text{Tol}(t)\right)`$$
+$$\text{dose}_{\text{new}} = \text{dose}_{\text{current}} \times \left(1 + 0.10 + 0.15 \times \text{Tol}(t)\right)$$
 
 Bounds: $`\text{dose}_{\text{new}} \in [1, 200]`$ mg (soft cap, behavioral model can override)
 
@@ -785,11 +785,11 @@ Bounds: $`\text{dose}_{\text{new}} \in [1, 200]`$ mg (soft cap, behavioral model
 **Transition T3: MAINTAIN_DOSE**
 
 **Precondition:**
-$$`\text{Enable T3} \iff \begin{cases}
+$$\text{Enable T3} \iff \begin{cases}
 \text{Pain\_Level}(t) \leq 1 \\
 \land \text{Relief\_State}(t) = 1 \\
 \land \text{PatientAlive}(t) = 1
-\end{cases}`$$
+\end{cases}$$
 
 **Action:**
 - **No discrete event:** ODE system continues evolution without new dose
@@ -803,10 +803,10 @@ $$`\text{Enable T3} \iff \begin{cases}
 **Transition T4: SKIP_DOSE**
 
 **Precondition:**
-$$`\text{Enable T4} \iff \begin{cases}
+$$\text{Enable T4} \iff \begin{cases}
 \text{Pain\_Level}(t) \in \{0, 1\} \\
 \lor \text{Relief\_State}(t) = 1
-\end{cases}`$$
+\end{cases}$$
 
 **Action:**
 - Record assessment as "no intervention"
@@ -821,12 +821,12 @@ $$`\text{Enable T4} \iff \begin{cases}
 
 Triggers if **any** of the following is true:
 
-$$`\text{Enable T5} \iff \begin{cases}
+$$\text{Enable T5} \iff \begin{cases}
 C(t) > C_{\text{critical}} & \text{(absolute concentration threshold)} \\
 \lor C_e(t) > C_{e,\text{critical}} & \text{(effect site threshold)} \\
 \lor \text{Effect}_{\text{respiration}}(t) > 95\% & \text{(functional threshold)} \\
 \lor \text{RR}(t) < 3 \text{ breaths/min} & \text{(clinical threshold)}
-\end{cases}`$$
+\end{cases}$$
 
 Typical threshold values:
 - $`C_{\text{critical}} \approx 50`$ μg/mL (morphine); 10 μg/mL (fentanyl)
@@ -852,40 +852,40 @@ Typical threshold values:
 
 Must satisfy **ALL** conditions:
 
-$$`\text{Enable T6} \iff \begin{cases}
+$$\text{Enable T6} \iff \begin{cases}
 C(t) > C_{\text{naloxone\_threshold}} & \text{(overdose detected)} \\
 \land (t - t_{\text{overdose\_onset}}) < 5 \text{ min} & \text{(time window)} \\
 \land \text{naloxone\_available} = \text{TRUE} & \text{(medication present)} \\
 \land \text{PatientAlive}(t) = 0 & \text{(already triggered OD)} \\
 \land \text{medical\_responder\_present} = \text{TRUE}
-\end{cases}`$$
+\end{cases}$$
 
 **Action (Immediate, Discrete):**
 
 1. **Antagonism Effect:**
-   $$`C(t) \mathrel{\times{=}} (1 - \eta_{\text{naloxone}})`$$
+   $$C(t) \mathrel{\times{=}} (1 - \eta_{\text{naloxone}})$$
    where $`\eta_{\text{naloxone}} \approx 0.4`$ (40% of opioid blockaded; some still binds)
    
 2. **Effect Site Suppression:**
-   $$`C_e(t) \mathrel{\times{=}} 0.2`$$
+   $$C_e(t) \mathrel{\times{=}} 0.2$$
    (most receptors now blocked by naloxone)
 
 3. **Revive Patient:**
-   $$`\text{PatientAlive}(t) := 1`$$
+   $$\text{PatientAlive}(t) := 1$$
 
 4. **Tolerance Reset (Acute Shock):**
-   $$`\text{Tol}(t) \mathrel{\times{=}} 0.7`$$
+   $$\text{Tol}(t) \mathrel{\times{=}} 0.7$$
    (antagonism forces rapid desensitization reset)
 
 5. **Record Event:**
-   $$`(t_{\text{naloxone}}, \text{naloxone\_dose}, C_{\text{before}}, C_{\text{after}})`$$
+   $$(t_{\text{naloxone}}, \text{naloxone\_dose}, C_{\text{before}}, C_{\text{after}})$$
 
 **Post-Rescue Dynamics:**
 
 - **Respiratory recovery:** Within 2–3 minutes
 - **Acute withdrawal:** Pain↑ to Level 3; agitation; autonomic hyperactivity
 - **Naloxone clearance:** Concentration decays exponentially:
-  $$`C_{\text{naloxone}}(t) = C_{\text{naloxone},0} \cdot \exp(-k_{\text{naloxone}} \cdot (t - t_{\text{rescue}}))`$$
+  $$C_{\text{naloxone}}(t) = C_{\text{naloxone},0} \cdot \exp(-k_{\text{naloxone}} \cdot (t - t_{\text{rescue}}))$$
   where $`k_{\text{naloxone}} \approx 0.03`$ h⁻¹ (half-life: ~23 hours in some models, but clinically ~1–1.5 h for onset of re-sedation)
 
 - **Re-Saturation Risk:** If opioid concentration is still high when naloxone wears off, **T5 may fire again**
@@ -900,7 +900,7 @@ C(t) > C_{\text{naloxone\_threshold}} & \text{(overdose detected)} \\
 
 The incidence matrix $`I`$ shows marking changes for each transition:
 
-$$`I = \begin{pmatrix}
+$$I = \begin{pmatrix}
 \text{Place 1} \\
 \text{Place 2} \\
 \text{Place 3} \\
@@ -916,7 +916,7 @@ T1 & T2 & T3 & T4 & T5 & T6 \\
 0 & +1 & 0 & +1 & -1 & +1 \\
 +1 & 0 & 0 & 0 & 0 & 0 \\
 0 & 0 & 0 & 0 & -1 & +1
-\end{pmatrix}`$$
+\end{pmatrix}$$
 
 **Interpretation:**
 - Rows = Places (1: Pain, 2: Relief, 3: Motivation, 4: History, 5: TimeCounter, 6: Alive)
@@ -950,7 +950,7 @@ T1 & T2 & T3 & T4 & T5 & T6 \\
 **Phase 2: Quasi-Steady-State Reached (Days 3–30)**
 
 At equilibrium (between doses):
-$$`C_{\text{ss}} = \frac{K_m \cdot (D_0 / \Delta t)}{V_{\max} - (D_0 / \Delta t)}`$$
+$$C_{\text{ss}} = \frac{K_m \cdot (D_0 / \Delta t)}{V_{\max} - (D_0 / \Delta t)}$$
 
 For the sample parameters (morphine):
 - $`V_{\max} = 10`$ mg/h; $`K_m = 2`$ mg/L
@@ -959,7 +959,7 @@ For the sample parameters (morphine):
 - $`C_{\text{ss}} = \frac{2 \times 0.833}{10 - 0.833} \approx 0.18`$ mg/L = 0.18 μg/mL
 
 Corresponding effect:
-$$`\text{Effect}_{\text{ss}} = \frac{E_{\max} \cdot (C_{e,\text{ss}})^n}{(EC_{50,0} \cdot (1 + \text{Tol}_{\text{ss}}))^n + (C_{e,\text{ss}})^n}`$$
+$$\text{Effect}_{\text{ss}} = \frac{E_{\max} \cdot (C_{e,\text{ss}})^n}{(EC_{50,0} \cdot (1 + \text{Tol}_{\text{ss}}))^n + (C_{e,\text{ss}})^n}$$
 
 With typical parameters:
 - $`\text{Effect}_{\text{ss}} \approx 65–75\%`$ (adequate pain control)
@@ -982,7 +982,7 @@ With typical parameters:
 **Protocol:**
 - Initial dose: $`D_0 = 10`$ mg morphine
 - Escalation at each 12-hour assessment:
-  $$`D_n = D_{n-1} \times (1 + 0.10 + 0.15 \times \text{Tol}(t))`$$
+  $$D_n = D_{n-1} \times (1 + 0.10 + 0.15 \times \text{Tol}(t))$$
 - Petri net: Fully enabled (autonomous behavioral escalation)
 - Duration: until death or 60 days
 - Monitoring: hourly state sampling; record dose history
@@ -1043,7 +1043,7 @@ With typical parameters:
 
 When dose escalation pushes $`C(t)`$ into true saturation ($`C > 5 K_m`$):
 
-$$`\frac{dC}{dD} = \frac{d}{dD}\left(\frac{K_m \times D/\Delta t}{V_{\max} - D/\Delta t}\right) = \frac{K_m \times V_{\max}}{(V_{\max} - D/\Delta t)^2}`$$
+$$\frac{dC}{dD} = \frac{d}{dD}\left(\frac{K_m \times D/\Delta t}{V_{\max} - D/\Delta t}\right) = \frac{K_m \times V_{\max}}{(V_{\max} - D/\Delta t)^2}$$
 
 As $`D/\Delta t \to V_{\max}`$: denominator $`\to 0`$, so $`\frac{dC}{dD} \to \infty`$ (vertical asymptote)
 
@@ -1118,8 +1118,8 @@ Result:
 **Naloxone Mechanism (NOT Metabolic):**
 
 Naloxone is a **competitive antagonist** at μ-opioid receptors:
-$$`\text{Opioid} + \text{μOR} \rightleftharpoons \text{Opioid-μOR} \quad K_d(\text{opioid}) \approx 0.5 \text{ nM}`$$
-$$`\text{Naloxone} + \text{μOR} \rightleftharpoons \text{Naloxone-μOR} \quad K_d(\text{naloxone}) \approx 0.1 \text{ nM}`$$
+$$\text{Opioid} + \text{μOR} \rightleftharpoons \text{Opioid-μOR} \quad K_d(\text{opioid}) \approx 0.5 \text{ nM}$$
+$$\text{Naloxone} + \text{μOR} \rightleftharpoons \text{Naloxone-μOR} \quad K_d(\text{naloxone}) \approx 0.1 \text{ nM}$$
 
 Because naloxone has higher affinity, it **displaces** opioid from receptors.
 
@@ -1239,22 +1239,22 @@ At equilibrium with repeated dosing:
 **Assumption:** After many doses ($`n \gg 1`$), dosing reaches a pattern.
 
 **Between-dose interval ($`t`$ just before next dose):**
-$$`C_{\text{trough}} = C_{\text{peak}} \times \exp(-k_{\text{eff}} \times \Delta t)`$$
+$$C_{\text{trough}} = C_{\text{peak}} \times \exp(-k_{\text{eff}} \times \Delta t)$$
 
 where $`k_{\text{eff}}`$ is effective elimination rate.
 
 **Just after dose (absorption lag accounted for):**
-$$`C_{\text{peak}} = C_{\text{trough}} + \frac{D_0}{V_c \times \text{(absorption efficiency)}}`$$
+$$C_{\text{peak}} = C_{\text{trough}} + \frac{D_0}{V_c \times \text{(absorption efficiency)}}$$
 
 **Steady-state concentration (average):**
 
 For **linear kinetics** ($`C \ll K_m`$):
-$$`C_{\text{ss}} = \frac{F \times D_0}{CL \times \Delta t}`$$
+$$C_{\text{ss}} = \frac{F \times D_0}{CL \times \Delta t}$$
 
 where $`F`$ = bioavailability, $`CL = V_{\max}/K_m`$ = linear clearance.
 
 For **saturated kinetics** ($`C \approx K_m`$):
-$$`C_{\text{ss}} = K_m \times \frac{D_0/\Delta t}{V_{\max} - D_0/\Delta t}`$$
+$$C_{\text{ss}} = K_m \times \frac{D_0/\Delta t}{V_{\max} - D_0/\Delta t}$$
 
 **No equilibrium exists** if $`D_0/\Delta t > V_{\max}`$ (denominator → negative).
 
@@ -1266,16 +1266,16 @@ This is the mathematical explanation for inevitable death in Scenario B: once do
 
 **Saturation threshold (concentration where first derivative peaks):**
 
-$$`C_{\text{sat}} = K_m`$$
+$$C_{\text{sat}} = K_m$$
 
 **First derivative of Michaelis-Menten (sensitivity):**
-$$`\frac{d(\text{Cl}_{\text{NL}})}{dC} = \frac{V_{\max} K_m}{(K_m + C)^2}`$$
+$$\frac{d(\text{Cl}_{\text{NL}})}{dC} = \frac{V_{\max} K_m}{(K_m + C)^2}$$
 
 **Maximum sensitivity occurs at $`C = K_m`$:**
-$$`\left.\frac{d(\text{Cl}_{\text{NL}})}{dC}\right|_{C=K_m} = \frac{V_{\max}}{4K_m}`$$
+$$\left.\frac{d(\text{Cl}_{\text{NL}})}{dC}\right|_{C=K_m} = \frac{V_{\max}}{4K_m}$$
 
 **Beyond saturation ($`C \gg K_m`$):**
-$$`\left.\frac{d(\text{Cl}_{\text{NL}})}{dC}\right|_{C \gg K_m} \approx \frac{V_{\max} K_m}{C^2} \to 0`$$
+$$\left.\frac{d(\text{Cl}_{\text{NL}})}{dC}\right|_{C \gg K_m} \approx \frac{V_{\max} K_m}{C^2} \to 0$$
 
 **Consequence:** Clearance becomes dose-independent (zero-order), so concentration rises without bound.
 
@@ -1284,7 +1284,7 @@ $$`\left.\frac{d(\text{Cl}_{\text{NL}})}{dC}\right|_{C \gg K_m} \approx \frac{V_
 ### Tolerance Asymmetry
 
 **Tolerance half-life ratio:**
-$$`\frac{t_{1/2,\text{recovery}}}{t_{1/2,\text{development}}} = \frac{k_{\text{in}}}{k_{\text{out}}} \approx 20–100`$$
+$$\frac{t_{1/2,\text{recovery}}}{t_{1/2,\text{development}}} = \frac{k_{\text{in}}}{k_{\text{out}}} \approx 20–100$$
 
 This asymmetry is **fundamental** to addiction:
 - Tolerance builds **rapidly** (hours): patient escalates dose
