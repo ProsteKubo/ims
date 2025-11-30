@@ -197,7 +197,7 @@ The tolerance asymmetry is critical: $k_{\text{out}} \ll k_{\text{in}}$ explains
 
 **Place 1: Pain_Level**
 - Domain: $\{0, 1, 2, 3\}$ representing {None, Mild, Moderate, Severe}
-- Initial marking: $m_0(\text{Pain\_Level}) = 2$ (Moderate baseline pain)
+- Initial marking: $ m_0(\text{Pain\_Level}) = 2$ (Moderate baseline pain)
 - Dynamics:
   - Pain↓ if $\text{Effect}(C_e(t)) > 60\%$
   - Pain↑ if $\text{Effect}(C_e(t)) < 40\%$ and time since dose $> 6$ h
@@ -649,7 +649,7 @@ Domain interpretation:
 - 2 = Moderate pain (40–70%)
 - 3 = Severe pain (70–100%)
 
-Initial marking: $m_0(\text{Pain\_Level}) = 2$
+Initial marking: $ m_0(\text{Pain\_Level}) = 2$
 
 Transition dynamics:
 - If $\text{Effect}(C_e(t)) > 60\%$ for sustained period (>4 h): Pain↓ (decay toward 0)
