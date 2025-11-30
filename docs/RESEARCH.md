@@ -214,14 +214,14 @@ The tolerance asymmetry is critical: $k_{\text{out}} \ll k_{\text{in}}$ explains
 - Domain: $\mathbb{R} \cup \{\text{finite}\}$ (continuous accumulation)
 - Initial marking: $m_0 = 1.0$
 - Dynamics:
-  $\frac{dm}{dt} = \lambda_{\text{pain}} \cdot \text{Pain\_Level} - \lambda_{\text{dose}} \cdot \delta(\text{dose\_event})$
+  $`\frac{dm}{dt} = \lambda_{\text{pain}} \cdot \text{Pain\_Level} - \lambda_{\text{dose}} \cdot \delta(\text{dose\_event})`$ 
   where:
   - $\lambda_{\text{pain}} \approx 0.1$ [unit/h per pain level]
   - $\lambda_{\text{dose}} = 2$ [units removed per dose]
 - Firing condition for INCREASE_DOSE: $\text{Motivation} > \text{threshold}$ (e.g., 2.0)
 
 **Place 4: Dose_History**
-- Domain: sequence of tuples $(t_i, \text{dose}_i, C_i, C_{e,i}, \text{Tol}_i)$
+- Domain: sequence of tuples $`(t_i, \text{dose}_i, C_i, C_{e,i}, \text{Tol}_i)`$
 - Initial marking: $m_0 = \emptyset$
 - Action: append event on each dose transition
 
@@ -257,11 +257,11 @@ $$\text{Action} = \begin{cases}
 **Transition T2: INCREASE_DOSE**
 
 **Precondition (Guard):**
-- $\text{Pain\_Level} \geq 2$ (Moderate or higher)
-- $\text{Relief\_State} = 0$
-- $\text{Motivation} > \text{threshold}$
-- Time since last dose $> \text{min\_interval}$ (e.g., 6 hours)
-- $\text{PatientAlive} = 1$
+- $`\text{Pain\_Level} \geq 2`$ (Moderate or higher)
+- $`\text{Relief\_State} = 0`$
+- $`\text{Motivation} > \text{threshold}`$
+- Time since last dose $`> \text{min\_interval}`$ (e.g., 6 hours)
+- $`\text{PatientAlive} = 1`$
 
 **Action:**
 
