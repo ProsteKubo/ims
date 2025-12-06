@@ -29,5 +29,27 @@ To build and run the simulation, please refer to the **[Build Instructions](docs
 ```bash
 # Ensure SIMLIB is installed
 make
-./simulation
+./simulation                          # Run with default config
+./simulation config_aggressive.ini    # Run with custom config
 ```
+
+### Configuration System
+
+The simulation supports external configuration files for easy experimentation. You can modify any parameter without recompiling:
+
+```bash
+./simulation                    # Uses config.ini (default)
+./simulation my_config.ini      # Use custom configuration
+```
+
+See **[CONFIG_GUIDE.md](docs/CONFIG_GUIDE.md)** for details on:
+- Available pre-configured scenarios
+- Parameter descriptions
+- How to create custom experiments
+- Tips for fast iteration
+
+**Pre-configured scenarios included:**
+- `config.ini` - Standard 30-day baseline
+- `config_aggressive.ini` - Fast tolerance escalation (10 days)
+- `config_stable.ini` - Equilibrium control scenario
+- `config_poormetabolizer.ini` - Genetic polymorphism simulation
