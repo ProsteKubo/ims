@@ -1,33 +1,35 @@
 # Makefile for The Deadly Spiral IMS Project
 # Pharmacokinetic/Pharmacodynamic Simulation using SIMLIB
 
-CXX = g++
+CC = g++
 CXXFLAGS = -Wall -Wextra -std=c++11 -O2 -g
 INCLUDES = -I/usr/local/include
 LDFLAGS = -L/usr/local/lib
 LIBS = -lsimlib -lm
 
 # Source and target
-SRC_DIR = src
-TARGET = simulation
-SOURCES = $(SRC_DIR)/main.cpp
-OBJECTS = $(SOURCES:.cpp=.o)
+SRC_DIR   = src
+BUILD_DIR = build
+TARGET    = sim
+SOURCES   = $(wildcard $(SRC_DIR)/*.cpp) $(wildcard $(SRC_DIR)/*/*.cpp)
+OBJECTS   = $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SOURCES))
 
 # Default target
 all: $(TARGET)
 
 # Build the simulation executable
 $(TARGET): $(OBJECTS)
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o $(TARGET) $(OBJECTS) $(LIBS)
+	$(CC) $(CXXFLAGS) $(LDFLAGS) -o $(TARGET) $(OBJECTS) $(LIBS)
 	@echo ""
 	@echo "==================================================================="
 	@echo "  Build successful!"
 	@echo "  Run with: ./$(TARGET)"
 	@echo "==================================================================="
 
-# Compile source files
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
+# Compile source files into build directory (mirrors src/ tree)
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(dir $@)
+	$(CC) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
 # Run the simulation
 run: $(TARGET)
@@ -40,7 +42,7 @@ run: $(TARGET)
 
 # Clean build artifacts
 clean:
-	rm -f $(OBJECTS) $(TARGET)
+	rm -rf $(BUILD_DIR) $(TARGET)
 	@echo "Cleaned build artifacts"
 
 # Clean and rebuild
