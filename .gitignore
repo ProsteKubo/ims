@@ -1,5 +1,5 @@
 sim
 build
 out.txt
-ims_overview.*
+ims_*.*
 .venv
