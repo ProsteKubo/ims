@@ -1,0 +1,43 @@
+% Pseudocode for toxicity detection and naloxone rescue
+% Used in Chapter 3 and 5
+
+\begin{algorithm}[H]
+\caption{Toxicity Detection and Naloxone Rescue}
+\begin{algorithmic}[1]
+\Require Current state: $C(t)$, $C_e(t)$, petri\_state, naloxone\_enabled
+\Ensure Patient status update
+\State \Comment{Check toxicity threshold}
+\If{$C(t) > C_{toxic}$} \Comment{e.g., 15 mg/L}
+    \State \textbf{TOXICITY DETECTED}
+    \If{naloxone\_enabled AND first\_overdose}
+        \State \textbf{ADMINISTER\_NALOXONE:}
+        \State \quad \Comment{Competitive antagonism - displace from receptors}
+        \State \quad $C_e(t) \gets C_e(t) \cdot 0.1$ \Comment{90\% receptor displacement}
+        \State \quad patient\_alive $\gets$ true \Comment{Rescue successful}
+        \State \quad motivation $\gets 5.0$ \Comment{Severe withdrawal}
+        \State \quad pain\_level $\gets 3$ \Comment{Maximum pain from withdrawal}
+        \State \quad first\_overdose $\gets$ false
+        \State \quad Log: "NALOXONE ADMINISTERED - Patient rescued"
+    \Else
+        \State \textbf{FATAL\_OVERDOSE:}
+        \State \quad patient\_alive $\gets$ false \Comment{Deceased}
+        \State \quad time\_of\_death $\gets t$
+        \State \quad Stop() \Comment{Terminate simulation}
+        \State \quad Log: "FATAL OVERDOSE - Simulation terminated"
+    \EndIf
+\EndIf
+\State \Return patient\_status
+\end{algorithmic}
+\end{algorithm}
+
+\vspace{1em}
+
+\textbf{Naloxone Mechanism Notes:}
+\begin{itemize}
+    \item Naloxone is a competitive μ-opioid receptor antagonist with higher binding affinity than agonists
+    \item The 90\% reduction in $C_e$ represents effective receptor displacement
+    \item Physical $C(t)$ (plasma concentration) remains high - drug still in circulation
+    \item Effect is rapid (2--5 minutes in reality, instantaneous in discrete event model)
+    \item Creates severe withdrawal: precipitates pain, agitation, and strong motivation to redose
+    \item Model limitation: Does not account for naloxone's own PK (short half-life ~30-90 min)
+\end{itemize}

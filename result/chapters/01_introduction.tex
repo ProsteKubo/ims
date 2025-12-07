@@ -1,0 +1,82 @@
+\section{Introduction}
+
+This work presents a hybrid continuous-discrete simulation model of the pharmacokinetic-pharmacodynamic (PK-PD) interaction between opioid tolerance and metabolic saturation, leading to a phenomenon termed the \emph{deadly spiral}. The model demonstrates how rational patient behavior, when coupled with nonlinear physiological processes, can produce catastrophic outcomes in long-term analgesic usage.
+
+\subsection{Motivation and Scope}
+
+Opioid overdose remains a critical public health challenge, with over 80,000 deaths annually in the United States alone as of 2021. While acute overdose in naive users is well-understood, a paradoxical phenomenon occurs in chronic users: patients maintained on stable doses for weeks or months suddenly overdose after only modest dose increases. This counterintuitive behavior cannot be explained by linear pharmacokinetic models.
+
+The core mechanism involves two coupled processes operating on different time scales:
+\begin{enumerate}
+    \item \textbf{Pharmacodynamic tolerance:} The organism adapts to the presence of the drug through receptor desensitization, requiring progressively higher doses to achieve an equivalent effect. This is modeled using continuous state variables representing physiological adaptation.
+    
+    \item \textbf{Pharmacokinetic saturation:} Hepatic metabolic enzymes follow Michaelis-Menten kinetics \cite{michaelis_menten_kinetics}, exhibiting capacity-limited elimination. When the drug concentration approaches the enzyme saturation constant $K_m$, small dose increases cause disproportionate concentration accumulation.
+\end{enumerate}
+
+The interaction creates a positive feedback loop: tolerance drives dose escalation before pharmacokinetic equilibrium is reached, pushing the system into the nonlinear saturation regime where homeostatic control fails. This work models this phenomenon using a hybrid system that combines differential equations for physiology and a Petri net for behavioral decision-making.
+
+\subsection{Research Objectives}
+
+This study aims to:
+\begin{enumerate}
+    \item Develop a mathematically rigorous PK-PD model incorporating Michaelis-Menten elimination kinetics and operational tolerance dynamics.
+    \item Implement a discrete event system representing patient behavior, decision logic, and dosing schedules.
+    \item Demonstrate emergent deadly spiral dynamics through simulation experiments across varying parameter regimes.
+    \item Validate model predictions against known pharmacological phenomena documented in clinical literature.
+\end{enumerate}
+
+\subsection{Contributors}
+\label{sec:contributors}
+
+\textbf{Primary Author:} Jakub Kapitulčín, Faculty of Information Technology, Brno University of Technology
+
+\textbf{Theoretical Foundation:} This model synthesizes principles from multiple established frameworks:
+\begin{itemize}
+    \item Pharmacokinetic modeling \cite{pharmacokinetics_textbook}
+    \item Opioid receptor tolerance mechanisms \cite{opioid_tolerance_2019, tolerance_mechanisms_2018}
+    \item Michaelis-Menten enzyme kinetics \cite{michaelis_menten_kinetics}
+    \item Respiratory depression mechanisms \cite{respiratory_depression_2023}
+    \item Petri net theory for discrete-event systems \cite{petri_nets_theory}
+    \item Hybrid systems modeling \cite{hybrid_systems_modeling}
+\end{itemize}
+
+No external expert consultant was directly involved. All physiological parameters are derived from peer-reviewed literature, primarily \cite{pharmacokinetics_textbook, fentanyl_pk_2024, opioid_tolerance_2019}.
+
+\subsection{Validation Environment}
+\label{sec:validation}
+
+The model validation strategy comprises three tiers:
+
+\subsubsection{Qualitative Validation}
+
+The model must reproduce known pharmacological phenomena:
+\begin{enumerate}
+    \item \textbf{Linear regime behavior:} At low concentrations ($C \ll K_m$), elimination follows pseudo-first-order kinetics, producing stable oscillations around steady-state.
+    \item \textbf{Tolerance accumulation:} Prolonged exposure causes rightward shift in dose-response curves, matching clinical observations \cite{tolerance_mechanisms_2018}.
+    \item \textbf{Saturation crisis:} When $C \approx K_m$, elimination capacity becomes exhausted, causing concentration to rise despite unchanged dosing frequency.
+    \item \textbf{Naloxone rescue:} Competitive antagonist administration must rapidly reverse toxicity by displacing agonist from receptors \cite{naloxone_rescue}.
+\end{enumerate}
+
+\subsubsection{Quantitative Validation}
+
+Parameter values are constrained by published data:
+\begin{itemize}
+    \item Morphine $K_m$: $1-3$ mg/L \cite{fentanyl_pk_2024}
+    \item Fentanyl $K_m$: $0.01-0.1$ $\mu$g/mL \cite{fentanyl_pk_2024}
+    \item Tolerance development time constant: $5-20$ hours \cite{opioid_tolerance_2019}
+    \item Effect-site equilibration half-time: $0.5-7$ hours depending on lipophilicity \cite{pharmacokinetics_textbook}
+\end{itemize}
+
+Simulation outputs are verified against these ranges for each test configuration.
+
+\subsubsection{Computational Validation}
+
+The simulation framework (SIMLIB/C++ \cite{simlib_manual}) provides numerical integration with adaptive step-size control. Validation includes:
+\begin{enumerate}
+    \item \textbf{Conservation laws:} Mass balance verification—total drug in system must equal administered dose minus eliminated amount.
+    \item \textbf{Numerical stability:} Concentration values remain non-negative; tolerance factor bounded to $[0, 3]$.
+    \item \textbf{Time-scale separation:} Fast processes (absorption, $\tau \sim 1$ h) correctly integrated despite slow processes (tolerance, $\tau \sim 100$ h).
+    \item \textbf{Discrete-continuous synchronization:} Petri net state transitions trigger instantaneous concentration changes without numerical artifacts.
+\end{enumerate}
+
+All experiments are conducted on Linux (Ubuntu 22.04 LTS) using GCC 11.3.0 with SIMLIB version 3.09. The minimum integration step is set to $10^{-4}$ hours, maximum step $0.1$ hours, with relative accuracy $10^{-6}$.

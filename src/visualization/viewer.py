@@ -12,6 +12,23 @@ OUT_PATH = ROOT / "../out.txt"
 
 # ---------- Parsing ----------
 
+def extract_config_name(path: Path) -> str:
+    """Extract config filename from out.txt header."""
+    config_re = re.compile(r"Loading configuration from: (.+?)\s*$")
+    try:
+        with path.open() as f:
+            for line in f:
+                m = config_re.search(line)
+                if m:
+                    config_path = m.group(1).strip()
+                    # Extract just the filename without extension
+                    config_name = Path(config_path).stem
+                    return config_name
+    except Exception as e:
+        print(f"Warning: Could not extract config name: {e}")
+    return "ims"
+
+
 line_re = re.compile(
     r"t=\s*(?P<t>[\d\.]+)h\s*\|\s*A=\s*(?P<A>[-\d\.]+)\s*mg\s*\|\s*C=\s*(?P<C>[-\d\.]+)\s*mg/L\s*\|\s*P=\s*(?P<P>[-\d\.]+)\s*mg/L\s*\|\s*Ce=\s*(?P<Ce>[-\d\.]+)\s*mg/L\s*\|\s*Tol=\s*(?P<Tol>[-\d\.]+)\s*\|\s*Effect=\s*(?P<Effect>[-\d\.]+)%"
 )
@@ -438,6 +455,9 @@ def main():
     if not OUT_PATH.exists():
         raise SystemExit(f"out.txt not found at {OUT_PATH}")
     
+    # Extract config name from output file
+    config_name = extract_config_name(OUT_PATH)
+    
     print("Parsing simulation output...")
     continuous_df, assessments_df, doses_df, naloxone_df, phase_df, critical_df = parse_out(OUT_PATH)
 
@@ -467,23 +487,30 @@ def main():
     print("Creating comprehensive visualization...")
     fig = plot_overview(continuous_df, assessments_df, doses_df, naloxone_df, phase_df, critical_df)
 
+    # Generate output filenames based on config
+    overview_png = f"{config_name}_overview.png"
+    overview_pdf = f"{config_name}_overview.pdf"
+    continuous_csv = f"{config_name}_continuous_data.csv"
+    assessments_csv = f"{config_name}_assessments.csv"
+    doses_csv = f"{config_name}_doses.csv"
+
     # Save outputs
-    fig.savefig("ims_overview.png", dpi=200, bbox_inches="tight")
-    fig.savefig("ims_overview.pdf", bbox_inches="tight")
+    fig.savefig(overview_png, dpi=200, bbox_inches="tight")
+    fig.savefig(overview_pdf, bbox_inches="tight")
     print("✅ Saved visualization to:")
-    print("   • ims_overview.png")
-    print("   • ims_overview.pdf")
+    print(f"   • {overview_png}")
+    print(f"   • {overview_pdf}")
     
     # Optional: save parsed data to CSV for further analysis
     if not continuous_df.empty:
-        continuous_df.to_csv("ims_continuous_data.csv", index=False)
-        print("   • ims_continuous_data.csv")
+        continuous_df.to_csv(continuous_csv, index=False)
+        print(f"   • {continuous_csv}")
     if not assessments_df.empty:
-        assessments_df.to_csv("ims_assessments.csv", index=False)
-        print("   • ims_assessments.csv")
+        assessments_df.to_csv(assessments_csv, index=False)
+        print(f"   • {assessments_csv}")
     if not doses_df.empty:
-        doses_df.to_csv("ims_doses.csv", index=False)
-        print("   • ims_doses.csv")
+        doses_df.to_csv(doses_csv, index=False)
+        print(f"   • {doses_csv}")
 
 
 if __name__ == "__main__":

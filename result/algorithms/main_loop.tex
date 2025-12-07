@@ -1,0 +1,33 @@
+% Pseudocode for main simulation loop
+% Used in Chapter 4
+
+\begin{algorithm}[H]
+\caption{Hybrid System Main Loop}
+\begin{algorithmic}[1]
+\Require Configuration file path
+\Ensure Simulation results and statistics
+\State \textbf{Input:} Load parameters from configuration file
+\State \textbf{Initialize:} Create ModelParameters structure
+\State \textbf{Setup Continuous:}
+\State \quad Create Dynamics objects (Absorption, Central, Peripheral, EffectSite, Tolerance)
+\State \quad Create Integrators linked to Dynamics
+\State \quad Set initial conditions: $A(0) = D_0$, $C(0) = P(0) = C_e(0) = Tol(0) = 0$
+\State \textbf{Setup Discrete:}
+\State \quad Initialize PetriNetState (pain = 2, motivation = 1.0, alive = true)
+\State \quad Create and schedule PatientAssessment process at $t = 0$
+\State \quad Create and schedule StatusMonitor process at $t = 0$
+\State \textbf{Configure Integration:}
+\State \quad Init($t_{start} = 0$, $t_{end} = $ sim\_duration)
+\State \quad SetStep($\Delta t_{min}$, $\Delta t_{max}$)
+\State \quad SetAccuracy($\epsilon_{rel}$)
+\State \textbf{Execute:} Run() \Comment{SIMLIB scheduler}
+\While{$t < t_{end}$ AND patient\_alive}
+    \State Advance continuous state via numerical integration
+    \State Check event queue for scheduled discrete events
+    \If{event scheduled at current $t$}
+        \State Execute event Behavior() method
+    \EndIf
+\EndWhile
+\State \textbf{Output:} Print final statistics and analysis
+\end{algorithmic}
+\end{algorithm}

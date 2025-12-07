@@ -1,0 +1,388 @@
+\section{Simulation Architecture}
+
+This chapter maps the abstract conceptual model to the concrete simulation implementation. The architecture follows the process-oriented paradigm using SIMLIB/C++ \cite{simlib_manual}.
+
+\subsection{Overall Architecture}
+
+The simulation consists of three primary layers:
+
+\begin{table}[H]
+\centering
+\caption{Simulation Architecture Layers}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Layer} & \textbf{Purpose} & \textbf{Implementation} & \textbf{Paradigm} \\ \midrule
+Configuration & Parameter management & ConfigReader class & Static \\
+Continuous & Physiological dynamics & Integrator + Dynamics & Continuous \\
+Discrete & Behavioral control & Process classes & Discrete events \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Mapping: Conceptual Model to Implementation}
+
+\subsubsection{Continuous State Variables}
+
+Each state variable from the conceptual model (Section 3.2) maps to a SIMLIB Integrator object:
+
+\begin{table}[H]
+\centering
+\caption{Continuous State Implementation Mapping}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Conceptual} & \textbf{Implementation} & \textbf{Type} & \textbf{Initial Value} \\ \midrule
+$A(t)$ & \texttt{Integrator A} & SIMLIB::Integrator & $D_0$ (first dose) \\
+$C(t)$ & \texttt{Integrator C} & SIMLIB::Integrator & 0.0 \\
+$P(t)$ & \texttt{Integrator P} & SIMLIB::Integrator & 0.0 \\
+$C_e(t)$ & \texttt{Integrator Ce} & SIMLIB::Integrator & 0.0 \\
+$Tol(t)$ & \texttt{Integrator Tol} & SIMLIB::Integrator & 0.0 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Each Integrator automatically computes $\int f(x(t), t) \, dt$ using adaptive Runge-Kutta-Fehlberg methods.
+
+\subsubsection{Differential Equations}
+
+The ODEs (Equations 3.1--3.5) are implemented as Dynamics classes inheriting from \texttt{aContiBlock}:
+
+\begin{table}[H]
+\centering
+\caption{ODE Implementation Mapping}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Equation} & \textbf{Class} & \textbf{Method} \\ \midrule
+$dA/dt = -k_a \cdot A$ & AbsorptionDynamics & \texttt{double Value()} \\
+$dC/dt = \dots$ (Eq. 3.2) & CentralDynamics & \texttt{double Value()} \\
+$dP/dt = k_{cp} C - k_{pc} P$ & PeripheralDynamics & \texttt{double Value()} \\
+$dC_e/dt = (k_{eo}/\tau_e)(C - C_e)$ & EffectSiteDynamics & \texttt{double Value()} \\
+$dTol/dt = k_{in} \cdot S - k_{out} \cdot Tol$ & ToleranceDynamics & \texttt{double Value()} \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Each \texttt{Value()} method returns the instantaneous derivative $dx/dt$ at time $t$. SIMLIB's integration engine calls these methods automatically during time advancement.
+
+\textbf{Example: Central Compartment Dynamics}
+
+The conceptual equation:
+\begin{equation*}
+    \frac{dC}{dt} = \frac{k_a \cdot A}{V_d} - \frac{V_{max} \cdot C}{K_m + C} \cdot \frac{1}{V_d} - k_{cp} \cdot C + k_{pc} \cdot P
+\end{equation*}
+
+Maps to implementation:
+\begin{verbatim}
+double CentralDynamics::Value() {
+    double absorption_flux = (ka * A->Value()) / Vd;
+    double elimination_flux = 
+        MichaelisMentenElimination(C->Value()) / Vd;
+    double peripheral_out = kcp * C->Value();
+    double peripheral_in = kpc * P->Value();
+    return absorption_flux - elimination_flux 
+           - peripheral_out + peripheral_in;
+}
+\end{verbatim}
+
+The structure directly mirrors the mathematical formulation, ensuring implementation correctness by inspection.
+
+\subsubsection{Discrete State Variables}
+
+The Petri net places (Section 3.3) map to a state structure:
+
+\begin{table}[H]
+\centering
+\caption{Discrete State Implementation Mapping}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Conceptual Place} & \textbf{Implementation} & \textbf{Type} & \textbf{Initial} \\ \midrule
+$P_1$: Pain\_Level & \texttt{pain\_level} & \texttt{int} & 2 \\
+$P_2$: Relief\_State & \texttt{relief\_state} & \texttt{bool} & false \\
+$P_3$: Motivation & \texttt{motivation} & \texttt{double} & 1.0 \\
+$P_4$: Dose\_History & \texttt{dose\_history} & \texttt{vector<DoseEvent>} & empty \\
+$P_5$: Time\_Counter & \texttt{Time} (global) & \texttt{double} & 0.0 \\
+$P_6$: Patient\_Alive & \texttt{patient\_alive} & \texttt{bool} & true \\ \bottomrule
+\end{tabular}
+\end{table}
+
+These are encapsulated in a \texttt{PetriNetState} structure passed by reference to all behavioral processes.
+
+\subsubsection{Discrete Transitions}
+
+Petri net transitions (Section 3.3.2) map to Process classes:
+
+\begin{table}[H]
+\centering
+\caption{Transition Implementation Mapping}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Transition} & \textbf{Class} & \textbf{Activation} & \textbf{Method} \\ \midrule
+$T_1$: Assessment & PatientAssessment & Periodic (12h) & \texttt{Behavior()} \\
+$T_2$: Increase\_Dose & (within Assessment) & Conditional & \texttt{ExecuteDoseIncrease()} \\
+$T_3$: Maintain\_Dose & (within Assessment) & Conditional & \texttt{MaintainDose()} \\
+$T_4$: Detect\_Toxicity & (within Assessment) & Threshold & \texttt{CheckToxicity()} \\
+$T_5$: Naloxone & (within Assessment) & Rescue & \texttt{ApplyNaloxone()} \\ \bottomrule
+\end{tabular}
+\end{table}
+
+The \texttt{PatientAssessment} process implements the main behavioral loop:
+
+\begin{algorithm}[H]
+\caption{Patient Assessment Process (Implementation)}
+\begin{algorithmic}[1]
+\Procedure{PatientAssessment::Behavior}{}
+    \If{NOT patient\_alive}
+        \State \Return \Comment{Skip if deceased}
+    \EndIf
+    \State $Ce_{val} \gets$ Ce.Value()
+    \State $Tol_{val} \gets$ Tol.Value()
+    \State $effect \gets$ CalculateEffect($Ce_{val}$, $Tol_{val}$)
+    \State UpdatePainLevel($effect$) \Comment{Modify pain\_level}
+    \State UpdateMotivation($\Delta t$) \Comment{Accumulate motivation}
+    \If{CheckToxicity()}
+        \State patient\_alive $\gets$ false
+        \State Stop() \Comment{Terminate simulation}
+        \State \Return
+    \EndIf
+    \If{ShouldIncreaseDose($effect$)}
+        \State ExecuteDoseIncrease() \Comment{Apply dose escalation}
+    \ElsIf{relief\_state AND $effect > \theta_{relief}$}
+        \State MaintainDose() \Comment{Continue current regimen}
+    \EndIf
+    \State Activate(Time + 12.0) \Comment{Schedule next assessment}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+This directly implements the Petri net transition logic from Section 3.3.2.
+
+\subsection{Component Architecture}
+
+\subsubsection{Module Structure}
+
+The implementation is organized into logical modules:
+
+\begin{table}[H]
+\centering
+\caption{Source Code Module Organization}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Module} & \textbf{Files} & \textbf{Responsibility} \\ \midrule
+Configuration & \texttt{config\_reader.*} & Parse INI files, load parameters \\
+Dynamics & \texttt{dynamics.*} & Implement ODE right-hand sides \\
+Kinetics & \texttt{kinetics.*} & Michaelis-Menten, effect calculations \\
+Behavior & \texttt{behavior.*} & PatientAssessment process \\
+Decision Logic & \texttt{decision\_logic.*} & Dose escalation rules \\
+Dose Management & \texttt{dose\_management.*} & Apply doses to integrators \\
+Pain Assessment & \texttt{pain\_assessment.*} & Update pain levels \\
+Monitoring & \texttt{monitoring.*} & Output generation \\
+Parameters & \texttt{parameters.*} & Parameter data structures \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Data Flow}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=2cm, auto, thick]
+    \tikzstyle{data} = [rectangle, draw, fill=yellow!20, text width=6em, text centered, minimum height=2.5em]
+    \tikzstyle{proc} = [rectangle, draw, fill=green!20, text width=6em, text centered, minimum height=2.5em, rounded corners]
+    \tikzstyle{store} = [cylinder, draw, fill=blue!20, text width=4em, text centered, minimum height=2.5em, shape border rotate=90]
+    
+    \node [store] (config) {Config\\File};
+    \node [proc, right of=config, node distance=3.5cm] (reader) {Config\\Reader};
+    \node [data, right of=reader, node distance=3.5cm] (params) {Model\\Parameters};
+    \node [proc, below of=params, node distance=2.5cm] (integrators) {Integrators\\(A,C,P,Ce,Tol)};
+    \node [proc, left of=integrators, node distance=3.5cm] (dynamics) {Dynamics\\Classes};
+    \node [proc, below of=integrators, node distance=2.5cm] (assessment) {Patient\\Assessment};
+    \node [data, right of=assessment, node distance=3.5cm] (petri) {Petri Net\\State};
+    \node [proc, below of=assessment, node distance=2.5cm] (monitor) {Status\\Monitor};
+    \node [store, below of=monitor, node distance=2.5cm] (output) {Output\\Log};
+    
+    \draw [->] (config) -- (reader);
+    \draw [->] (reader) -- (params);
+    \draw [->] (params) -- (integrators);
+    \draw [->] (params) -- (dynamics);
+    \draw [->] (dynamics) -- node[left] {$dX/dt$} (integrators);
+    \draw [->] (integrators) -- node[left] {$X(t)$} (assessment);
+    \draw [->] (petri) -- (assessment);
+    \draw [->] (assessment) -- node[right] {Dose events} (integrators);
+    \draw [<->] (assessment) -- (petri);
+    \draw [->] (integrators) -- (monitor);
+    \draw [->] (petri) -- (monitor);
+    \draw [->] (monitor) -- (output);
+\end{tikzpicture}
+\caption{Data Flow Architecture. Configuration parameters flow through the system, dynamics classes compute derivatives for integrators, behavioral processes read continuous state and inject discrete events, and monitors generate output.}
+\label{fig:data_flow}
+\end{figure}
+
+\subsection{Critical Implementation Details}
+
+\subsubsection{Michaelis-Menten Implementation}
+
+The Michaelis-Menten term requires careful numerical handling to avoid division by zero:
+
+\begin{verbatim}
+double MichaelisMentenElimination(double C, 
+                                   const ModelParameters& p) {
+    if (C < 1e-10) return 0.0;  // Prevent division issues
+    return (p.Vmax * C) / (p.Km + C);
+}
+\end{verbatim}
+
+At very low concentrations, the elimination rate is negligible and can be safely zeroed without affecting dynamics.
+
+\subsubsection{Dose Application}
+
+When a discrete dose event occurs, the amount is added to the absorption compartment instantaneously:
+
+\begin{verbatim}
+void ExecuteDoseIncrease(const ModelParameters& params,
+                         SimulationState& cont_state,
+                         PetriNetState& petri_state) {
+    double escalation_factor = 0.10 + 0.15 * Tol->Value();
+    double new_dose = current_dose * (1.0 + escalation_factor);
+    
+    A->Set(A->Value() + new_dose);  // Instantaneous update
+    
+    current_dose = new_dose;
+    RecordDoseEvent(Time, new_dose, C->Value(), ...);
+}
+\end{verbatim}
+
+The \texttt{Set()} method modifies the integrator state directly, equivalent to a Dirac delta impulse $D \cdot \delta(t - t_i)$ in Equation 3.1.
+
+\subsubsection{Effect Calculation}
+
+The effect function (Equation 3.6--3.7) is implemented as:
+
+\begin{verbatim}
+double CalculateEffect(double Ce, double Tol, 
+                       const ModelParameters& params) {
+    double EC50_current = params.EC50_base * (1.0 + Tol);
+    if (Ce < 1e-10) return 0.0;
+    return 100.0 * Ce / (EC50_current + Ce);
+}
+\end{verbatim}
+
+This directly implements the tolerance-modified Emax model.
+
+\subsubsection{Numerical Integration Parameters}
+
+SIMLIB integration is configured:
+
+\begin{verbatim}
+Init(0, sim_duration);           // t_start, t_end
+SetStep(step_min, step_max);     // Adaptive step bounds
+SetAccuracy(1e-6);               // Relative error tolerance
+\end{verbatim}
+
+For this system:
+\begin{itemize}
+    \item \texttt{step\_min} = $10^{-4}$ hours (0.36 seconds) — captures fast absorption
+    \item \texttt{step\_max} = $0.1$ hours (6 minutes) — prevents excessive computation
+    \item \texttt{accuracy} = $10^{-6}$ — ensures $< 0.001$\% error per step
+\end{itemize}
+
+These values ensure numerical stability across the wide range of timescales (seconds for dosing, days for tolerance).
+
+\subsection{Simulation Execution Flow}
+
+\begin{algorithm}[H]
+\caption{Main Simulation Loop (Simplified)}
+\begin{algorithmic}[1]
+\Procedure{Main}{}
+    \State Load configuration from file
+    \State Initialize ModelParameters from config
+    \State Init(0, sim\_duration) \Comment{SIMLIB initialization}
+    \State SetStep(step\_min, step\_max)
+    \State SetAccuracy(tolerance)
+    \State Create Dynamics objects (AbsorptionDynamics, etc.)
+    \State Create Integrators linked to Dynamics
+    \State A.Set(initial\_dose) \Comment{First dose at $t=0$}
+    \State Create and Activate(0) StatusMonitor
+    \State Create and Activate(0) PatientAssessment
+    \State Run() \Comment{SIMLIB event loop}
+    \State Print final statistics
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+The \texttt{Run()} function is SIMLIB's core scheduler:
+\begin{enumerate}
+    \item Advance continuous time via integration
+    \item Check for scheduled discrete events
+    \item Execute event behaviors (call \texttt{Behavior()} methods)
+    \item Repeat until simulation end time or \texttt{Stop()} called
+\end{enumerate}
+
+\subsection{Verification Strategy}
+
+\subsubsection{Unit-Level Verification}
+
+Each component is individually testable:
+
+\textbf{Dynamics Classes:}
+\begin{itemize}
+    \item Input: Fixed state values $(A, C, P, C_e, Tol)$
+    \item Output: Computed derivative $dX/dt$
+    \item Verification: Compare against hand-calculated values
+\end{itemize}
+
+\textbf{Kinetics Functions:}
+\begin{itemize}
+    \item Input: Concentration $C$, parameters $(V_{max}, K_m)$
+    \item Output: Elimination rate
+    \item Verification: Check limiting cases ($C \to 0$: linear, $C \to \infty$: plateau)
+\end{itemize}
+
+\textbf{Decision Logic:}
+\begin{itemize}
+    \item Input: Effect value, pain level, motivation
+    \item Output: Boolean (should increase dose?)
+    \item Verification: Truth table exhaustive testing
+\end{itemize}
+
+\subsubsection{Integration-Level Verification}
+
+Full system tests verify correct interaction:
+
+\textbf{Conservation Laws:}
+\begin{itemize}
+    \item Total drug in system = Cumulative doses - Cumulative elimination
+    \item Verified at each output interval
+    \item Tolerance: $< 0.1$\% deviation
+\end{itemize}
+
+\textbf{Steady-State Test:}
+\begin{itemize}
+    \item Scenario: Fixed dose, linear regime ($C \ll K_m$)
+    \item Expected: Oscillations converge to stable amplitude
+    \item Verification: Amplitude change $< 1$\% over final 24 hours
+\end{itemize}
+
+\textbf{Saturation Test:}
+\begin{itemize}
+    \item Scenario: Force high concentration ($C = 5 \cdot K_m$)
+    \item Expected: Elimination rate $\approx V_{max}$ (within 5\%)
+    \item Verification: Measure actual elimination flux
+\end{itemize}
+
+\subsubsection{Output Validation}
+
+Monitors generate timestamped logs:
+
+\begin{verbatim}
+Time | A    | C    | P    | Ce   | Tol  | Effect | Pain
+-----|------|------|------|------|------|--------|-----
+ 0.0 | 10.0 | 0.00 | 0.00 | 0.00 | 0.00 |  0.0%  |  2
+12.0 |  2.1 | 1.85 | 0.43 | 1.12 | 0.05 | 30.8%  |  2
+24.0 |  0.8 | 2.34 | 0.67 | 1.98 | 0.14 | 43.2%  |  1
+...
+\end{verbatim}
+
+Validation checks:
+\begin{enumerate}
+    \item All concentrations $\geq 0$ (physical constraint)
+    \item Effect $\in [0, 100]$ (definition)
+    \item Tolerance monotonically increases (with dosing)
+    \item Pain level responds to effect changes (behavioral logic)
+\end{enumerate}
+
+This architecture ensures traceability from abstract model to concrete implementation, enabling systematic verification and validation of the deadly spiral phenomenon.
