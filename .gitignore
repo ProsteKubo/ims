@@ -2,3 +2,4 @@ sim
 build
 out.txt
 ims_overview.*
+.venv
