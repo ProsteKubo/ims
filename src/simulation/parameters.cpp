@@ -50,6 +50,7 @@ ModelParameters LoadModelParameters(const ConfigReader& config) {
     params.naloxone_available = config.get("naloxone_available", false);
     params.naloxone_effective_window = config.get("naloxone_effective_window", 5.0);
     params.naloxone_blockade_strength = config.get("naloxone_blockade_strength", 0.4);
+    params.naloxone_response_delay = config.get("naloxone_response_delay", 0.083);  // 5 min default
     
     return params;
 }
@@ -67,6 +68,10 @@ void PrintModelParameters(const ModelParameters& params) {
     cout << "  Toxicity: C_toxic = " << params.C_toxic << " mg/L, C_critical = " << params.C_critical << " mg/L" << endl;
     cout << "  Behavioral: assessment every " << params.assessment_interval << " h, relief threshold = " << params.effect_relief_threshold << "%" << endl;
     cout << "  Escalation: base = " << (params.base_escalation_factor * 100) << "%, tolerance factor = " << (params.tolerance_escalation_factor * 100) << "%" << endl;
+    cout << "  Naloxone: " << (params.naloxone_available ? "AVAILABLE" : "NOT AVAILABLE") 
+         << " (response delay: " << (params.naloxone_response_delay * 60) << " min, "
+         << "window: " << (params.naloxone_effective_window * 60) << " min, blockade: " 
+         << (params.naloxone_blockade_strength * 100) << "%)" << endl;
     cout << "  Simulation: " << params.sim_duration << " hours, output every " << params.output_interval << " hours" << endl;
     cout << endl;
 }

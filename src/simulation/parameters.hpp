@@ -48,6 +48,7 @@ struct ModelParameters {
     bool naloxone_available{};
     double naloxone_effective_window{};
     double naloxone_blockade_strength{};
+    double naloxone_response_delay{};  // Emergency response time
 };
 
 ModelParameters LoadModelParameters(const ConfigReader& config);

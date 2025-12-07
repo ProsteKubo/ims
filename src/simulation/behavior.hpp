@@ -39,6 +39,9 @@ public:
         : params_(params), cont_state_(cont_state), petri_state_(petri_state) {}
 
     void Behavior() override;
+    
+    // Public method for external naloxone trigger (from monitoring system)
+    void CheckAndApplyNaloxonePublic() { CheckAndApplyNaloxone(); }
 
 private:
     const ModelParameters& params_;

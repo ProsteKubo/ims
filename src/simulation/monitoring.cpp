@@ -49,6 +49,22 @@ void StatusMonitor::Behavior() {
     if (CheckToxicity(state_, params_)) {
         petri_state_.patient_alive = false;
         petri_state_.time_overdose_detected = Time;
+        
+        // Attempt naloxone rescue if available
+        if (params_.naloxone_available) {
+            double response_time = params_.naloxone_response_delay;
+            cout << "\n>>> EMERGENCY RESPONSE DISPATCHED (ETA: " 
+                 << (response_time * 60) << " minutes) <<<" << endl;
+            
+            // Schedule naloxone administration after response delay
+            NaloxoneRescue* rescue_event = new NaloxoneRescue(params_, state_, petri_state_);
+            rescue_event->Activate(Time + response_time);
+            
+            // Continue monitoring to see if rescue arrives in time
+            Activate(Time + params_.output_interval);
+            return;
+        }
+        
         Stop();
         return;
     }
@@ -63,4 +79,36 @@ void DosingEvent::Behavior() {
     *state_.A = state_.A->Value() + params_.current_dose;
 
     Activate(Time + params_.dosing_interval);
+}
+
+void NaloxoneRescue::Behavior() {
+    double time_since_OD = Time - petri_state_.time_overdose_detected;
+    
+    cout << "\n>>> NALOXONE RESCUE TEAM ARRIVED at t=" << Time << " hours <<<" << endl;
+    cout << "Time since overdose: " << fixed << setprecision(2) 
+         << (time_since_OD * 60) << " minutes" << endl;
+    
+    // Check if still within effective window
+    if (time_since_OD > params_.naloxone_effective_window) {
+        cout << "\n!!! NALOXONE WINDOW EXPIRED (>" 
+             << (params_.naloxone_effective_window * 60)
+             << " min) - RESCUE FAILED !!!" << endl;
+        cout << "Patient Status: DECEASED" << endl;
+        cout << "Cause: Response time (" << (time_since_OD * 60) 
+             << " min) exceeded therapeutic window" << endl;
+        Stop();
+        return;
+    }
+    
+    // Apply naloxone - create PatientAssessment to use existing logic
+    PatientAssessment* assessment = new PatientAssessment(params_, state_, petri_state_);
+    assessment->CheckAndApplyNaloxonePublic();
+    delete assessment;
+    
+    if (petri_state_.patient_alive) {
+        cout << "\n>>> RESCUE SUCCESSFUL - Patient REVIVED <<<" << endl;
+    } else {
+        cout << "\n!!! RESCUE FAILED - Patient DECEASED !!!" << endl;
+        Stop();
+    }
 }

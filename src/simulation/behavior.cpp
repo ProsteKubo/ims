@@ -341,15 +341,8 @@ void PatientAssessment::CheckAndApplyNaloxone() {
     }
     
     if (!params_.naloxone_available) {
+        cout << "\n!!! Naloxone NOT AVAILABLE - Patient cannot be rescued !!!" << endl;
         return;  // No rescue medication available
-    }
-    
-    // Check time window (naloxone effective within 5 minutes)
-    double time_since_OD = Time - petri_state_.time_overdose_detected;
-    if (time_since_OD > params_.naloxone_effective_window) {
-        cout << "\n!!! NALOXONE WINDOW EXPIRED (>" << params_.naloxone_effective_window 
-             << " min) - RESCUE FAILED !!!" << endl;
-        return;  // Too late, window closed
     }
     
     // Apply naloxone (competitive antagonism)
@@ -360,8 +353,6 @@ void PatientAssessment::CheckAndApplyNaloxone() {
     double C_before = cont_state_.C->Value();
     double Ce_before = cont_state_.Ce->Value();
     double Tol_before = cont_state_.Tol->Value();
-    
-    cout << "Time since OD: " << fixed << setprecision(1) << time_since_OD << " minutes" << endl;
     
     // Naloxone mechanism: competitive blockade
     // Effective concentration reduced (naloxone occupies receptors)

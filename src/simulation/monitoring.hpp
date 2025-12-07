@@ -31,3 +31,15 @@ private:
     const ModelParameters& params_;
     SimulationState& state_;
 };
+
+class NaloxoneRescue : public Event {
+public:
+    NaloxoneRescue(const ModelParameters& params, SimulationState& state, PetriNetState& petri_state)
+        : params_(params), state_(state), petri_state_(petri_state) {}
+    void Behavior() override;
+
+private:
+    const ModelParameters& params_;
+    SimulationState& state_;
+    PetriNetState& petri_state_;
+};
