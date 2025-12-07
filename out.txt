@@ -3,7 +3,7 @@
   Pharmacokinetic-Pharmacodynamic Model with Metabolic Saturation
 ========================================================================
 
-Loading configuration from: config.ini
+Loading configuration from: models/config_sleepwalker.ini
 
 Model Parameters:
   Absorption: ka = 3 /h
@@ -17,14 +17,15 @@ Model Parameters:
   Toxicity: C_toxic = 15 mg/L, C_critical = 40 mg/L
   Behavioral: assessment every 12 h, relief threshold = 95%
   Escalation: base = 30%, tolerance factor = 65%
+  Naloxone: NOT AVAILABLE (response delay: 4.98 min, window: 300 min, blockade: 40%)
   Simulation: 150 hours, output every 1 hours
 
 Initial Conditions:
-  A(0) = 6.95299e-310 mg (first dose)
-  C(0) = 1.58101e-322 mg/L
-  P(0) = 0 mg/L
-  Ce(0) = 6.90553e-310 mg/L
-  Tol(0) = 6.90553e-310
+  A(0) = -1.80932e-255 mg (first dose)
+  C(0) = 0 mg/L
+  P(0) = 6.9151e-310 mg/L
+  Ce(0) = -nan mg/L
+  Tol(0) = 6.9151e-310
 
 ========================================================================
                         SIMULATION OUTPUT
@@ -80,7 +81,7 @@ Tolerance Level: 0.1095
 Escalation Factor: 37.1149%
 Old Dose: 5.00 mg
 New Dose: 6.86 mg
-Dose Increase: +1.86 mg (+37.11%)
+Dose Increase: +1.86 mg (+37.11%
 
 --- DOSE ADMINISTERED ---
 Time: 24.00 h
@@ -120,7 +121,7 @@ Tolerance Level: 0.2598
 Escalation Factor: 46.8896%
 Old Dose: 6.86 mg
 New Dose: 10.07 mg
-Dose Increase: +3.21 mg (+46.89%)
+Dose Increase: +3.21 mg (+46.89%
 
 --- DOSE ADMINISTERED ---
 Time: 36.00 h

@@ -4,16 +4,16 @@ This work presents a hybrid continuous-discrete simulation model of the pharmaco
 
 \subsection{Motivation and Scope}
 
-Opioid overdose remains a critical public health challenge, with over 80,000 deaths annually in the United States alone as of 2021. While acute overdose in naive users is well-understood, a paradoxical phenomenon occurs in chronic users: patients maintained on stable doses for weeks or months suddenly overdose after only modest dose increases. This counterintuitive behavior cannot be explained by linear pharmacokinetic models.
+Opioid overdose remains a critical public health challenge, with tens of thousands of deaths reported annually worldwide. While acute overdose in drug‑naive individuals is relatively well understood, a paradoxical phenomenon is observed in people with long‑term use: patients maintained on stable doses for weeks or months may suddenly experience overdose after only modest dose increases. This counterintuitive pattern cannot be captured by simple linear pharmacokinetic models.
 
 The core mechanism involves two coupled processes operating on different time scales:
 \begin{enumerate}
-    \item \textbf{Pharmacodynamic tolerance:} The organism adapts to the presence of the drug through receptor desensitization, requiring progressively higher doses to achieve an equivalent effect. This is modeled using continuous state variables representing physiological adaptation.
+    \item \textbf{Pharmacodynamic tolerance:} The organism adapts to the presence of the drug through receptor desensitization, leading to a need for progressively higher doses to achieve the same effect. This can be modeled using continuous state variables representing physiological adaptation.
     
-    \item \textbf{Pharmacokinetic saturation:} Hepatic metabolic enzymes follow Michaelis-Menten kinetics \cite{michaelis_menten_kinetics}, exhibiting capacity-limited elimination. When the drug concentration approaches the enzyme saturation constant $K_m$, small dose increases cause disproportionate concentration accumulation.
+    \item \textbf{Pharmacokinetic saturation:} Hepatic metabolic enzymes follow Michaelis–Menten kinetics \cite{michaelis_menten_kinetics}, exhibiting capacity‑limited elimination. When the drug concentration approaches the enzyme saturation constant $K_m$, small dose increases cause a disproportionate rise in drug concentration.
 \end{enumerate}
 
-The interaction creates a positive feedback loop: tolerance drives dose escalation before pharmacokinetic equilibrium is reached, pushing the system into the nonlinear saturation regime where homeostatic control fails. This work models this phenomenon using a hybrid system that combines differential equations for physiology and a Petri net for behavioral decision-making.
+Their interaction creates a positive feedback loop: tolerance drives dose escalation before pharmacokinetic equilibrium is reached, pushing the system into the nonlinear saturation regime where homeostatic control fails. This work models the phenomenon using a hybrid system that combines differential equations for physiological processes with a Petri net describing behavioral decision‑making.
 
 \subsection{Research Objectives}
 
