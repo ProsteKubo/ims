@@ -15,6 +15,8 @@ struct PetriNetState {
     double motivation{1.0};      // Accumulated motivation to dose
     double time_since_last_dose{0.0};
     bool patient_alive{true};    // Absorbing state for overdose
+    double current_dose{10.0};   // Current dose amount in mg
+    double time_overdose_detected{0.0};  // Time when overdose occurred
 
     // Dose history tracking
     struct DoseRecord {
@@ -45,10 +47,13 @@ private:
 
     // Decision logic methods
     void UpdatePainLevel(double effect);
+    void UpdatePainLevelContinuous(double effect);
     void UpdateMotivation(double dt);
     bool ShouldIncreaseDose(double effect);
     void ExecuteDoseIncrease();
     void MaintainDose();
     void RecordDoseEvent(double dose);
+    void MonitorSaturation();
+    void CheckAndApplyNaloxone();
 };
 

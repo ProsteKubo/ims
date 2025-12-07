@@ -45,7 +45,7 @@ int main(int argc, char* argv[]) {
     EffectSiteDynamics dCe_dt(params, state);
     ToleranceDynamics dTol_dt(params, state);
 
-    Integrator A(dA_dt, params.current_dose);
+    Integrator A(dA_dt, params.current_dose);  // Start with initial dose in stomach
     Integrator C(dC_dt, 0.0);
     Integrator P(dP_dt, 0.0);
     Integrator Ce(dCe_dt, 0.0);
@@ -61,6 +61,7 @@ int main(int argc, char* argv[]) {
     petri_state.pain_level = 2;  // Start with moderate pain
     petri_state.motivation = 1.0;
     petri_state.relief_state = false;
+    petri_state.current_dose = params.current_dose;  // Initialize from config
 
     std::cout << "Initial Conditions:" << std::endl;
     std::cout << "  A(0) = " << A.Value() << " mg (first dose)" << std::endl;

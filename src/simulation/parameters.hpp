@@ -32,14 +32,22 @@ struct ModelParameters {
     double output_interval{};
     
     // Behavioral parameters (Petri net / discrete subsystem)
+    bool petri_net_enabled{};
     double assessment_interval{};
+    double relief_threshold{};
     double effect_relief_threshold{};
     double motivation_threshold{};
     double motivation_pain_rate{};
     double motivation_dose_reduction{};
+    double motivation_decay_rate{};
     double min_dosing_interval{};
     double base_escalation_factor{};
     double tolerance_escalation_factor{};
+    
+    // Naloxone rescue parameters
+    bool naloxone_available{};
+    double naloxone_effective_window{};
+    double naloxone_blockade_strength{};
 };
 
 ModelParameters LoadModelParameters(const ConfigReader& config);

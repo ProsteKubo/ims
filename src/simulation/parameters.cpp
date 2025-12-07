@@ -34,14 +34,22 @@ ModelParameters LoadModelParameters(const ConfigReader& config) {
     params.output_interval = config.get("output_interval", 1.0);
     
     // Behavioral parameters
+    params.petri_net_enabled = config.get("petri_net_enabled", true);
     params.assessment_interval = config.get("assessment_interval", 12.0);
+    params.relief_threshold = config.get("relief_threshold", 0.60);
     params.effect_relief_threshold = config.get("effect_relief_threshold", 60.0);
     params.motivation_threshold = config.get("motivation_threshold", 1.5);
     params.motivation_pain_rate = config.get("motivation_pain_rate", 0.1);
     params.motivation_dose_reduction = config.get("motivation_dose_reduction", 2.0);
+    params.motivation_decay_rate = config.get("motivation_decay_rate", 0.05);
     params.min_dosing_interval = config.get("min_dosing_interval", 6.0);
     params.base_escalation_factor = config.get("base_escalation_factor", 0.10);
     params.tolerance_escalation_factor = config.get("tolerance_escalation_factor", 0.15);
+    
+    // Naloxone rescue parameters
+    params.naloxone_available = config.get("naloxone_available", false);
+    params.naloxone_effective_window = config.get("naloxone_effective_window", 5.0);
+    params.naloxone_blockade_strength = config.get("naloxone_blockade_strength", 0.4);
     
     return params;
 }
