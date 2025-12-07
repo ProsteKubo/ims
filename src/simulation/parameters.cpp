@@ -32,6 +32,17 @@ ModelParameters LoadModelParameters(const ConfigReader& config) {
     params.sim_step_max = config.get("step_max", 0.1);
     params.sim_accuracy = config.get("accuracy", 1e-6);
     params.output_interval = config.get("output_interval", 1.0);
+    
+    // Behavioral parameters
+    params.assessment_interval = config.get("assessment_interval", 12.0);
+    params.effect_relief_threshold = config.get("effect_relief_threshold", 60.0);
+    params.motivation_threshold = config.get("motivation_threshold", 1.5);
+    params.motivation_pain_rate = config.get("motivation_pain_rate", 0.1);
+    params.motivation_dose_reduction = config.get("motivation_dose_reduction", 2.0);
+    params.min_dosing_interval = config.get("min_dosing_interval", 6.0);
+    params.base_escalation_factor = config.get("base_escalation_factor", 0.10);
+    params.tolerance_escalation_factor = config.get("tolerance_escalation_factor", 0.15);
+    
     return params;
 }
 
@@ -46,6 +57,8 @@ void PrintModelParameters(const ModelParameters& params) {
     cout << "  Tolerance: kin = " << params.kin << " /h, kout = " << params.kout << " /h" << endl;
     cout << "  Dosing: " << params.current_dose << " mg every " << params.dosing_interval << " hours" << endl;
     cout << "  Toxicity: C_toxic = " << params.C_toxic << " mg/L, C_critical = " << params.C_critical << " mg/L" << endl;
+    cout << "  Behavioral: assessment every " << params.assessment_interval << " h, relief threshold = " << params.effect_relief_threshold << "%" << endl;
+    cout << "  Escalation: base = " << (params.base_escalation_factor * 100) << "%, tolerance factor = " << (params.tolerance_escalation_factor * 100) << "%" << endl;
     cout << "  Simulation: " << params.sim_duration << " hours, output every " << params.output_interval << " hours" << endl;
     cout << endl;
 }

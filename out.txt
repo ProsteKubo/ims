@@ -1,0 +1,2213 @@
+========================================================================
+  THE DEADLY SPIRAL: Continuous PK/PD Simulation
+  Pharmacokinetic-Pharmacodynamic Model with Metabolic Saturation
+========================================================================
+
+Loading configuration from: config.ini
+
+Model Parameters:
+  Absorption: ka = 2 /h
+  Distribution: Vd = 28 L, Vp = 105 L
+  Transfer: kcp = 0.3 /h, kpc = 0.4 /h
+  Elimination (M-M): Vmax = 10 mg/h, Km = 2 mg/L
+  Effect-site: keo = 0.5 /h, tau_e = 2 h
+  PD: Emax = 95%, EC50 = 3 mg/L, n = 1.2
+  Tolerance: kin = 0.02 /h, kout = 0.005 /h
+  Dosing: 10 mg every 12 hours
+  Toxicity: C_toxic = 15 mg/L, C_critical = 50 mg/L
+  Behavioral: assessment every 12 h, relief threshold = 60%
+  Escalation: base = 2%, tolerance factor = 3%
+  Simulation: 720 hours, output every 1 hours
+
+Initial Conditions:
+  A(0) = 6.90989e-310 mg (first dose)
+  C(0) = 6.90989e-310 mg/L
+  P(0) = 6.90989e-310 mg/L
+  Ce(0) = 0 mg/L
+  Tol(0) = 0
+
+========================================================================
+                        SIMULATION OUTPUT
+========================================================================
+
+
+ Integrator[4] 
+WARNING, Time=0.01 : Numerical integration error greater than requested 
+
+ Integrator[4] 
+WARNING, Time=0.02 : Numerical integration error greater than requested 
+t=  1.00h | A=  1.35 mg | C=  0.24 mg/L | P=  0.04 mg/L | Ce=  0.04 mg/L | Tol= 0.00 | Effect= 0.52%
+t=  2.00h | A=  0.18 mg | C=  0.20 mg/L | P=  0.08 mg/L | Ce=  0.08 mg/L | Tol= 0.00 | Effect= 1.20%
+t=  3.00h | A=  0.02 mg | C=  0.16 mg/L | P=  0.10 mg/L | Ce=  0.10 mg/L | Tol= 0.00 | Effect= 1.61%
+t=  4.00h | A=  0.00 mg | C=  0.14 mg/L | P=  0.10 mg/L | Ce=  0.11 mg/L | Tol= 0.00 | Effect= 1.79%
+t=  5.00h | A=  0.00 mg | C=  0.12 mg/L | P=  0.10 mg/L | Ce=  0.11 mg/L | Tol= 0.00 | Effect= 1.85%
+t=  6.00h | A=  0.00 mg | C=  0.10 mg/L | P=  0.09 mg/L | Ce=  0.11 mg/L | Tol= 0.00 | Effect= 1.83%
+t=  7.00h | A=  0.00 mg | C=  0.09 mg/L | P=  0.09 mg/L | Ce=  0.11 mg/L | Tol= 0.01 | Effect= 1.76%
+t=  8.00h | A=  0.00 mg | C=  0.09 mg/L | P=  0.08 mg/L | Ce=  0.11 mg/L | Tol= 0.01 | Effect= 1.68%
+t=  9.00h | A=  0.00 mg | C=  0.08 mg/L | P=  0.07 mg/L | Ce=  0.10 mg/L | Tol= 0.01 | Effect= 1.57%
+t= 10.00h | A=  0.00 mg | C=  0.07 mg/L | P=  0.07 mg/L | Ce=  0.09 mg/L | Tol= 0.01 | Effect= 1.47%
+t= 11.00h | A=  0.00 mg | C=  0.07 mg/L | P=  0.06 mg/L | Ce=  0.09 mg/L | Tol= 0.01 | Effect= 1.36%
+
+========== PATIENT ASSESSMENT at t=12.00 hours ==========
+Current Effect: 1.25%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 4.60
+Current Dose: 10.00 mg
+Decision: STABLE - No dose adjustment needed
+================================================
+t= 12.00h | A=  0.00 mg | C=  0.06 mg/L | P=  0.06 mg/L | Ce=  0.08 mg/L | Tol= 0.01 | Effect= 1.25%
+t= 13.00h | A=  0.00 mg | C=  0.05 mg/L | P=  0.05 mg/L | Ce=  0.08 mg/L | Tol= 0.01 | Effect= 1.15%
+t= 14.00h | A=  0.00 mg | C=  0.05 mg/L | P=  0.05 mg/L | Ce=  0.07 mg/L | Tol= 0.01 | Effect= 1.05%
+t= 15.00h | A=  0.00 mg | C=  0.05 mg/L | P=  0.04 mg/L | Ce=  0.07 mg/L | Tol= 0.01 | Effect= 0.96%
+t= 16.00h | A=  0.00 mg | C=  0.04 mg/L | P=  0.04 mg/L | Ce=  0.06 mg/L | Tol= 0.01 | Effect= 0.87%
+t= 17.00h | A=  0.00 mg | C=  0.04 mg/L | P=  0.04 mg/L | Ce=  0.06 mg/L | Tol= 0.01 | Effect= 0.79%
+t= 18.00h | A=  0.00 mg | C=  0.04 mg/L | P=  0.03 mg/L | Ce=  0.05 mg/L | Tol= 0.01 | Effect= 0.72%
+t= 19.00h | A=  0.00 mg | C=  0.03 mg/L | P=  0.03 mg/L | Ce=  0.05 mg/L | Tol= 0.01 | Effect= 0.65%
+t= 20.00h | A=  0.00 mg | C=  0.03 mg/L | P=  0.03 mg/L | Ce=  0.04 mg/L | Tol= 0.01 | Effect= 0.59%
+t= 21.00h | A=  0.00 mg | C=  0.03 mg/L | P=  0.03 mg/L | Ce=  0.04 mg/L | Tol= 0.01 | Effect= 0.53%
+t= 22.00h | A=  0.00 mg | C=  0.02 mg/L | P=  0.02 mg/L | Ce=  0.04 mg/L | Tol= 0.02 | Effect= 0.48%
+t= 23.00h | A=  0.00 mg | C=  0.02 mg/L | P=  0.02 mg/L | Ce=  0.03 mg/L | Tol= 0.02 | Effect= 0.43%
+
+========== PATIENT ASSESSMENT at t=24.00 hours ==========
+Current Effect: 0.39%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 10.00 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.02
+Escalation Factor: 2.05%
+Old Dose: 10.00 mg
+New Dose: 10.20 mg
+Dose Increase: +0.20 mg (+2.05%)
+
+--- DOSE ADMINISTERED ---
+Time: 24.00 h
+Dose: 10.20 mg
+C(t): 0.02 mg/L
+Ce(t): 0.03 mg/L
+Tol(t): 0.02
+Effect: 0.39%
+Total doses given: 1
+================================================
+t= 24.00h | A= 10.20 mg | C=  0.02 mg/L | P=  0.02 mg/L | Ce=  0.03 mg/L | Tol= 0.02 | Effect= 0.39%
+t= 25.00h | A=  1.38 mg | C=  0.26 mg/L | P=  0.06 mg/L | Ce=  0.07 mg/L | Tol= 0.02 | Effect= 0.99%
+t= 26.00h | A=  0.19 mg | C=  0.22 mg/L | P=  0.10 mg/L | Ce=  0.11 mg/L | Tol= 0.02 | Effect= 1.69%
+t= 27.00h | A=  0.03 mg | C=  0.18 mg/L | P=  0.12 mg/L | Ce=  0.13 mg/L | Tol= 0.02 | Effect= 2.07%
+t= 28.00h | A=  0.00 mg | C=  0.15 mg/L | P=  0.12 mg/L | Ce=  0.14 mg/L | Tol= 0.02 | Effect= 2.23%
+t= 29.00h | A=  0.00 mg | C=  0.13 mg/L | P=  0.12 mg/L | Ce=  0.14 mg/L | Tol= 0.02 | Effect= 2.25%
+t= 30.00h | A=  0.00 mg | C=  0.12 mg/L | P=  0.11 mg/L | Ce=  0.14 mg/L | Tol= 0.02 | Effect= 2.20%
+t= 31.00h | A=  0.00 mg | C=  0.11 mg/L | P=  0.10 mg/L | Ce=  0.13 mg/L | Tol= 0.02 | Effect= 2.10%
+t= 32.00h | A=  0.00 mg | C=  0.10 mg/L | P=  0.09 mg/L | Ce=  0.12 mg/L | Tol= 0.02 | Effect= 1.99%
+t= 33.00h | A=  0.00 mg | C=  0.09 mg/L | P=  0.09 mg/L | Ce=  0.12 mg/L | Tol= 0.02 | Effect= 1.86%
+t= 34.00h | A=  0.00 mg | C=  0.08 mg/L | P=  0.08 mg/L | Ce=  0.11 mg/L | Tol= 0.03 | Effect= 1.73%
+t= 35.00h | A=  0.00 mg | C=  0.08 mg/L | P=  0.07 mg/L | Ce=  0.10 mg/L | Tol= 0.03 | Effect= 1.60%
+
+========== PATIENT ASSESSMENT at t=36.00 hours ==========
+Current Effect: 1.47%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 10.20 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.03
+Escalation Factor: 2.08%
+Old Dose: 10.20 mg
+New Dose: 10.42 mg
+Dose Increase: +0.21 mg (+2.08%)
+
+--- DOSE ADMINISTERED ---
+Time: 36.00 h
+Dose: 10.42 mg
+C(t): 0.07 mg/L
+Ce(t): 0.10 mg/L
+Tol(t): 0.03
+Effect: 1.47%
+Total doses given: 2
+================================================
+t= 36.00h | A= 10.42 mg | C=  0.07 mg/L | P=  0.07 mg/L | Ce=  0.10 mg/L | Tol= 0.03 | Effect= 1.47%
+t= 37.00h | A=  1.41 mg | C=  0.31 mg/L | P=  0.11 mg/L | Ce=  0.13 mg/L | Tol= 0.03 | Effect= 2.09%
+t= 38.00h | A=  0.19 mg | C=  0.27 mg/L | P=  0.14 mg/L | Ce=  0.17 mg/L | Tol= 0.03 | Effect= 2.78%
+t= 39.00h | A=  0.03 mg | C=  0.22 mg/L | P=  0.16 mg/L | Ce=  0.18 mg/L | Tol= 0.03 | Effect= 3.12%
+t= 40.00h | A=  0.00 mg | C=  0.19 mg/L | P=  0.16 mg/L | Ce=  0.19 mg/L | Tol= 0.03 | Effect= 3.21%
+t= 41.00h | A=  0.00 mg | C=  0.17 mg/L | P=  0.15 mg/L | Ce=  0.19 mg/L | Tol= 0.03 | Effect= 3.17%
+t= 42.00h | A=  0.00 mg | C=  0.15 mg/L | P=  0.14 mg/L | Ce=  0.18 mg/L | Tol= 0.04 | Effect= 3.05%
+t= 43.00h | A=  0.00 mg | C=  0.14 mg/L | P=  0.13 mg/L | Ce=  0.17 mg/L | Tol= 0.04 | Effect= 2.89%
+t= 44.00h | A=  0.00 mg | C=  0.13 mg/L | P=  0.12 mg/L | Ce=  0.16 mg/L | Tol= 0.04 | Effect= 2.71%
+t= 45.00h | A=  0.00 mg | C=  0.12 mg/L | P=  0.11 mg/L | Ce=  0.15 mg/L | Tol= 0.04 | Effect= 2.52%
+t= 46.00h | A=  0.00 mg | C=  0.11 mg/L | P=  0.10 mg/L | Ce=  0.15 mg/L | Tol= 0.04 | Effect= 2.33%
+t= 47.00h | A=  0.00 mg | C=  0.10 mg/L | P=  0.09 mg/L | Ce=  0.14 mg/L | Tol= 0.04 | Effect= 2.15%
+
+========== PATIENT ASSESSMENT at t=48.00 hours ==========
+Current Effect: 1.97%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 10.42 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.04
+Escalation Factor: 2.13%
+Old Dose: 10.42 mg
+New Dose: 10.64 mg
+Dose Increase: +0.22 mg (+2.13%)
+
+--- DOSE ADMINISTERED ---
+Time: 48.00 h
+Dose: 10.64 mg
+C(t): 0.09 mg/L
+Ce(t): 0.13 mg/L
+Tol(t): 0.04
+Effect: 1.97%
+Total doses given: 3
+================================================
+t= 48.00h | A= 10.64 mg | C=  0.09 mg/L | P=  0.09 mg/L | Ce=  0.13 mg/L | Tol= 0.04 | Effect= 1.97%
+t= 49.00h | A=  1.44 mg | C=  0.33 mg/L | P=  0.13 mg/L | Ce=  0.16 mg/L | Tol= 0.04 | Effect= 2.58%
+t= 50.00h | A=  0.19 mg | C=  0.29 mg/L | P=  0.16 mg/L | Ce=  0.19 mg/L | Tol= 0.05 | Effect= 3.25%
+t= 51.00h | A=  0.03 mg | C=  0.25 mg/L | P=  0.17 mg/L | Ce=  0.21 mg/L | Tol= 0.05 | Effect= 3.56%
+t= 52.00h | A=  0.00 mg | C=  0.21 mg/L | P=  0.17 mg/L | Ce=  0.21 mg/L | Tol= 0.05 | Effect= 3.63%
+t= 53.00h | A=  0.00 mg | C=  0.19 mg/L | P=  0.16 mg/L | Ce=  0.21 mg/L | Tol= 0.05 | Effect= 3.55%
+t= 54.00h | A=  0.00 mg | C=  0.17 mg/L | P=  0.15 mg/L | Ce=  0.20 mg/L | Tol= 0.05 | Effect= 3.40%
+t= 55.00h | A=  0.00 mg | C=  0.15 mg/L | P=  0.14 mg/L | Ce=  0.19 mg/L | Tol= 0.05 | Effect= 3.22%
+t= 56.00h | A=  0.00 mg | C=  0.14 mg/L | P=  0.13 mg/L | Ce=  0.18 mg/L | Tol= 0.06 | Effect= 3.01%
+t= 57.00h | A=  0.00 mg | C=  0.13 mg/L | P=  0.12 mg/L | Ce=  0.17 mg/L | Tol= 0.06 | Effect= 2.80%
+t= 58.00h | A=  0.00 mg | C=  0.12 mg/L | P=  0.11 mg/L | Ce=  0.16 mg/L | Tol= 0.06 | Effect= 2.59%
+t= 59.00h | A=  0.00 mg | C=  0.11 mg/L | P=  0.10 mg/L | Ce=  0.15 mg/L | Tol= 0.06 | Effect= 2.38%
+
+========== PATIENT ASSESSMENT at t=60.00 hours ==========
+Current Effect: 2.18%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 10.64 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.06
+Escalation Factor: 2.18%
+Old Dose: 10.64 mg
+New Dose: 10.87 mg
+Dose Increase: +0.23 mg (+2.18%)
+
+--- DOSE ADMINISTERED ---
+Time: 60.00 h
+Dose: 10.87 mg
+C(t): 0.10 mg/L
+Ce(t): 0.14 mg/L
+Tol(t): 0.06
+Effect: 2.18%
+Total doses given: 4
+================================================
+t= 60.00h | A= 10.87 mg | C=  0.10 mg/L | P=  0.09 mg/L | Ce=  0.14 mg/L | Tol= 0.06 | Effect= 2.18%
+t= 61.00h | A=  1.47 mg | C=  0.35 mg/L | P=  0.13 mg/L | Ce=  0.17 mg/L | Tol= 0.06 | Effect= 2.79%
+t= 62.00h | A=  0.20 mg | C=  0.31 mg/L | P=  0.17 mg/L | Ce=  0.21 mg/L | Tol= 0.06 | Effect= 3.45%
+t= 63.00h | A=  0.03 mg | C=  0.26 mg/L | P=  0.18 mg/L | Ce=  0.22 mg/L | Tol= 0.06 | Effect= 3.75%
+t= 64.00h | A=  0.00 mg | C=  0.22 mg/L | P=  0.18 mg/L | Ce=  0.23 mg/L | Tol= 0.07 | Effect= 3.81%
+t= 65.00h | A=  0.00 mg | C=  0.20 mg/L | P=  0.17 mg/L | Ce=  0.22 mg/L | Tol= 0.07 | Effect= 3.72%
+t= 66.00h | A=  0.00 mg | C=  0.18 mg/L | P=  0.16 mg/L | Ce=  0.21 mg/L | Tol= 0.07 | Effect= 3.56%
+t= 67.00h | A=  0.00 mg | C=  0.16 mg/L | P=  0.15 mg/L | Ce=  0.20 mg/L | Tol= 0.07 | Effect= 3.36%
+t= 68.00h | A=  0.00 mg | C=  0.15 mg/L | P=  0.14 mg/L | Ce=  0.19 mg/L | Tol= 0.07 | Effect= 3.15%
+t= 69.00h | A=  0.00 mg | C=  0.13 mg/L | P=  0.13 mg/L | Ce=  0.18 mg/L | Tol= 0.07 | Effect= 2.92%
+t= 70.00h | A=  0.00 mg | C=  0.12 mg/L | P=  0.12 mg/L | Ce=  0.17 mg/L | Tol= 0.07 | Effect= 2.70%
+t= 71.00h | A=  0.00 mg | C=  0.11 mg/L | P=  0.11 mg/L | Ce=  0.16 mg/L | Tol= 0.08 | Effect= 2.49%
+
+========== PATIENT ASSESSMENT at t=72.00 hours ==========
+Current Effect: 2.28%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 10.87 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.08
+Escalation Factor: 2.23%
+Old Dose: 10.87 mg
+New Dose: 11.11 mg
+Dose Increase: +0.24 mg (+2.23%)
+
+--- DOSE ADMINISTERED ---
+Time: 72.00 h
+Dose: 11.11 mg
+C(t): 0.10 mg/L
+Ce(t): 0.15 mg/L
+Tol(t): 0.08
+Effect: 2.28%
+Total doses given: 5
+================================================
+t= 72.00h | A= 11.11 mg | C=  0.10 mg/L | P=  0.10 mg/L | Ce=  0.15 mg/L | Tol= 0.08 | Effect= 2.28%
+t= 73.00h | A=  1.50 mg | C=  0.36 mg/L | P=  0.14 mg/L | Ce=  0.18 mg/L | Tol= 0.08 | Effect= 2.89%
+t= 74.00h | A=  0.20 mg | C=  0.32 mg/L | P=  0.18 mg/L | Ce=  0.22 mg/L | Tol= 0.08 | Effect= 3.55%
+t= 75.00h | A=  0.03 mg | C=  0.27 mg/L | P=  0.19 mg/L | Ce=  0.23 mg/L | Tol= 0.08 | Effect= 3.85%
+t= 76.00h | A=  0.00 mg | C=  0.23 mg/L | P=  0.19 mg/L | Ce=  0.24 mg/L | Tol= 0.08 | Effect= 3.90%
+t= 77.00h | A=  0.00 mg | C=  0.20 mg/L | P=  0.18 mg/L | Ce=  0.23 mg/L | Tol= 0.08 | Effect= 3.81%
+t= 78.00h | A=  0.00 mg | C=  0.18 mg/L | P=  0.17 mg/L | Ce=  0.22 mg/L | Tol= 0.09 | Effect= 3.64%
+t= 79.00h | A=  0.00 mg | C=  0.17 mg/L | P=  0.16 mg/L | Ce=  0.21 mg/L | Tol= 0.09 | Effect= 3.44%
+t= 80.00h | A=  0.00 mg | C=  0.15 mg/L | P=  0.14 mg/L | Ce=  0.20 mg/L | Tol= 0.09 | Effect= 3.22%
+t= 81.00h | A=  0.00 mg | C=  0.14 mg/L | P=  0.13 mg/L | Ce=  0.19 mg/L | Tol= 0.09 | Effect= 2.99%
+t= 82.00h | A=  0.00 mg | C=  0.13 mg/L | P=  0.12 mg/L | Ce=  0.18 mg/L | Tol= 0.09 | Effect= 2.77%
+t= 83.00h | A=  0.00 mg | C=  0.12 mg/L | P=  0.11 mg/L | Ce=  0.16 mg/L | Tol= 0.09 | Effect= 2.55%
+
+========== PATIENT ASSESSMENT at t=84.00 hours ==========
+Current Effect: 2.34%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 11.11 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.09
+Escalation Factor: 2.28%
+Old Dose: 11.11 mg
+New Dose: 11.37 mg
+Dose Increase: +0.25 mg (+2.28%)
+
+--- DOSE ADMINISTERED ---
+Time: 84.00 h
+Dose: 11.37 mg
+C(t): 0.11 mg/L
+Ce(t): 0.15 mg/L
+Tol(t): 0.09
+Effect: 2.34%
+Total doses given: 6
+================================================
+t= 84.00h | A= 11.37 mg | C=  0.11 mg/L | P=  0.10 mg/L | Ce=  0.15 mg/L | Tol= 0.09 | Effect= 2.34%
+t= 85.00h | A=  1.54 mg | C=  0.37 mg/L | P=  0.15 mg/L | Ce=  0.19 mg/L | Tol= 0.09 | Effect= 2.95%
+t= 86.00h | A=  0.21 mg | C=  0.33 mg/L | P=  0.18 mg/L | Ce=  0.22 mg/L | Tol= 0.10 | Effect= 3.62%
+t= 87.00h | A=  0.03 mg | C=  0.27 mg/L | P=  0.20 mg/L | Ce=  0.24 mg/L | Tol= 0.10 | Effect= 3.92%
+t= 88.00h | A=  0.00 mg | C=  0.24 mg/L | P=  0.19 mg/L | Ce=  0.24 mg/L | Tol= 0.10 | Effect= 3.96%
+t= 89.00h | A=  0.00 mg | C=  0.21 mg/L | P=  0.18 mg/L | Ce=  0.24 mg/L | Tol= 0.10 | Effect= 3.87%
+t= 90.00h | A=  0.00 mg | C=  0.19 mg/L | P=  0.17 mg/L | Ce=  0.23 mg/L | Tol= 0.10 | Effect= 3.70%
+t= 91.00h | A=  0.00 mg | C=  0.17 mg/L | P=  0.16 mg/L | Ce=  0.22 mg/L | Tol= 0.10 | Effect= 3.50%
+t= 92.00h | A=  0.00 mg | C=  0.16 mg/L | P=  0.15 mg/L | Ce=  0.21 mg/L | Tol= 0.11 | Effect= 3.27%
+t= 93.00h | A=  0.00 mg | C=  0.14 mg/L | P=  0.14 mg/L | Ce=  0.19 mg/L | Tol= 0.11 | Effect= 3.04%
+t= 94.00h | A=  0.00 mg | C=  0.13 mg/L | P=  0.13 mg/L | Ce=  0.18 mg/L | Tol= 0.11 | Effect= 2.81%
+t= 95.00h | A=  0.00 mg | C=  0.12 mg/L | P=  0.12 mg/L | Ce=  0.17 mg/L | Tol= 0.11 | Effect= 2.59%
+
+========== PATIENT ASSESSMENT at t=96.00 hours ==========
+Current Effect: 2.38%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 11.37 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.11
+Escalation Factor: 2.33%
+Old Dose: 11.37 mg
+New Dose: 11.63 mg
+Dose Increase: +0.26 mg (+2.33%)
+
+--- DOSE ADMINISTERED ---
+Time: 96.00 h
+Dose: 11.63 mg
+C(t): 0.11 mg/L
+Ce(t): 0.16 mg/L
+Tol(t): 0.11
+Effect: 2.38%
+Total doses given: 7
+================================================
+t= 96.00h | A= 11.63 mg | C=  0.11 mg/L | P=  0.11 mg/L | Ce=  0.16 mg/L | Tol= 0.11 | Effect= 2.38%
+t= 97.00h | A=  1.57 mg | C=  0.38 mg/L | P=  0.15 mg/L | Ce=  0.19 mg/L | Tol= 0.11 | Effect= 2.99%
+t= 98.00h | A=  0.21 mg | C=  0.33 mg/L | P=  0.19 mg/L | Ce=  0.23 mg/L | Tol= 0.11 | Effect= 3.67%
+t= 99.00h | A=  0.03 mg | C=  0.28 mg/L | P=  0.20 mg/L | Ce=  0.25 mg/L | Tol= 0.11 | Effect= 3.97%
+t=100.00h | A=  0.00 mg | C=  0.24 mg/L | P=  0.20 mg/L | Ce=  0.25 mg/L | Tol= 0.12 | Effect= 4.02%
+t=101.00h | A=  0.00 mg | C=  0.22 mg/L | P=  0.19 mg/L | Ce=  0.24 mg/L | Tol= 0.12 | Effect= 3.93%
+t=102.00h | A=  0.00 mg | C=  0.19 mg/L | P=  0.18 mg/L | Ce=  0.24 mg/L | Tol= 0.12 | Effect= 3.76%
+t=103.00h | A=  0.00 mg | C=  0.18 mg/L | P=  0.16 mg/L | Ce=  0.22 mg/L | Tol= 0.12 | Effect= 3.55%
+t=104.00h | A=  0.00 mg | C=  0.16 mg/L | P=  0.15 mg/L | Ce=  0.21 mg/L | Tol= 0.12 | Effect= 3.32%
+t=105.00h | A=  0.00 mg | C=  0.15 mg/L | P=  0.14 mg/L | Ce=  0.20 mg/L | Tol= 0.12 | Effect= 3.09%
+t=106.00h | A=  0.00 mg | C=  0.14 mg/L | P=  0.13 mg/L | Ce=  0.19 mg/L | Tol= 0.12 | Effect= 2.85%
+t=107.00h | A=  0.00 mg | C=  0.12 mg/L | P=  0.12 mg/L | Ce=  0.17 mg/L | Tol= 0.12 | Effect= 2.63%
+
+========== PATIENT ASSESSMENT at t=108.00 hours ==========
+Current Effect: 2.41%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 11.63 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.13
+Escalation Factor: 2.38%
+Old Dose: 11.63 mg
+New Dose: 11.91 mg
+Dose Increase: +0.28 mg (+2.38%)
+
+--- DOSE ADMINISTERED ---
+Time: 108.00 h
+Dose: 11.91 mg
+C(t): 0.11 mg/L
+Ce(t): 0.16 mg/L
+Tol(t): 0.13
+Effect: 2.41%
+Total doses given: 8
+================================================
+t=108.00h | A= 11.91 mg | C=  0.11 mg/L | P=  0.11 mg/L | Ce=  0.16 mg/L | Tol= 0.13 | Effect= 2.41%
+t=109.00h | A=  1.61 mg | C=  0.39 mg/L | P=  0.15 mg/L | Ce=  0.20 mg/L | Tol= 0.13 | Effect= 3.04%
+t=110.00h | A=  0.22 mg | C=  0.34 mg/L | P=  0.19 mg/L | Ce=  0.24 mg/L | Tol= 0.13 | Effect= 3.72%
+t=111.00h | A=  0.03 mg | C=  0.29 mg/L | P=  0.21 mg/L | Ce=  0.25 mg/L | Tol= 0.13 | Effect= 4.03%
+t=112.00h | A=  0.00 mg | C=  0.25 mg/L | P=  0.20 mg/L | Ce=  0.26 mg/L | Tol= 0.13 | Effect= 4.08%
+t=113.00h | A=  0.00 mg | C=  0.22 mg/L | P=  0.19 mg/L | Ce=  0.25 mg/L | Tol= 0.13 | Effect= 3.98%
+t=114.00h | A=  0.00 mg | C=  0.20 mg/L | P=  0.18 mg/L | Ce=  0.24 mg/L | Tol= 0.13 | Effect= 3.81%
+t=115.00h | A=  0.00 mg | C=  0.18 mg/L | P=  0.17 mg/L | Ce=  0.23 mg/L | Tol= 0.14 | Effect= 3.60%
+t=116.00h | A=  0.00 mg | C=  0.17 mg/L | P=  0.16 mg/L | Ce=  0.22 mg/L | Tol= 0.14 | Effect= 3.37%
+t=117.00h | A=  0.00 mg | C=  0.15 mg/L | P=  0.14 mg/L | Ce=  0.20 mg/L | Tol= 0.14 | Effect= 3.13%
+t=118.00h | A=  0.00 mg | C=  0.14 mg/L | P=  0.13 mg/L | Ce=  0.19 mg/L | Tol= 0.14 | Effect= 2.90%
+t=119.00h | A=  0.00 mg | C=  0.13 mg/L | P=  0.12 mg/L | Ce=  0.18 mg/L | Tol= 0.14 | Effect= 2.67%
+
+========== PATIENT ASSESSMENT at t=120.00 hours ==========
+Current Effect: 2.45%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 11.91 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.14
+Escalation Factor: 2.42%
+Old Dose: 11.91 mg
+New Dose: 12.20 mg
+Dose Increase: +0.29 mg (+2.42%)
+
+--- DOSE ADMINISTERED ---
+Time: 120.00 h
+Dose: 12.20 mg
+C(t): 0.12 mg/L
+Ce(t): 0.17 mg/L
+Tol(t): 0.14
+Effect: 2.45%
+Total doses given: 9
+================================================
+t=120.00h | A= 12.20 mg | C=  0.12 mg/L | P=  0.11 mg/L | Ce=  0.17 mg/L | Tol= 0.14 | Effect= 2.45%
+t=121.00h | A=  1.65 mg | C=  0.40 mg/L | P=  0.16 mg/L | Ce=  0.20 mg/L | Tol= 0.14 | Effect= 3.08%
+t=122.00h | A=  0.22 mg | C=  0.35 mg/L | P=  0.20 mg/L | Ce=  0.24 mg/L | Tol= 0.14 | Effect= 3.77%
+t=123.00h | A=  0.03 mg | C=  0.30 mg/L | P=  0.21 mg/L | Ce=  0.26 mg/L | Tol= 0.15 | Effect= 4.08%
+t=124.00h | A=  0.00 mg | C=  0.26 mg/L | P=  0.21 mg/L | Ce=  0.26 mg/L | Tol= 0.15 | Effect= 4.14%
+t=125.00h | A=  0.00 mg | C=  0.23 mg/L | P=  0.20 mg/L | Ce=  0.26 mg/L | Tol= 0.15 | Effect= 4.04%
+t=126.00h | A=  0.00 mg | C=  0.21 mg/L | P=  0.19 mg/L | Ce=  0.25 mg/L | Tol= 0.15 | Effect= 3.87%
+t=127.00h | A=  0.00 mg | C=  0.19 mg/L | P=  0.17 mg/L | Ce=  0.24 mg/L | Tol= 0.15 | Effect= 3.66%
+t=128.00h | A=  0.00 mg | C=  0.17 mg/L | P=  0.16 mg/L | Ce=  0.22 mg/L | Tol= 0.15 | Effect= 3.42%
+t=129.00h | A=  0.00 mg | C=  0.16 mg/L | P=  0.15 mg/L | Ce=  0.21 mg/L | Tol= 0.15 | Effect= 3.18%
+t=130.00h | A=  0.00 mg | C=  0.14 mg/L | P=  0.14 mg/L | Ce=  0.20 mg/L | Tol= 0.15 | Effect= 2.94%
+t=131.00h | A=  0.00 mg | C=  0.13 mg/L | P=  0.13 mg/L | Ce=  0.18 mg/L | Tol= 0.16 | Effect= 2.71%
+
+========== PATIENT ASSESSMENT at t=132.00 hours ==========
+Current Effect: 2.49%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 12.20 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.16
+Escalation Factor: 2.47%
+Old Dose: 12.20 mg
+New Dose: 12.50 mg
+Dose Increase: +0.30 mg (+2.47%)
+
+--- DOSE ADMINISTERED ---
+Time: 132.00 h
+Dose: 12.50 mg
+C(t): 0.12 mg/L
+Ce(t): 0.17 mg/L
+Tol(t): 0.16
+Effect: 2.49%
+Total doses given: 10
+================================================
+t=132.00h | A= 12.50 mg | C=  0.12 mg/L | P=  0.11 mg/L | Ce=  0.17 mg/L | Tol= 0.16 | Effect= 2.49%
+t=133.00h | A=  1.69 mg | C=  0.41 mg/L | P=  0.16 mg/L | Ce=  0.21 mg/L | Tol= 0.16 | Effect= 3.13%
+t=134.00h | A=  0.23 mg | C=  0.36 mg/L | P=  0.20 mg/L | Ce=  0.25 mg/L | Tol= 0.16 | Effect= 3.83%
+t=135.00h | A=  0.03 mg | C=  0.30 mg/L | P=  0.22 mg/L | Ce=  0.27 mg/L | Tol= 0.16 | Effect= 4.15%
+t=136.00h | A=  0.00 mg | C=  0.26 mg/L | P=  0.22 mg/L | Ce=  0.27 mg/L | Tol= 0.16 | Effect= 4.20%
+t=137.00h | A=  0.00 mg | C=  0.23 mg/L | P=  0.21 mg/L | Ce=  0.26 mg/L | Tol= 0.16 | Effect= 4.11%
+t=138.00h | A=  0.00 mg | C=  0.21 mg/L | P=  0.19 mg/L | Ce=  0.25 mg/L | Tol= 0.16 | Effect= 3.93%
+t=139.00h | A=  0.00 mg | C=  0.19 mg/L | P=  0.18 mg/L | Ce=  0.24 mg/L | Tol= 0.17 | Effect= 3.71%
+t=140.00h | A=  0.00 mg | C=  0.18 mg/L | P=  0.16 mg/L | Ce=  0.23 mg/L | Tol= 0.17 | Effect= 3.48%
+t=141.00h | A=  0.00 mg | C=  0.16 mg/L | P=  0.15 mg/L | Ce=  0.22 mg/L | Tol= 0.17 | Effect= 3.24%
+t=142.00h | A=  0.00 mg | C=  0.15 mg/L | P=  0.14 mg/L | Ce=  0.20 mg/L | Tol= 0.17 | Effect= 3.00%
+t=143.00h | A=  0.00 mg | C=  0.14 mg/L | P=  0.13 mg/L | Ce=  0.19 mg/L | Tol= 0.17 | Effect= 2.76%
+
+========== PATIENT ASSESSMENT at t=144.00 hours ==========
+Current Effect: 2.54%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 12.50 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.17
+Escalation Factor: 2.51%
+Old Dose: 12.50 mg
+New Dose: 12.81 mg
+Dose Increase: +0.31 mg (+2.51%)
+
+--- DOSE ADMINISTERED ---
+Time: 144.00 h
+Dose: 12.81 mg
+C(t): 0.12 mg/L
+Ce(t): 0.18 mg/L
+Tol(t): 0.17
+Effect: 2.54%
+Total doses given: 11
+================================================
+t=144.00h | A= 12.81 mg | C=  0.12 mg/L | P=  0.12 mg/L | Ce=  0.18 mg/L | Tol= 0.17 | Effect= 2.54%
+t=145.00h | A=  1.73 mg | C=  0.42 mg/L | P=  0.17 mg/L | Ce=  0.21 mg/L | Tol= 0.17 | Effect= 3.18%
+t=146.00h | A=  0.23 mg | C=  0.37 mg/L | P=  0.21 mg/L | Ce=  0.25 mg/L | Tol= 0.17 | Effect= 3.90%
+t=147.00h | A=  0.03 mg | C=  0.31 mg/L | P=  0.22 mg/L | Ce=  0.27 mg/L | Tol= 0.18 | Effect= 4.22%
+t=148.00h | A=  0.00 mg | C=  0.27 mg/L | P=  0.22 mg/L | Ce=  0.28 mg/L | Tol= 0.18 | Effect= 4.27%
+t=149.00h | A=  0.00 mg | C=  0.24 mg/L | P=  0.21 mg/L | Ce=  0.27 mg/L | Tol= 0.18 | Effect= 4.17%
+t=150.00h | A=  0.00 mg | C=  0.22 mg/L | P=  0.20 mg/L | Ce=  0.26 mg/L | Tol= 0.18 | Effect= 4.00%
+t=151.00h | A=  0.00 mg | C=  0.20 mg/L | P=  0.18 mg/L | Ce=  0.25 mg/L | Tol= 0.18 | Effect= 3.78%
+t=152.00h | A=  0.00 mg | C=  0.18 mg/L | P=  0.17 mg/L | Ce=  0.24 mg/L | Tol= 0.18 | Effect= 3.54%
+t=153.00h | A=  0.00 mg | C=  0.17 mg/L | P=  0.16 mg/L | Ce=  0.22 mg/L | Tol= 0.18 | Effect= 3.29%
+t=154.00h | A=  0.00 mg | C=  0.15 mg/L | P=  0.14 mg/L | Ce=  0.21 mg/L | Tol= 0.18 | Effect= 3.05%
+t=155.00h | A=  0.00 mg | C=  0.14 mg/L | P=  0.13 mg/L | Ce=  0.19 mg/L | Tol= 0.19 | Effect= 2.81%
+
+========== PATIENT ASSESSMENT at t=156.00 hours ==========
+Current Effect: 2.58%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 12.81 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.19
+Escalation Factor: 2.56%
+Old Dose: 12.81 mg
+New Dose: 13.14 mg
+Dose Increase: +0.33 mg (+2.56%)
+
+--- DOSE ADMINISTERED ---
+Time: 156.00 h
+Dose: 13.14 mg
+C(t): 0.13 mg/L
+Ce(t): 0.18 mg/L
+Tol(t): 0.19
+Effect: 2.58%
+Total doses given: 12
+================================================
+t=156.00h | A= 13.14 mg | C=  0.13 mg/L | P=  0.12 mg/L | Ce=  0.18 mg/L | Tol= 0.19 | Effect= 2.58%
+t=157.00h | A=  1.78 mg | C=  0.43 mg/L | P=  0.17 mg/L | Ce=  0.22 mg/L | Tol= 0.19 | Effect= 3.24%
+t=158.00h | A=  0.24 mg | C=  0.38 mg/L | P=  0.22 mg/L | Ce=  0.26 mg/L | Tol= 0.19 | Effect= 3.96%
+t=159.00h | A=  0.03 mg | C=  0.32 mg/L | P=  0.23 mg/L | Ce=  0.28 mg/L | Tol= 0.19 | Effect= 4.29%
+t=160.00h | A=  0.00 mg | C=  0.28 mg/L | P=  0.23 mg/L | Ce=  0.28 mg/L | Tol= 0.19 | Effect= 4.35%
+t=161.00h | A=  0.00 mg | C=  0.25 mg/L | P=  0.22 mg/L | Ce=  0.28 mg/L | Tol= 0.19 | Effect= 4.25%
+t=162.00h | A=  0.00 mg | C=  0.22 mg/L | P=  0.20 mg/L | Ce=  0.27 mg/L | Tol= 0.19 | Effect= 4.07%
+t=163.00h | A=  0.00 mg | C=  0.20 mg/L | P=  0.19 mg/L | Ce=  0.26 mg/L | Tol= 0.20 | Effect= 3.85%
+t=164.00h | A=  0.00 mg | C=  0.19 mg/L | P=  0.17 mg/L | Ce=  0.24 mg/L | Tol= 0.20 | Effect= 3.61%
+t=165.00h | A=  0.00 mg | C=  0.17 mg/L | P=  0.16 mg/L | Ce=  0.23 mg/L | Tol= 0.20 | Effect= 3.36%
+t=166.00h | A=  0.00 mg | C=  0.16 mg/L | P=  0.15 mg/L | Ce=  0.21 mg/L | Tol= 0.20 | Effect= 3.11%
+t=167.00h | A=  0.00 mg | C=  0.14 mg/L | P=  0.14 mg/L | Ce=  0.20 mg/L | Tol= 0.20 | Effect= 2.87%
+
+========== PATIENT ASSESSMENT at t=168.00 hours ==========
+Current Effect: 2.63%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 13.14 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.20
+Escalation Factor: 2.60%
+Old Dose: 13.14 mg
+New Dose: 13.48 mg
+Dose Increase: +0.34 mg (+2.60%)
+
+--- DOSE ADMINISTERED ---
+Time: 168.00 h
+Dose: 13.48 mg
+C(t): 0.13 mg/L
+Ce(t): 0.19 mg/L
+Tol(t): 0.20
+Effect: 2.63%
+Total doses given: 13
+================================================
+t=168.00h | A= 13.48 mg | C=  0.13 mg/L | P=  0.13 mg/L | Ce=  0.19 mg/L | Tol= 0.20 | Effect= 2.63%
+t=169.00h | A=  1.82 mg | C=  0.44 mg/L | P=  0.18 mg/L | Ce=  0.23 mg/L | Tol= 0.20 | Effect= 3.30%
+t=170.00h | A=  0.25 mg | C=  0.39 mg/L | P=  0.22 mg/L | Ce=  0.27 mg/L | Tol= 0.20 | Effect= 4.04%
+t=171.00h | A=  0.03 mg | C=  0.33 mg/L | P=  0.24 mg/L | Ce=  0.29 mg/L | Tol= 0.20 | Effect= 4.37%
+t=172.00h | A=  0.00 mg | C=  0.29 mg/L | P=  0.23 mg/L | Ce=  0.29 mg/L | Tol= 0.21 | Effect= 4.43%
+t=173.00h | A=  0.00 mg | C=  0.25 mg/L | P=  0.22 mg/L | Ce=  0.29 mg/L | Tol= 0.21 | Effect= 4.33%
+t=174.00h | A=  0.00 mg | C=  0.23 mg/L | P=  0.21 mg/L | Ce=  0.28 mg/L | Tol= 0.21 | Effect= 4.15%
+t=175.00h | A=  0.00 mg | C=  0.21 mg/L | P=  0.19 mg/L | Ce=  0.26 mg/L | Tol= 0.21 | Effect= 3.92%
+t=176.00h | A=  0.00 mg | C=  0.19 mg/L | P=  0.18 mg/L | Ce=  0.25 mg/L | Tol= 0.21 | Effect= 3.68%
+t=177.00h | A=  0.00 mg | C=  0.18 mg/L | P=  0.17 mg/L | Ce=  0.24 mg/L | Tol= 0.21 | Effect= 3.42%
+t=178.00h | A=  0.00 mg | C=  0.16 mg/L | P=  0.15 mg/L | Ce=  0.22 mg/L | Tol= 0.21 | Effect= 3.17%
+t=179.00h | A=  0.00 mg | C=  0.15 mg/L | P=  0.14 mg/L | Ce=  0.21 mg/L | Tol= 0.21 | Effect= 2.93%
+
+========== PATIENT ASSESSMENT at t=180.00 hours ==========
+Current Effect: 2.69%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 13.48 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.21
+Escalation Factor: 2.64%
+Old Dose: 13.48 mg
+New Dose: 13.84 mg
+Dose Increase: +0.36 mg (+2.64%)
+
+--- DOSE ADMINISTERED ---
+Time: 180.00 h
+Dose: 13.84 mg
+C(t): 0.14 mg/L
+Ce(t): 0.19 mg/L
+Tol(t): 0.21
+Effect: 2.69%
+Total doses given: 14
+================================================
+t=180.00h | A= 13.84 mg | C=  0.14 mg/L | P=  0.13 mg/L | Ce=  0.19 mg/L | Tol= 0.21 | Effect= 2.69%
+t=181.00h | A=  1.87 mg | C=  0.46 mg/L | P=  0.18 mg/L | Ce=  0.23 mg/L | Tol= 0.22 | Effect= 3.37%
+t=182.00h | A=  0.25 mg | C=  0.40 mg/L | P=  0.23 mg/L | Ce=  0.28 mg/L | Tol= 0.22 | Effect= 4.12%
+t=183.00h | A=  0.03 mg | C=  0.34 mg/L | P=  0.24 mg/L | Ce=  0.30 mg/L | Tol= 0.22 | Effect= 4.45%
+t=184.00h | A=  0.00 mg | C=  0.29 mg/L | P=  0.24 mg/L | Ce=  0.30 mg/L | Tol= 0.22 | Effect= 4.51%
+t=185.00h | A=  0.00 mg | C=  0.26 mg/L | P=  0.23 mg/L | Ce=  0.30 mg/L | Tol= 0.22 | Effect= 4.42%
+t=186.00h | A=  0.00 mg | C=  0.24 mg/L | P=  0.22 mg/L | Ce=  0.29 mg/L | Tol= 0.22 | Effect= 4.23%
+t=187.00h | A=  0.00 mg | C=  0.22 mg/L | P=  0.20 mg/L | Ce=  0.27 mg/L | Tol= 0.22 | Effect= 4.00%
+t=188.00h | A=  0.00 mg | C=  0.20 mg/L | P=  0.18 mg/L | Ce=  0.26 mg/L | Tol= 0.22 | Effect= 3.75%
+t=189.00h | A=  0.00 mg | C=  0.18 mg/L | P=  0.17 mg/L | Ce=  0.24 mg/L | Tol= 0.23 | Effect= 3.50%
+t=190.00h | A=  0.00 mg | C=  0.17 mg/L | P=  0.16 mg/L | Ce=  0.23 mg/L | Tol= 0.23 | Effect= 3.24%
+t=191.00h | A=  0.00 mg | C=  0.15 mg/L | P=  0.14 mg/L | Ce=  0.21 mg/L | Tol= 0.23 | Effect= 2.99%
+
+========== PATIENT ASSESSMENT at t=192.00 hours ==========
+Current Effect: 2.75%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 13.84 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.23
+Escalation Factor: 2.69%
+Old Dose: 13.84 mg
+New Dose: 14.21 mg
+Dose Increase: +0.37 mg (+2.69%)
+
+--- DOSE ADMINISTERED ---
+Time: 192.00 h
+Dose: 14.21 mg
+C(t): 0.14 mg/L
+Ce(t): 0.20 mg/L
+Tol(t): 0.23
+Effect: 2.75%
+Total doses given: 15
+================================================
+t=192.00h | A= 14.21 mg | C=  0.14 mg/L | P=  0.13 mg/L | Ce=  0.20 mg/L | Tol= 0.23 | Effect= 2.75%
+t=193.00h | A=  1.92 mg | C=  0.47 mg/L | P=  0.19 mg/L | Ce=  0.24 mg/L | Tol= 0.23 | Effect= 3.44%
+t=194.00h | A=  0.26 mg | C=  0.41 mg/L | P=  0.23 mg/L | Ce=  0.28 mg/L | Tol= 0.23 | Effect= 4.20%
+t=195.00h | A=  0.04 mg | C=  0.35 mg/L | P=  0.25 mg/L | Ce=  0.31 mg/L | Tol= 0.23 | Effect= 4.55%
+t=196.00h | A=  0.00 mg | C=  0.30 mg/L | P=  0.25 mg/L | Ce=  0.31 mg/L | Tol= 0.23 | Effect= 4.61%
+t=197.00h | A=  0.00 mg | C=  0.27 mg/L | P=  0.24 mg/L | Ce=  0.30 mg/L | Tol= 0.23 | Effect= 4.51%
+t=198.00h | A=  0.00 mg | C=  0.24 mg/L | P=  0.22 mg/L | Ce=  0.29 mg/L | Tol= 0.24 | Effect= 4.32%
+t=199.00h | A=  0.00 mg | C=  0.22 mg/L | P=  0.21 mg/L | Ce=  0.28 mg/L | Tol= 0.24 | Effect= 4.09%
+t=200.00h | A=  0.00 mg | C=  0.20 mg/L | P=  0.19 mg/L | Ce=  0.27 mg/L | Tol= 0.24 | Effect= 3.84%
+t=201.00h | A=  0.00 mg | C=  0.19 mg/L | P=  0.18 mg/L | Ce=  0.25 mg/L | Tol= 0.24 | Effect= 3.57%
+t=202.00h | A=  0.00 mg | C=  0.17 mg/L | P=  0.16 mg/L | Ce=  0.23 mg/L | Tol= 0.24 | Effect= 3.31%
+t=203.00h | A=  0.00 mg | C=  0.16 mg/L | P=  0.15 mg/L | Ce=  0.22 mg/L | Tol= 0.24 | Effect= 3.06%
+
+========== PATIENT ASSESSMENT at t=204.00 hours ==========
+Current Effect: 2.81%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 14.21 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.24
+Escalation Factor: 2.73%
+Old Dose: 14.21 mg
+New Dose: 14.60 mg
+Dose Increase: +0.39 mg (+2.73%)
+
+--- DOSE ADMINISTERED ---
+Time: 204.00 h
+Dose: 14.60 mg
+C(t): 0.14 mg/L
+Ce(t): 0.20 mg/L
+Tol(t): 0.24
+Effect: 2.81%
+Total doses given: 16
+================================================
+t=204.00h | A= 14.60 mg | C=  0.14 mg/L | P=  0.14 mg/L | Ce=  0.20 mg/L | Tol= 0.24 | Effect= 2.81%
+t=205.00h | A=  1.98 mg | C=  0.48 mg/L | P=  0.19 mg/L | Ce=  0.25 mg/L | Tol= 0.24 | Effect= 3.51%
+t=206.00h | A=  0.27 mg | C=  0.43 mg/L | P=  0.24 mg/L | Ce=  0.29 mg/L | Tol= 0.24 | Effect= 4.29%
+t=207.00h | A=  0.04 mg | C=  0.36 mg/L | P=  0.26 mg/L | Ce=  0.31 mg/L | Tol= 0.25 | Effect= 4.64%
+t=208.00h | A=  0.00 mg | C=  0.31 mg/L | P=  0.26 mg/L | Ce=  0.32 mg/L | Tol= 0.25 | Effect= 4.70%
+t=209.00h | A=  0.00 mg | C=  0.28 mg/L | P=  0.24 mg/L | Ce=  0.31 mg/L | Tol= 0.25 | Effect= 4.60%
+t=210.00h | A=  0.00 mg | C=  0.25 mg/L | P=  0.23 mg/L | Ce=  0.30 mg/L | Tol= 0.25 | Effect= 4.42%
+t=211.00h | A=  0.00 mg | C=  0.23 mg/L | P=  0.21 mg/L | Ce=  0.29 mg/L | Tol= 0.25 | Effect= 4.18%
+t=212.00h | A=  0.00 mg | C=  0.21 mg/L | P=  0.20 mg/L | Ce=  0.27 mg/L | Tol= 0.25 | Effect= 3.92%
+t=213.00h | A=  0.00 mg | C=  0.19 mg/L | P=  0.18 mg/L | Ce=  0.26 mg/L | Tol= 0.25 | Effect= 3.65%
+t=214.00h | A=  0.00 mg | C=  0.18 mg/L | P=  0.17 mg/L | Ce=  0.24 mg/L | Tol= 0.25 | Effect= 3.39%
+t=215.00h | A=  0.00 mg | C=  0.16 mg/L | P=  0.15 mg/L | Ce=  0.23 mg/L | Tol= 0.26 | Effect= 3.13%
+
+========== PATIENT ASSESSMENT at t=216.00 hours ==========
+Current Effect: 2.88%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 14.60 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.26
+Escalation Factor: 2.77%
+Old Dose: 14.60 mg
+New Dose: 15.00 mg
+Dose Increase: +0.40 mg (+2.77%)
+
+--- DOSE ADMINISTERED ---
+Time: 216.00 h
+Dose: 15.00 mg
+C(t): 0.15 mg/L
+Ce(t): 0.21 mg/L
+Tol(t): 0.26
+Effect: 2.88%
+Total doses given: 17
+================================================
+t=216.00h | A= 15.00 mg | C=  0.15 mg/L | P=  0.14 mg/L | Ce=  0.21 mg/L | Tol= 0.26 | Effect= 2.88%
+t=217.00h | A=  2.03 mg | C=  0.50 mg/L | P=  0.20 mg/L | Ce=  0.25 mg/L | Tol= 0.26 | Effect= 3.59%
+t=218.00h | A=  0.27 mg | C=  0.44 mg/L | P=  0.25 mg/L | Ce=  0.30 mg/L | Tol= 0.26 | Effect= 4.38%
+t=219.00h | A=  0.04 mg | C=  0.37 mg/L | P=  0.27 mg/L | Ce=  0.32 mg/L | Tol= 0.26 | Effect= 4.74%
+t=220.00h | A=  0.01 mg | C=  0.32 mg/L | P=  0.26 mg/L | Ce=  0.33 mg/L | Tol= 0.26 | Effect= 4.81%
+t=221.00h | A=  0.00 mg | C=  0.29 mg/L | P=  0.25 mg/L | Ce=  0.32 mg/L | Tol= 0.26 | Effect= 4.71%
+t=222.00h | A=  0.00 mg | C=  0.26 mg/L | P=  0.24 mg/L | Ce=  0.31 mg/L | Tol= 0.26 | Effect= 4.52%
+t=223.00h | A=  0.00 mg | C=  0.24 mg/L | P=  0.22 mg/L | Ce=  0.30 mg/L | Tol= 0.27 | Effect= 4.28%
+t=224.00h | A=  0.00 mg | C=  0.22 mg/L | P=  0.20 mg/L | Ce=  0.28 mg/L | Tol= 0.27 | Effect= 4.01%
+t=225.00h | A=  0.00 mg | C=  0.20 mg/L | P=  0.19 mg/L | Ce=  0.27 mg/L | Tol= 0.27 | Effect= 3.74%
+t=226.00h | A=  0.00 mg | C=  0.18 mg/L | P=  0.17 mg/L | Ce=  0.25 mg/L | Tol= 0.27 | Effect= 3.47%
+t=227.00h | A=  0.00 mg | C=  0.17 mg/L | P=  0.16 mg/L | Ce=  0.23 mg/L | Tol= 0.27 | Effect= 3.20%
+
+========== PATIENT ASSESSMENT at t=228.00 hours ==========
+Current Effect: 2.95%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 15.00 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.27
+Escalation Factor: 2.81%
+Old Dose: 15.00 mg
+New Dose: 15.42 mg
+Dose Increase: +0.42 mg (+2.81%)
+
+--- DOSE ADMINISTERED ---
+Time: 228.00 h
+Dose: 15.42 mg
+C(t): 0.15 mg/L
+Ce(t): 0.22 mg/L
+Tol(t): 0.27
+Effect: 2.95%
+Total doses given: 18
+================================================
+t=228.00h | A= 15.42 mg | C=  0.15 mg/L | P=  0.15 mg/L | Ce=  0.22 mg/L | Tol= 0.27 | Effect= 2.95%
+t=229.00h | A=  2.09 mg | C=  0.51 mg/L | P=  0.20 mg/L | Ce=  0.26 mg/L | Tol= 0.27 | Effect= 3.68%
+t=230.00h | A=  0.28 mg | C=  0.45 mg/L | P=  0.26 mg/L | Ce=  0.31 mg/L | Tol= 0.27 | Effect= 4.48%
+t=231.00h | A=  0.04 mg | C=  0.38 mg/L | P=  0.27 mg/L | Ce=  0.33 mg/L | Tol= 0.27 | Effect= 4.85%
+t=232.00h | A=  0.01 mg | C=  0.33 mg/L | P=  0.27 mg/L | Ce=  0.34 mg/L | Tol= 0.28 | Effect= 4.92%
+t=233.00h | A=  0.00 mg | C=  0.30 mg/L | P=  0.26 mg/L | Ce=  0.33 mg/L | Tol= 0.28 | Effect= 4.82%
+t=234.00h | A=  0.00 mg | C=  0.27 mg/L | P=  0.24 mg/L | Ce=  0.32 mg/L | Tol= 0.28 | Effect= 4.62%
+t=235.00h | A=  0.00 mg | C=  0.24 mg/L | P=  0.23 mg/L | Ce=  0.31 mg/L | Tol= 0.28 | Effect= 4.38%
+t=236.00h | A=  0.00 mg | C=  0.22 mg/L | P=  0.21 mg/L | Ce=  0.29 mg/L | Tol= 0.28 | Effect= 4.11%
+t=237.00h | A=  0.00 mg | C=  0.21 mg/L | P=  0.19 mg/L | Ce=  0.27 mg/L | Tol= 0.28 | Effect= 3.83%
+t=238.00h | A=  0.00 mg | C=  0.19 mg/L | P=  0.18 mg/L | Ce=  0.26 mg/L | Tol= 0.28 | Effect= 3.55%
+t=239.00h | A=  0.00 mg | C=  0.17 mg/L | P=  0.16 mg/L | Ce=  0.24 mg/L | Tol= 0.28 | Effect= 3.28%
+
+========== PATIENT ASSESSMENT at t=240.00 hours ==========
+Current Effect: 3.02%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 15.42 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.28
+Escalation Factor: 2.85%
+Old Dose: 15.42 mg
+New Dose: 15.86 mg
+Dose Increase: +0.44 mg (+2.85%)
+
+--- DOSE ADMINISTERED ---
+Time: 240.00 h
+Dose: 15.86 mg
+C(t): 0.16 mg/L
+Ce(t): 0.22 mg/L
+Tol(t): 0.28
+Effect: 3.02%
+Total doses given: 19
+================================================
+t=240.00h | A= 15.86 mg | C=  0.16 mg/L | P=  0.15 mg/L | Ce=  0.22 mg/L | Tol= 0.28 | Effect= 3.02%
+t=241.00h | A=  2.15 mg | C=  0.53 mg/L | P=  0.21 mg/L | Ce=  0.27 mg/L | Tol= 0.28 | Effect= 3.77%
+t=242.00h | A=  0.29 mg | C=  0.47 mg/L | P=  0.26 mg/L | Ce=  0.32 mg/L | Tol= 0.29 | Effect= 4.59%
+t=243.00h | A=  0.04 mg | C=  0.39 mg/L | P=  0.28 mg/L | Ce=  0.35 mg/L | Tol= 0.29 | Effect= 4.97%
+t=244.00h | A=  0.01 mg | C=  0.34 mg/L | P=  0.28 mg/L | Ce=  0.35 mg/L | Tol= 0.29 | Effect= 5.04%
+t=245.00h | A=  0.00 mg | C=  0.31 mg/L | P=  0.27 mg/L | Ce=  0.34 mg/L | Tol= 0.29 | Effect= 4.93%
+t=246.00h | A=  0.00 mg | C=  0.28 mg/L | P=  0.25 mg/L | Ce=  0.33 mg/L | Tol= 0.29 | Effect= 4.73%
+t=247.00h | A=  0.00 mg | C=  0.25 mg/L | P=  0.23 mg/L | Ce=  0.32 mg/L | Tol= 0.29 | Effect= 4.49%
+t=248.00h | A=  0.00 mg | C=  0.23 mg/L | P=  0.22 mg/L | Ce=  0.30 mg/L | Tol= 0.29 | Effect= 4.21%
+t=249.00h | A=  0.00 mg | C=  0.21 mg/L | P=  0.20 mg/L | Ce=  0.28 mg/L | Tol= 0.30 | Effect= 3.93%
+t=250.00h | A=  0.00 mg | C=  0.20 mg/L | P=  0.18 mg/L | Ce=  0.27 mg/L | Tol= 0.30 | Effect= 3.65%
+t=251.00h | A=  0.00 mg | C=  0.18 mg/L | P=  0.17 mg/L | Ce=  0.25 mg/L | Tol= 0.30 | Effect= 3.37%
+
+========== PATIENT ASSESSMENT at t=252.00 hours ==========
+Current Effect: 3.10%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 15.86 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.30
+Escalation Factor: 2.89%
+Old Dose: 15.86 mg
+New Dose: 16.32 mg
+Dose Increase: +0.46 mg (+2.89%)
+
+--- DOSE ADMINISTERED ---
+Time: 252.00 h
+Dose: 16.32 mg
+C(t): 0.16 mg/L
+Ce(t): 0.23 mg/L
+Tol(t): 0.30
+Effect: 3.10%
+Total doses given: 20
+================================================
+t=252.00h | A= 16.32 mg | C=  0.16 mg/L | P=  0.16 mg/L | Ce=  0.23 mg/L | Tol= 0.30 | Effect= 3.10%
+t=253.00h | A=  2.21 mg | C=  0.54 mg/L | P=  0.22 mg/L | Ce=  0.28 mg/L | Tol= 0.30 | Effect= 3.86%
+t=254.00h | A=  0.30 mg | C=  0.48 mg/L | P=  0.27 mg/L | Ce=  0.33 mg/L | Tol= 0.30 | Effect= 4.70%
+t=255.00h | A=  0.04 mg | C=  0.41 mg/L | P=  0.29 mg/L | Ce=  0.36 mg/L | Tol= 0.30 | Effect= 5.09%
+t=256.00h | A=  0.01 mg | C=  0.35 mg/L | P=  0.29 mg/L | Ce=  0.36 mg/L | Tol= 0.30 | Effect= 5.16%
+t=257.00h | A=  0.00 mg | C=  0.32 mg/L | P=  0.28 mg/L | Ce=  0.36 mg/L | Tol= 0.30 | Effect= 5.05%
+t=258.00h | A=  0.00 mg | C=  0.29 mg/L | P=  0.26 mg/L | Ce=  0.34 mg/L | Tol= 0.31 | Effect= 4.85%
+t=259.00h | A=  0.00 mg | C=  0.26 mg/L | P=  0.24 mg/L | Ce=  0.33 mg/L | Tol= 0.31 | Effect= 4.60%
+t=260.00h | A=  0.00 mg | C=  0.24 mg/L | P=  0.22 mg/L | Ce=  0.31 mg/L | Tol= 0.31 | Effect= 4.32%
+t=261.00h | A=  0.00 mg | C=  0.22 mg/L | P=  0.21 mg/L | Ce=  0.29 mg/L | Tol= 0.31 | Effect= 4.03%
+t=262.00h | A=  0.00 mg | C=  0.20 mg/L | P=  0.19 mg/L | Ce=  0.27 mg/L | Tol= 0.31 | Effect= 3.74%
+t=263.00h | A=  0.00 mg | C=  0.19 mg/L | P=  0.18 mg/L | Ce=  0.26 mg/L | Tol= 0.31 | Effect= 3.46%
+
+========== PATIENT ASSESSMENT at t=264.00 hours ==========
+Current Effect: 3.19%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 16.32 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.31
+Escalation Factor: 2.93%
+Old Dose: 16.32 mg
+New Dose: 16.80 mg
+Dose Increase: +0.48 mg (+2.93%)
+
+--- DOSE ADMINISTERED ---
+Time: 264.00 h
+Dose: 16.80 mg
+C(t): 0.17 mg/L
+Ce(t): 0.24 mg/L
+Tol(t): 0.31
+Effect: 3.19%
+Total doses given: 21
+================================================
+t=264.00h | A= 16.80 mg | C=  0.17 mg/L | P=  0.16 mg/L | Ce=  0.24 mg/L | Tol= 0.31 | Effect= 3.19%
+t=265.00h | A=  2.27 mg | C=  0.56 mg/L | P=  0.22 mg/L | Ce=  0.29 mg/L | Tol= 0.31 | Effect= 3.96%
+t=266.00h | A=  0.31 mg | C=  0.50 mg/L | P=  0.28 mg/L | Ce=  0.34 mg/L | Tol= 0.31 | Effect= 4.82%
+t=267.00h | A=  0.04 mg | C=  0.42 mg/L | P=  0.30 mg/L | Ce=  0.37 mg/L | Tol= 0.31 | Effect= 5.21%
+t=268.00h | A=  0.01 mg | C=  0.37 mg/L | P=  0.30 mg/L | Ce=  0.37 mg/L | Tol= 0.32 | Effect= 5.29%
+t=269.00h | A=  0.00 mg | C=  0.33 mg/L | P=  0.29 mg/L | Ce=  0.37 mg/L | Tol= 0.32 | Effect= 5.18%
+t=270.00h | A=  0.00 mg | C=  0.30 mg/L | P=  0.27 mg/L | Ce=  0.35 mg/L | Tol= 0.32 | Effect= 4.98%
+t=271.00h | A=  0.00 mg | C=  0.27 mg/L | P=  0.25 mg/L | Ce=  0.34 mg/L | Tol= 0.32 | Effect= 4.72%
+t=272.00h | A=  0.00 mg | C=  0.25 mg/L | P=  0.23 mg/L | Ce=  0.32 mg/L | Tol= 0.32 | Effect= 4.43%
+t=273.00h | A=  0.00 mg | C=  0.23 mg/L | P=  0.21 mg/L | Ce=  0.30 mg/L | Tol= 0.32 | Effect= 4.14%
+t=274.00h | A=  0.00 mg | C=  0.21 mg/L | P=  0.20 mg/L | Ce=  0.28 mg/L | Tol= 0.32 | Effect= 3.84%
+t=275.00h | A=  0.00 mg | C=  0.19 mg/L | P=  0.18 mg/L | Ce=  0.27 mg/L | Tol= 0.32 | Effect= 3.55%
+
+========== PATIENT ASSESSMENT at t=276.00 hours ==========
+Current Effect: 3.27%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 16.80 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.33
+Escalation Factor: 2.98%
+Old Dose: 16.80 mg
+New Dose: 17.30 mg
+Dose Increase: +0.50 mg (+2.98%)
+
+--- DOSE ADMINISTERED ---
+Time: 276.00 h
+Dose: 17.30 mg
+C(t): 0.18 mg/L
+Ce(t): 0.25 mg/L
+Tol(t): 0.33
+Effect: 3.27%
+Total doses given: 22
+================================================
+t=276.00h | A= 17.30 mg | C=  0.18 mg/L | P=  0.17 mg/L | Ce=  0.25 mg/L | Tol= 0.33 | Effect= 3.27%
+t=277.00h | A=  2.34 mg | C=  0.58 mg/L | P=  0.23 mg/L | Ce=  0.30 mg/L | Tol= 0.33 | Effect= 4.07%
+t=278.00h | A=  0.32 mg | C=  0.51 mg/L | P=  0.29 mg/L | Ce=  0.35 mg/L | Tol= 0.33 | Effect= 4.94%
+t=279.00h | A=  0.04 mg | C=  0.44 mg/L | P=  0.31 mg/L | Ce=  0.38 mg/L | Tol= 0.33 | Effect= 5.35%
+t=280.00h | A=  0.01 mg | C=  0.38 mg/L | P=  0.31 mg/L | Ce=  0.39 mg/L | Tol= 0.33 | Effect= 5.42%
+t=281.00h | A=  0.00 mg | C=  0.34 mg/L | P=  0.30 mg/L | Ce=  0.38 mg/L | Tol= 0.33 | Effect= 5.32%
+t=282.00h | A=  0.00 mg | C=  0.31 mg/L | P=  0.28 mg/L | Ce=  0.37 mg/L | Tol= 0.33 | Effect= 5.11%
+t=283.00h | A=  0.00 mg | C=  0.28 mg/L | P=  0.26 mg/L | Ce=  0.35 mg/L | Tol= 0.33 | Effect= 4.84%
+t=284.00h | A=  0.00 mg | C=  0.26 mg/L | P=  0.24 mg/L | Ce=  0.33 mg/L | Tol= 0.34 | Effect= 4.55%
+t=285.00h | A=  0.00 mg | C=  0.24 mg/L | P=  0.22 mg/L | Ce=  0.31 mg/L | Tol= 0.34 | Effect= 4.25%
+t=286.00h | A=  0.00 mg | C=  0.22 mg/L | P=  0.20 mg/L | Ce=  0.29 mg/L | Tol= 0.34 | Effect= 3.95%
+t=287.00h | A=  0.00 mg | C=  0.20 mg/L | P=  0.19 mg/L | Ce=  0.27 mg/L | Tol= 0.34 | Effect= 3.65%
+
+========== PATIENT ASSESSMENT at t=288.00 hours ==========
+Current Effect: 3.37%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 17.30 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.34
+Escalation Factor: 3.02%
+Old Dose: 17.30 mg
+New Dose: 17.82 mg
+Dose Increase: +0.52 mg (+3.02%)
+
+--- DOSE ADMINISTERED ---
+Time: 288.00 h
+Dose: 17.82 mg
+C(t): 0.18 mg/L
+Ce(t): 0.26 mg/L
+Tol(t): 0.34
+Effect: 3.37%
+Total doses given: 23
+================================================
+t=288.00h | A= 17.82 mg | C=  0.18 mg/L | P=  0.17 mg/L | Ce=  0.26 mg/L | Tol= 0.34 | Effect= 3.37%
+t=289.00h | A=  2.41 mg | C=  0.60 mg/L | P=  0.24 mg/L | Ce=  0.31 mg/L | Tol= 0.34 | Effect= 4.18%
+t=290.00h | A=  0.33 mg | C=  0.53 mg/L | P=  0.30 mg/L | Ce=  0.37 mg/L | Tol= 0.34 | Effect= 5.07%
+t=291.00h | A=  0.04 mg | C=  0.45 mg/L | P=  0.32 mg/L | Ce=  0.39 mg/L | Tol= 0.34 | Effect= 5.49%
+t=292.00h | A=  0.01 mg | C=  0.39 mg/L | P=  0.32 mg/L | Ce=  0.40 mg/L | Tol= 0.34 | Effect= 5.57%
+t=293.00h | A=  0.00 mg | C=  0.35 mg/L | P=  0.31 mg/L | Ce=  0.39 mg/L | Tol= 0.35 | Effect= 5.46%
+t=294.00h | A=  0.00 mg | C=  0.32 mg/L | P=  0.29 mg/L | Ce=  0.38 mg/L | Tol= 0.35 | Effect= 5.25%
+t=295.00h | A=  0.00 mg | C=  0.29 mg/L | P=  0.27 mg/L | Ce=  0.36 mg/L | Tol= 0.35 | Effect= 4.98%
+t=296.00h | A=  0.00 mg | C=  0.27 mg/L | P=  0.25 mg/L | Ce=  0.34 mg/L | Tol= 0.35 | Effect= 4.68%
+t=297.00h | A=  0.00 mg | C=  0.24 mg/L | P=  0.23 mg/L | Ce=  0.32 mg/L | Tol= 0.35 | Effect= 4.37%
+t=298.00h | A=  0.00 mg | C=  0.22 mg/L | P=  0.21 mg/L | Ce=  0.30 mg/L | Tol= 0.35 | Effect= 4.06%
+t=299.00h | A=  0.00 mg | C=  0.21 mg/L | P=  0.19 mg/L | Ce=  0.28 mg/L | Tol= 0.35 | Effect= 3.76%
+
+========== PATIENT ASSESSMENT at t=300.00 hours ==========
+Current Effect: 3.47%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 17.82 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.35
+Escalation Factor: 3.06%
+Old Dose: 17.82 mg
+New Dose: 18.37 mg
+Dose Increase: +0.55 mg (+3.06%)
+
+--- DOSE ADMINISTERED ---
+Time: 300.00 h
+Dose: 18.37 mg
+C(t): 0.19 mg/L
+Ce(t): 0.27 mg/L
+Tol(t): 0.35
+Effect: 3.47%
+Total doses given: 24
+================================================
+t=300.00h | A= 18.37 mg | C=  0.19 mg/L | P=  0.18 mg/L | Ce=  0.27 mg/L | Tol= 0.35 | Effect= 3.47%
+t=301.00h | A=  2.49 mg | C=  0.62 mg/L | P=  0.25 mg/L | Ce=  0.32 mg/L | Tol= 0.35 | Effect= 4.29%
+t=302.00h | A=  0.34 mg | C=  0.55 mg/L | P=  0.31 mg/L | Ce=  0.38 mg/L | Tol= 0.36 | Effect= 5.21%
+t=303.00h | A=  0.05 mg | C=  0.47 mg/L | P=  0.33 mg/L | Ce=  0.41 mg/L | Tol= 0.36 | Effect= 5.63%
+t=304.00h | A=  0.01 mg | C=  0.41 mg/L | P=  0.33 mg/L | Ce=  0.41 mg/L | Tol= 0.36 | Effect= 5.72%
+t=305.00h | A=  0.00 mg | C=  0.36 mg/L | P=  0.32 mg/L | Ce=  0.41 mg/L | Tol= 0.36 | Effect= 5.61%
+t=306.00h | A=  0.00 mg | C=  0.33 mg/L | P=  0.30 mg/L | Ce=  0.39 mg/L | Tol= 0.36 | Effect= 5.39%
+t=307.00h | A=  0.00 mg | C=  0.30 mg/L | P=  0.28 mg/L | Ce=  0.38 mg/L | Tol= 0.36 | Effect= 5.12%
+t=308.00h | A=  0.00 mg | C=  0.28 mg/L | P=  0.26 mg/L | Ce=  0.36 mg/L | Tol= 0.36 | Effect= 4.81%
+t=309.00h | A=  0.00 mg | C=  0.25 mg/L | P=  0.24 mg/L | Ce=  0.34 mg/L | Tol= 0.37 | Effect= 4.50%
+t=310.00h | A=  0.00 mg | C=  0.23 mg/L | P=  0.22 mg/L | Ce=  0.32 mg/L | Tol= 0.37 | Effect= 4.18%
+t=311.00h | A=  0.00 mg | C=  0.21 mg/L | P=  0.20 mg/L | Ce=  0.30 mg/L | Tol= 0.37 | Effect= 3.87%
+
+========== PATIENT ASSESSMENT at t=312.00 hours ==========
+Current Effect: 3.57%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 18.37 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.37
+Escalation Factor: 3.11%
+Old Dose: 18.37 mg
+New Dose: 18.94 mg
+Dose Increase: +0.57 mg (+3.11%)
+
+--- DOSE ADMINISTERED ---
+Time: 312.00 h
+Dose: 18.94 mg
+C(t): 0.20 mg/L
+Ce(t): 0.28 mg/L
+Tol(t): 0.37
+Effect: 3.57%
+Total doses given: 25
+================================================
+t=312.00h | A= 18.94 mg | C=  0.20 mg/L | P=  0.19 mg/L | Ce=  0.28 mg/L | Tol= 0.37 | Effect= 3.57%
+t=313.00h | A=  2.56 mg | C=  0.64 mg/L | P=  0.26 mg/L | Ce=  0.33 mg/L | Tol= 0.37 | Effect= 4.42%
+t=314.00h | A=  0.35 mg | C=  0.57 mg/L | P=  0.32 mg/L | Ce=  0.39 mg/L | Tol= 0.37 | Effect= 5.36%
+t=315.00h | A=  0.05 mg | C=  0.48 mg/L | P=  0.34 mg/L | Ce=  0.42 mg/L | Tol= 0.37 | Effect= 5.79%
+t=316.00h | A=  0.01 mg | C=  0.42 mg/L | P=  0.34 mg/L | Ce=  0.43 mg/L | Tol= 0.37 | Effect= 5.88%
+t=317.00h | A=  0.00 mg | C=  0.38 mg/L | P=  0.33 mg/L | Ce=  0.42 mg/L | Tol= 0.38 | Effect= 5.76%
+t=318.00h | A=  0.00 mg | C=  0.34 mg/L | P=  0.31 mg/L | Ce=  0.41 mg/L | Tol= 0.38 | Effect= 5.54%
+t=319.00h | A=  0.00 mg | C=  0.31 mg/L | P=  0.29 mg/L | Ce=  0.39 mg/L | Tol= 0.38 | Effect= 5.26%
+t=320.00h | A=  0.00 mg | C=  0.29 mg/L | P=  0.27 mg/L | Ce=  0.37 mg/L | Tol= 0.38 | Effect= 4.95%
+t=321.00h | A=  0.00 mg | C=  0.26 mg/L | P=  0.25 mg/L | Ce=  0.35 mg/L | Tol= 0.38 | Effect= 4.63%
+t=322.00h | A=  0.00 mg | C=  0.24 mg/L | P=  0.23 mg/L | Ce=  0.33 mg/L | Tol= 0.38 | Effect= 4.31%
+t=323.00h | A=  0.00 mg | C=  0.22 mg/L | P=  0.21 mg/L | Ce=  0.31 mg/L | Tol= 0.38 | Effect= 3.99%
+
+========== PATIENT ASSESSMENT at t=324.00 hours ==========
+Current Effect: 3.68%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 18.94 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.38
+Escalation Factor: 3.15%
+Old Dose: 18.94 mg
+New Dose: 19.54 mg
+Dose Increase: +0.60 mg (+3.15%)
+
+--- DOSE ADMINISTERED ---
+Time: 324.00 h
+Dose: 19.54 mg
+C(t): 0.20 mg/L
+Ce(t): 0.29 mg/L
+Tol(t): 0.38
+Effect: 3.68%
+Total doses given: 26
+================================================
+t=324.00h | A= 19.54 mg | C=  0.20 mg/L | P=  0.19 mg/L | Ce=  0.29 mg/L | Tol= 0.38 | Effect= 3.68%
+t=325.00h | A=  2.64 mg | C=  0.66 mg/L | P=  0.27 mg/L | Ce=  0.34 mg/L | Tol= 0.38 | Effect= 4.55%
+t=326.00h | A=  0.36 mg | C=  0.59 mg/L | P=  0.33 mg/L | Ce=  0.41 mg/L | Tol= 0.39 | Effect= 5.51%
+t=327.00h | A=  0.05 mg | C=  0.50 mg/L | P=  0.36 mg/L | Ce=  0.44 mg/L | Tol= 0.39 | Effect= 5.95%
+t=328.00h | A=  0.01 mg | C=  0.44 mg/L | P=  0.35 mg/L | Ce=  0.44 mg/L | Tol= 0.39 | Effect= 6.04%
+t=329.00h | A=  0.00 mg | C=  0.39 mg/L | P=  0.34 mg/L | Ce=  0.44 mg/L | Tol= 0.39 | Effect= 5.93%
+t=330.00h | A=  0.00 mg | C=  0.36 mg/L | P=  0.32 mg/L | Ce=  0.42 mg/L | Tol= 0.39 | Effect= 5.70%
+t=331.00h | A=  0.00 mg | C=  0.32 mg/L | P=  0.30 mg/L | Ce=  0.40 mg/L | Tol= 0.39 | Effect= 5.42%
+t=332.00h | A=  0.00 mg | C=  0.30 mg/L | P=  0.28 mg/L | Ce=  0.38 mg/L | Tol= 0.39 | Effect= 5.10%
+t=333.00h | A=  0.00 mg | C=  0.27 mg/L | P=  0.26 mg/L | Ce=  0.36 mg/L | Tol= 0.40 | Effect= 4.77%
+t=334.00h | A=  0.00 mg | C=  0.25 mg/L | P=  0.24 mg/L | Ce=  0.34 mg/L | Tol= 0.40 | Effect= 4.44%
+t=335.00h | A=  0.00 mg | C=  0.23 mg/L | P=  0.22 mg/L | Ce=  0.32 mg/L | Tol= 0.40 | Effect= 4.11%
+
+========== PATIENT ASSESSMENT at t=336.00 hours ==========
+Current Effect: 3.80%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 19.54 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.40
+Escalation Factor: 3.19%
+Old Dose: 19.54 mg
+New Dose: 20.16 mg
+Dose Increase: +0.62 mg (+3.19%)
+
+--- DOSE ADMINISTERED ---
+Time: 336.00 h
+Dose: 20.16 mg
+C(t): 0.21 mg/L
+Ce(t): 0.30 mg/L
+Tol(t): 0.40
+Effect: 3.80%
+Total doses given: 27
+================================================
+t=336.00h | A= 20.16 mg | C=  0.21 mg/L | P=  0.20 mg/L | Ce=  0.30 mg/L | Tol= 0.40 | Effect= 3.80%
+t=337.00h | A=  2.73 mg | C=  0.68 mg/L | P=  0.28 mg/L | Ce=  0.36 mg/L | Tol= 0.40 | Effect= 4.68%
+t=338.00h | A=  0.37 mg | C=  0.61 mg/L | P=  0.35 mg/L | Ce=  0.42 mg/L | Tol= 0.40 | Effect= 5.67%
+t=339.00h | A=  0.05 mg | C=  0.52 mg/L | P=  0.37 mg/L | Ce=  0.45 mg/L | Tol= 0.40 | Effect= 6.12%
+t=340.00h | A=  0.01 mg | C=  0.45 mg/L | P=  0.37 mg/L | Ce=  0.46 mg/L | Tol= 0.40 | Effect= 6.22%
+t=341.00h | A=  0.00 mg | C=  0.41 mg/L | P=  0.35 mg/L | Ce=  0.45 mg/L | Tol= 0.41 | Effect= 6.10%
+t=342.00h | A=  0.00 mg | C=  0.37 mg/L | P=  0.33 mg/L | Ce=  0.44 mg/L | Tol= 0.41 | Effect= 5.87%
+t=343.00h | A=  0.00 mg | C=  0.34 mg/L | P=  0.31 mg/L | Ce=  0.42 mg/L | Tol= 0.41 | Effect= 5.58%
+t=344.00h | A=  0.00 mg | C=  0.31 mg/L | P=  0.29 mg/L | Ce=  0.40 mg/L | Tol= 0.41 | Effect= 5.26%
+t=345.00h | A=  0.00 mg | C=  0.29 mg/L | P=  0.27 mg/L | Ce=  0.38 mg/L | Tol= 0.41 | Effect= 4.92%
+t=346.00h | A=  0.00 mg | C=  0.26 mg/L | P=  0.25 mg/L | Ce=  0.35 mg/L | Tol= 0.41 | Effect= 4.58%
+t=347.00h | A=  0.00 mg | C=  0.24 mg/L | P=  0.23 mg/L | Ce=  0.33 mg/L | Tol= 0.41 | Effect= 4.24%
+
+========== PATIENT ASSESSMENT at t=348.00 hours ==========
+Current Effect: 3.92%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 20.16 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.41
+Escalation Factor: 3.24%
+Old Dose: 20.16 mg
+New Dose: 20.81 mg
+Dose Increase: +0.65 mg (+3.24%)
+
+--- DOSE ADMINISTERED ---
+Time: 348.00 h
+Dose: 20.81 mg
+C(t): 0.22 mg/L
+Ce(t): 0.31 mg/L
+Tol(t): 0.41
+Effect: 3.92%
+Total doses given: 28
+================================================
+t=348.00h | A= 20.81 mg | C=  0.22 mg/L | P=  0.21 mg/L | Ce=  0.31 mg/L | Tol= 0.41 | Effect= 3.92%
+t=349.00h | A=  2.82 mg | C=  0.71 mg/L | P=  0.29 mg/L | Ce=  0.37 mg/L | Tol= 0.41 | Effect= 4.83%
+t=350.00h | A=  0.38 mg | C=  0.63 mg/L | P=  0.36 mg/L | Ce=  0.44 mg/L | Tol= 0.42 | Effect= 5.83%
+t=351.00h | A=  0.05 mg | C=  0.54 mg/L | P=  0.38 mg/L | Ce=  0.47 mg/L | Tol= 0.42 | Effect= 6.30%
+t=352.00h | A=  0.01 mg | C=  0.47 mg/L | P=  0.38 mg/L | Ce=  0.48 mg/L | Tol= 0.42 | Effect= 6.40%
+t=353.00h | A=  0.00 mg | C=  0.42 mg/L | P=  0.37 mg/L | Ce=  0.47 mg/L | Tol= 0.42 | Effect= 6.28%
+t=354.00h | A=  0.00 mg | C=  0.38 mg/L | P=  0.34 mg/L | Ce=  0.45 mg/L | Tol= 0.42 | Effect= 6.05%
+t=355.00h | A=  0.00 mg | C=  0.35 mg/L | P=  0.32 mg/L | Ce=  0.43 mg/L | Tol= 0.42 | Effect= 5.75%
+t=356.00h | A=  0.00 mg | C=  0.32 mg/L | P=  0.30 mg/L | Ce=  0.41 mg/L | Tol= 0.43 | Effect= 5.42%
+t=357.00h | A=  0.00 mg | C=  0.30 mg/L | P=  0.28 mg/L | Ce=  0.39 mg/L | Tol= 0.43 | Effect= 5.07%
+t=358.00h | A=  0.00 mg | C=  0.27 mg/L | P=  0.26 mg/L | Ce=  0.37 mg/L | Tol= 0.43 | Effect= 4.73%
+t=359.00h | A=  0.00 mg | C=  0.25 mg/L | P=  0.24 mg/L | Ce=  0.34 mg/L | Tol= 0.43 | Effect= 4.38%
+
+========== PATIENT ASSESSMENT at t=360.00 hours ==========
+Current Effect: 4.05%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 20.81 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.43
+Escalation Factor: 3.29%
+Old Dose: 20.81 mg
+New Dose: 21.50 mg
+Dose Increase: +0.68 mg (+3.29%)
+
+--- DOSE ADMINISTERED ---
+Time: 360.00 h
+Dose: 21.50 mg
+C(t): 0.23 mg/L
+Ce(t): 0.32 mg/L
+Tol(t): 0.43
+Effect: 4.05%
+Total doses given: 29
+================================================
+t=360.00h | A= 21.50 mg | C=  0.23 mg/L | P=  0.22 mg/L | Ce=  0.32 mg/L | Tol= 0.43 | Effect= 4.05%
+t=361.00h | A=  2.91 mg | C=  0.73 mg/L | P=  0.30 mg/L | Ce=  0.38 mg/L | Tol= 0.43 | Effect= 4.98%
+t=362.00h | A=  0.39 mg | C=  0.66 mg/L | P=  0.37 mg/L | Ce=  0.45 mg/L | Tol= 0.43 | Effect= 6.01%
+t=363.00h | A=  0.05 mg | C=  0.56 mg/L | P=  0.40 mg/L | Ce=  0.49 mg/L | Tol= 0.43 | Effect= 6.49%
+t=364.00h | A=  0.01 mg | C=  0.49 mg/L | P=  0.40 mg/L | Ce=  0.49 mg/L | Tol= 0.43 | Effect= 6.59%
+t=365.00h | A=  0.00 mg | C=  0.44 mg/L | P=  0.38 mg/L | Ce=  0.49 mg/L | Tol= 0.44 | Effect= 6.47%
+t=366.00h | A=  0.00 mg | C=  0.40 mg/L | P=  0.36 mg/L | Ce=  0.47 mg/L | Tol= 0.44 | Effect= 6.24%
+t=367.00h | A=  0.00 mg | C=  0.37 mg/L | P=  0.33 mg/L | Ce=  0.45 mg/L | Tol= 0.44 | Effect= 5.93%
+t=368.00h | A=  0.00 mg | C=  0.34 mg/L | P=  0.31 mg/L | Ce=  0.43 mg/L | Tol= 0.44 | Effect= 5.59%
+t=369.00h | A=  0.00 mg | C=  0.31 mg/L | P=  0.29 mg/L | Ce=  0.41 mg/L | Tol= 0.44 | Effect= 5.24%
+t=370.00h | A=  0.00 mg | C=  0.28 mg/L | P=  0.27 mg/L | Ce=  0.38 mg/L | Tol= 0.44 | Effect= 4.88%
+t=371.00h | A=  0.00 mg | C=  0.26 mg/L | P=  0.25 mg/L | Ce=  0.36 mg/L | Tol= 0.44 | Effect= 4.53%
+
+========== PATIENT ASSESSMENT at t=372.00 hours ==========
+Current Effect: 4.19%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 21.50 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.44
+Escalation Factor: 3.33%
+Old Dose: 21.50 mg
+New Dose: 22.21 mg
+Dose Increase: +0.72 mg (+3.33%)
+
+--- DOSE ADMINISTERED ---
+Time: 372.00 h
+Dose: 22.21 mg
+C(t): 0.24 mg/L
+Ce(t): 0.33 mg/L
+Tol(t): 0.44
+Effect: 4.19%
+Total doses given: 30
+================================================
+t=372.00h | A= 22.21 mg | C=  0.24 mg/L | P=  0.23 mg/L | Ce=  0.33 mg/L | Tol= 0.44 | Effect= 4.19%
+t=373.00h | A=  3.01 mg | C=  0.76 mg/L | P=  0.31 mg/L | Ce=  0.40 mg/L | Tol= 0.45 | Effect= 5.14%
+t=374.00h | A=  0.41 mg | C=  0.68 mg/L | P=  0.39 mg/L | Ce=  0.47 mg/L | Tol= 0.45 | Effect= 6.19%
+t=375.00h | A=  0.06 mg | C=  0.58 mg/L | P=  0.41 mg/L | Ce=  0.51 mg/L | Tol= 0.45 | Effect= 6.69%
+t=376.00h | A=  0.01 mg | C=  0.51 mg/L | P=  0.41 mg/L | Ce=  0.51 mg/L | Tol= 0.45 | Effect= 6.79%
+t=377.00h | A=  0.00 mg | C=  0.46 mg/L | P=  0.39 mg/L | Ce=  0.51 mg/L | Tol= 0.45 | Effect= 6.68%
+t=378.00h | A=  0.00 mg | C=  0.42 mg/L | P=  0.37 mg/L | Ce=  0.49 mg/L | Tol= 0.45 | Effect= 6.43%
+t=379.00h | A=  0.00 mg | C=  0.38 mg/L | P=  0.35 mg/L | Ce=  0.47 mg/L | Tol= 0.46 | Effect= 6.12%
+t=380.00h | A=  0.00 mg | C=  0.35 mg/L | P=  0.32 mg/L | Ce=  0.45 mg/L | Tol= 0.46 | Effect= 5.77%
+t=381.00h | A=  0.00 mg | C=  0.32 mg/L | P=  0.30 mg/L | Ce=  0.42 mg/L | Tol= 0.46 | Effect= 5.41%
+t=382.00h | A=  0.00 mg | C=  0.30 mg/L | P=  0.28 mg/L | Ce=  0.40 mg/L | Tol= 0.46 | Effect= 5.04%
+t=383.00h | A=  0.00 mg | C=  0.27 mg/L | P=  0.26 mg/L | Ce=  0.37 mg/L | Tol= 0.46 | Effect= 4.68%
+
+========== PATIENT ASSESSMENT at t=384.00 hours ==========
+Current Effect: 4.33%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 22.21 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.46
+Escalation Factor: 3.38%
+Old Dose: 22.21 mg
+New Dose: 22.97 mg
+Dose Increase: +0.75 mg (+3.38%)
+
+--- DOSE ADMINISTERED ---
+Time: 384.00 h
+Dose: 22.97 mg
+C(t): 0.25 mg/L
+Ce(t): 0.35 mg/L
+Tol(t): 0.46
+Effect: 4.33%
+Total doses given: 31
+================================================
+t=384.00h | A= 22.97 mg | C=  0.25 mg/L | P=  0.24 mg/L | Ce=  0.35 mg/L | Tol= 0.46 | Effect= 4.33%
+t=385.00h | A=  3.11 mg | C=  0.79 mg/L | P=  0.32 mg/L | Ce=  0.42 mg/L | Tol= 0.46 | Effect= 5.30%
+t=386.00h | A=  0.42 mg | C=  0.71 mg/L | P=  0.40 mg/L | Ce=  0.49 mg/L | Tol= 0.46 | Effect= 6.39%
+t=387.00h | A=  0.06 mg | C=  0.60 mg/L | P=  0.43 mg/L | Ce=  0.53 mg/L | Tol= 0.47 | Effect= 6.90%
+t=388.00h | A=  0.01 mg | C=  0.53 mg/L | P=  0.43 mg/L | Ce=  0.53 mg/L | Tol= 0.47 | Effect= 7.01%
+t=389.00h | A=  0.00 mg | C=  0.48 mg/L | P=  0.41 mg/L | Ce=  0.53 mg/L | Tol= 0.47 | Effect= 6.89%
+t=390.00h | A=  0.00 mg | C=  0.43 mg/L | P=  0.39 mg/L | Ce=  0.51 mg/L | Tol= 0.47 | Effect= 6.64%
+t=391.00h | A=  0.00 mg | C=  0.40 mg/L | P=  0.36 mg/L | Ce=  0.49 mg/L | Tol= 0.47 | Effect= 6.32%
+t=392.00h | A=  0.00 mg | C=  0.37 mg/L | P=  0.34 mg/L | Ce=  0.46 mg/L | Tol= 0.47 | Effect= 5.97%
+t=393.00h | A=  0.00 mg | C=  0.34 mg/L | P=  0.31 mg/L | Ce=  0.44 mg/L | Tol= 0.48 | Effect= 5.59%
+t=394.00h | A=  0.00 mg | C=  0.31 mg/L | P=  0.29 mg/L | Ce=  0.41 mg/L | Tol= 0.48 | Effect= 5.22%
+t=395.00h | A=  0.00 mg | C=  0.29 mg/L | P=  0.27 mg/L | Ce=  0.39 mg/L | Tol= 0.48 | Effect= 4.85%
+
+========== PATIENT ASSESSMENT at t=396.00 hours ==========
+Current Effect: 4.48%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 22.97 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.48
+Escalation Factor: 3.43%
+Old Dose: 22.97 mg
+New Dose: 23.75 mg
+Dose Increase: +0.79 mg (+3.43%)
+
+--- DOSE ADMINISTERED ---
+Time: 396.00 h
+Dose: 23.75 mg
+C(t): 0.26 mg/L
+Ce(t): 0.36 mg/L
+Tol(t): 0.48
+Effect: 4.48%
+Total doses given: 32
+================================================
+t=396.00h | A= 23.75 mg | C=  0.26 mg/L | P=  0.25 mg/L | Ce=  0.36 mg/L | Tol= 0.48 | Effect= 4.48%
+t=397.00h | A=  3.21 mg | C=  0.82 mg/L | P=  0.33 mg/L | Ce=  0.43 mg/L | Tol= 0.48 | Effect= 5.48%
+t=398.00h | A=  0.44 mg | C=  0.73 mg/L | P=  0.42 mg/L | Ce=  0.51 mg/L | Tol= 0.48 | Effect= 6.59%
+t=399.00h | A=  0.06 mg | C=  0.63 mg/L | P=  0.45 mg/L | Ce=  0.55 mg/L | Tol= 0.48 | Effect= 7.11%
+t=400.00h | A=  0.01 mg | C=  0.55 mg/L | P=  0.44 mg/L | Ce=  0.56 mg/L | Tol= 0.48 | Effect= 7.23%
+t=401.00h | A=  0.00 mg | C=  0.50 mg/L | P=  0.43 mg/L | Ce=  0.55 mg/L | Tol= 0.49 | Effect= 7.11%
+t=402.00h | A=  0.00 mg | C=  0.45 mg/L | P=  0.40 mg/L | Ce=  0.53 mg/L | Tol= 0.49 | Effect= 6.86%
+t=403.00h | A=  0.00 mg | C=  0.41 mg/L | P=  0.38 mg/L | Ce=  0.51 mg/L | Tol= 0.49 | Effect= 6.53%
+t=404.00h | A=  0.00 mg | C=  0.38 mg/L | P=  0.35 mg/L | Ce=  0.48 mg/L | Tol= 0.49 | Effect= 6.17%
+t=405.00h | A=  0.00 mg | C=  0.35 mg/L | P=  0.33 mg/L | Ce=  0.46 mg/L | Tol= 0.49 | Effect= 5.79%
+t=406.00h | A=  0.00 mg | C=  0.32 mg/L | P=  0.30 mg/L | Ce=  0.43 mg/L | Tol= 0.49 | Effect= 5.40%
+t=407.00h | A=  0.00 mg | C=  0.30 mg/L | P=  0.28 mg/L | Ce=  0.40 mg/L | Tol= 0.49 | Effect= 5.02%
+
+========== PATIENT ASSESSMENT at t=408.00 hours ==========
+Current Effect: 4.65%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 23.75 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.50
+Escalation Factor: 3.49%
+Old Dose: 23.75 mg
+New Dose: 24.58 mg
+Dose Increase: +0.83 mg (+3.49%)
+
+--- DOSE ADMINISTERED ---
+Time: 408.00 h
+Dose: 24.58 mg
+C(t): 0.27 mg/L
+Ce(t): 0.38 mg/L
+Tol(t): 0.50
+Effect: 4.65%
+Total doses given: 33
+================================================
+t=408.00h | A= 24.58 mg | C=  0.27 mg/L | P=  0.26 mg/L | Ce=  0.38 mg/L | Tol= 0.50 | Effect= 4.65%
+t=409.00h | A=  3.33 mg | C=  0.85 mg/L | P=  0.35 mg/L | Ce=  0.45 mg/L | Tol= 0.50 | Effect= 5.67%
+t=410.00h | A=  0.45 mg | C=  0.76 mg/L | P=  0.44 mg/L | Ce=  0.53 mg/L | Tol= 0.50 | Effect= 6.81%
+t=411.00h | A=  0.06 mg | C=  0.65 mg/L | P=  0.47 mg/L | Ce=  0.57 mg/L | Tol= 0.50 | Effect= 7.34%
+t=412.00h | A=  0.01 mg | C=  0.58 mg/L | P=  0.46 mg/L | Ce=  0.58 mg/L | Tol= 0.50 | Effect= 7.46%
+t=413.00h | A=  0.00 mg | C=  0.52 mg/L | P=  0.44 mg/L | Ce=  0.57 mg/L | Tol= 0.50 | Effect= 7.34%
+t=414.00h | A=  0.00 mg | C=  0.47 mg/L | P=  0.42 mg/L | Ce=  0.55 mg/L | Tol= 0.51 | Effect= 7.09%
+t=415.00h | A=  0.00 mg | C=  0.43 mg/L | P=  0.39 mg/L | Ce=  0.53 mg/L | Tol= 0.51 | Effect= 6.75%
+t=416.00h | A=  0.00 mg | C=  0.40 mg/L | P=  0.37 mg/L | Ce=  0.51 mg/L | Tol= 0.51 | Effect= 6.38%
+t=417.00h | A=  0.00 mg | C=  0.37 mg/L | P=  0.34 mg/L | Ce=  0.48 mg/L | Tol= 0.51 | Effect= 5.99%
+t=418.00h | A=  0.00 mg | C=  0.34 mg/L | P=  0.31 mg/L | Ce=  0.45 mg/L | Tol= 0.51 | Effect= 5.59%
+t=419.00h | A=  0.00 mg | C=  0.31 mg/L | P=  0.29 mg/L | Ce=  0.42 mg/L | Tol= 0.51 | Effect= 5.20%
+
+========== PATIENT ASSESSMENT at t=420.00 hours ==========
+Current Effect: 4.82%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 24.58 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.51
+Escalation Factor: 3.54%
+Old Dose: 24.58 mg
+New Dose: 25.45 mg
+Dose Increase: +0.87 mg (+3.54%)
+
+--- DOSE ADMINISTERED ---
+Time: 420.00 h
+Dose: 25.45 mg
+C(t): 0.29 mg/L
+Ce(t): 0.40 mg/L
+Tol(t): 0.51
+Effect: 4.82%
+Total doses given: 34
+================================================
+t=420.00h | A= 25.45 mg | C=  0.29 mg/L | P=  0.27 mg/L | Ce=  0.40 mg/L | Tol= 0.51 | Effect= 4.82%
+t=421.00h | A=  3.44 mg | C=  0.89 mg/L | P=  0.36 mg/L | Ce=  0.47 mg/L | Tol= 0.51 | Effect= 5.86%
+t=422.00h | A=  0.47 mg | C=  0.80 mg/L | P=  0.45 mg/L | Ce=  0.55 mg/L | Tol= 0.52 | Effect= 7.04%
+t=423.00h | A=  0.06 mg | C=  0.68 mg/L | P=  0.48 mg/L | Ce=  0.59 mg/L | Tol= 0.52 | Effect= 7.59%
+t=424.00h | A=  0.01 mg | C=  0.60 mg/L | P=  0.48 mg/L | Ce=  0.60 mg/L | Tol= 0.52 | Effect= 7.71%
+t=425.00h | A=  0.00 mg | C=  0.54 mg/L | P=  0.46 mg/L | Ce=  0.60 mg/L | Tol= 0.52 | Effect= 7.59%
+t=426.00h | A=  0.00 mg | C=  0.49 mg/L | P=  0.44 mg/L | Ce=  0.58 mg/L | Tol= 0.52 | Effect= 7.33%
+t=427.00h | A=  0.00 mg | C=  0.45 mg/L | P=  0.41 mg/L | Ce=  0.55 mg/L | Tol= 0.53 | Effect= 6.99%
+t=428.00h | A=  0.00 mg | C=  0.42 mg/L | P=  0.38 mg/L | Ce=  0.53 mg/L | Tol= 0.53 | Effect= 6.61%
+t=429.00h | A=  0.00 mg | C=  0.38 mg/L | P=  0.35 mg/L | Ce=  0.50 mg/L | Tol= 0.53 | Effect= 6.20%
+t=430.00h | A=  0.00 mg | C=  0.35 mg/L | P=  0.33 mg/L | Ce=  0.47 mg/L | Tol= 0.53 | Effect= 5.80%
+t=431.00h | A=  0.00 mg | C=  0.33 mg/L | P=  0.30 mg/L | Ce=  0.44 mg/L | Tol= 0.53 | Effect= 5.39%
+
+========== PATIENT ASSESSMENT at t=432.00 hours ==========
+Current Effect: 5.00%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 25.45 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.53
+Escalation Factor: 3.59%
+Old Dose: 25.45 mg
+New Dose: 26.37 mg
+Dose Increase: +0.91 mg (+3.59%)
+
+--- DOSE ADMINISTERED ---
+Time: 432.00 h
+Dose: 26.37 mg
+C(t): 0.30 mg/L
+Ce(t): 0.41 mg/L
+Tol(t): 0.53
+Effect: 5.00%
+Total doses given: 35
+================================================
+t=432.00h | A= 26.37 mg | C=  0.30 mg/L | P=  0.28 mg/L | Ce=  0.41 mg/L | Tol= 0.53 | Effect= 5.00%
+t=433.00h | A=  3.57 mg | C=  0.92 mg/L | P=  0.38 mg/L | Ce=  0.49 mg/L | Tol= 0.53 | Effect= 6.07%
+t=434.00h | A=  0.48 mg | C=  0.83 mg/L | P=  0.47 mg/L | Ce=  0.58 mg/L | Tol= 0.53 | Effect= 7.27%
+t=435.00h | A=  0.07 mg | C=  0.71 mg/L | P=  0.51 mg/L | Ce=  0.62 mg/L | Tol= 0.54 | Effect= 7.84%
+t=436.00h | A=  0.01 mg | C=  0.63 mg/L | P=  0.50 mg/L | Ce=  0.63 mg/L | Tol= 0.54 | Effect= 7.97%
+t=437.00h | A=  0.00 mg | C=  0.56 mg/L | P=  0.48 mg/L | Ce=  0.62 mg/L | Tol= 0.54 | Effect= 7.85%
+t=438.00h | A=  0.00 mg | C=  0.52 mg/L | P=  0.46 mg/L | Ce=  0.60 mg/L | Tol= 0.54 | Effect= 7.58%
+t=439.00h | A=  0.00 mg | C=  0.47 mg/L | P=  0.43 mg/L | Ce=  0.58 mg/L | Tol= 0.54 | Effect= 7.23%
+t=440.00h | A=  0.00 mg | C=  0.44 mg/L | P=  0.40 mg/L | Ce=  0.55 mg/L | Tol= 0.55 | Effect= 6.84%
+t=441.00h | A=  0.00 mg | C=  0.40 mg/L | P=  0.37 mg/L | Ce=  0.52 mg/L | Tol= 0.55 | Effect= 6.43%
+t=442.00h | A=  0.00 mg | C=  0.37 mg/L | P=  0.34 mg/L | Ce=  0.49 mg/L | Tol= 0.55 | Effect= 6.01%
+t=443.00h | A=  0.00 mg | C=  0.34 mg/L | P=  0.32 mg/L | Ce=  0.46 mg/L | Tol= 0.55 | Effect= 5.60%
+
+========== PATIENT ASSESSMENT at t=444.00 hours ==========
+Current Effect: 5.19%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 26.37 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.55
+Escalation Factor: 3.65%
+Old Dose: 26.37 mg
+New Dose: 27.33 mg
+Dose Increase: +0.96 mg (+3.65%)
+
+--- DOSE ADMINISTERED ---
+Time: 444.00 h
+Dose: 27.33 mg
+C(t): 0.32 mg/L
+Ce(t): 0.43 mg/L
+Tol(t): 0.55
+Effect: 5.19%
+Total doses given: 36
+================================================
+t=444.00h | A= 27.33 mg | C=  0.32 mg/L | P=  0.29 mg/L | Ce=  0.43 mg/L | Tol= 0.55 | Effect= 5.19%
+t=445.00h | A=  3.70 mg | C=  0.96 mg/L | P=  0.40 mg/L | Ce=  0.51 mg/L | Tol= 0.55 | Effect= 6.29%
+t=446.00h | A=  0.50 mg | C=  0.86 mg/L | P=  0.49 mg/L | Ce=  0.60 mg/L | Tol= 0.55 | Effect= 7.53%
+t=447.00h | A=  0.07 mg | C=  0.74 mg/L | P=  0.53 mg/L | Ce=  0.65 mg/L | Tol= 0.55 | Effect= 8.11%
+t=448.00h | A=  0.01 mg | C=  0.66 mg/L | P=  0.53 mg/L | Ce=  0.66 mg/L | Tol= 0.56 | Effect= 8.24%
+t=449.00h | A=  0.00 mg | C=  0.59 mg/L | P=  0.51 mg/L | Ce=  0.65 mg/L | Tol= 0.56 | Effect= 8.12%
+t=450.00h | A=  0.00 mg | C=  0.54 mg/L | P=  0.48 mg/L | Ce=  0.63 mg/L | Tol= 0.56 | Effect= 7.85%
+t=451.00h | A=  0.00 mg | C=  0.50 mg/L | P=  0.45 mg/L | Ce=  0.60 mg/L | Tol= 0.56 | Effect= 7.49%
+t=452.00h | A=  0.00 mg | C=  0.46 mg/L | P=  0.42 mg/L | Ce=  0.58 mg/L | Tol= 0.56 | Effect= 7.09%
+t=453.00h | A=  0.00 mg | C=  0.42 mg/L | P=  0.39 mg/L | Ce=  0.55 mg/L | Tol= 0.57 | Effect= 6.67%
+t=454.00h | A=  0.00 mg | C=  0.39 mg/L | P=  0.36 mg/L | Ce=  0.51 mg/L | Tol= 0.57 | Effect= 6.24%
+t=455.00h | A=  0.00 mg | C=  0.36 mg/L | P=  0.33 mg/L | Ce=  0.48 mg/L | Tol= 0.57 | Effect= 5.82%
+
+========== PATIENT ASSESSMENT at t=456.00 hours ==========
+Current Effect: 5.40%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 27.33 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.57
+Escalation Factor: 3.71%
+Old Dose: 27.33 mg
+New Dose: 28.34 mg
+Dose Increase: +1.01 mg (+3.71%)
+
+--- DOSE ADMINISTERED ---
+Time: 456.00 h
+Dose: 28.34 mg
+C(t): 0.33 mg/L
+Ce(t): 0.45 mg/L
+Tol(t): 0.57
+Effect: 5.40%
+Total doses given: 37
+================================================
+t=456.00h | A= 28.34 mg | C=  0.33 mg/L | P=  0.31 mg/L | Ce=  0.45 mg/L | Tol= 0.57 | Effect= 5.40%
+t=457.00h | A=  3.84 mg | C=  1.00 mg/L | P=  0.41 mg/L | Ce=  0.54 mg/L | Tol= 0.57 | Effect= 6.53%
+t=458.00h | A=  0.52 mg | C=  0.90 mg/L | P=  0.52 mg/L | Ce=  0.63 mg/L | Tol= 0.57 | Effect= 7.79%
+t=459.00h | A=  0.07 mg | C=  0.78 mg/L | P=  0.55 mg/L | Ce=  0.68 mg/L | Tol= 0.57 | Effect= 8.39%
+t=460.00h | A=  0.01 mg | C=  0.69 mg/L | P=  0.55 mg/L | Ce=  0.69 mg/L | Tol= 0.58 | Effect= 8.53%
+t=461.00h | A=  0.00 mg | C=  0.62 mg/L | P=  0.53 mg/L | Ce=  0.68 mg/L | Tol= 0.58 | Effect= 8.41%
+t=462.00h | A=  0.00 mg | C=  0.57 mg/L | P=  0.50 mg/L | Ce=  0.66 mg/L | Tol= 0.58 | Effect= 8.13%
+t=463.00h | A=  0.00 mg | C=  0.52 mg/L | P=  0.47 mg/L | Ce=  0.63 mg/L | Tol= 0.58 | Effect= 7.77%
+t=464.00h | A=  0.00 mg | C=  0.48 mg/L | P=  0.44 mg/L | Ce=  0.60 mg/L | Tol= 0.59 | Effect= 7.36%
+t=465.00h | A=  0.00 mg | C=  0.44 mg/L | P=  0.41 mg/L | Ce=  0.57 mg/L | Tol= 0.59 | Effect= 6.93%
+t=466.00h | A=  0.00 mg | C=  0.41 mg/L | P=  0.38 mg/L | Ce=  0.54 mg/L | Tol= 0.59 | Effect= 6.49%
+t=467.00h | A=  0.00 mg | C=  0.38 mg/L | P=  0.35 mg/L | Ce=  0.51 mg/L | Tol= 0.59 | Effect= 6.05%
+
+========== PATIENT ASSESSMENT at t=468.00 hours ==========
+Current Effect: 5.62%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 28.34 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.59
+Escalation Factor: 3.77%
+Old Dose: 28.34 mg
+New Dose: 29.41 mg
+Dose Increase: +1.07 mg (+3.77%)
+
+--- DOSE ADMINISTERED ---
+Time: 468.00 h
+Dose: 29.41 mg
+C(t): 0.35 mg/L
+Ce(t): 0.48 mg/L
+Tol(t): 0.59
+Effect: 5.62%
+Total doses given: 38
+================================================
+t=468.00h | A= 29.41 mg | C=  0.35 mg/L | P=  0.32 mg/L | Ce=  0.48 mg/L | Tol= 0.59 | Effect= 5.62%
+t=469.00h | A=  3.98 mg | C=  1.04 mg/L | P=  0.43 mg/L | Ce=  0.56 mg/L | Tol= 0.59 | Effect= 6.77%
+t=470.00h | A=  0.54 mg | C=  0.94 mg/L | P=  0.54 mg/L | Ce=  0.66 mg/L | Tol= 0.59 | Effect= 8.07%
+t=471.00h | A=  0.07 mg | C=  0.81 mg/L | P=  0.58 mg/L | Ce=  0.71 mg/L | Tol= 0.60 | Effect= 8.69%
+t=472.00h | A=  0.01 mg | C=  0.72 mg/L | P=  0.57 mg/L | Ce=  0.72 mg/L | Tol= 0.60 | Effect= 8.84%
+t=473.00h | A=  0.00 mg | C=  0.65 mg/L | P=  0.55 mg/L | Ce=  0.71 mg/L | Tol= 0.60 | Effect= 8.71%
+t=474.00h | A=  0.00 mg | C=  0.59 mg/L | P=  0.52 mg/L | Ce=  0.69 mg/L | Tol= 0.60 | Effect= 8.43%
+t=475.00h | A=  0.00 mg | C=  0.55 mg/L | P=  0.49 mg/L | Ce=  0.66 mg/L | Tol= 0.60 | Effect= 8.06%
+t=476.00h | A=  0.00 mg | C=  0.50 mg/L | P=  0.46 mg/L | Ce=  0.63 mg/L | Tol= 0.61 | Effect= 7.64%
+t=477.00h | A=  0.00 mg | C=  0.47 mg/L | P=  0.43 mg/L | Ce=  0.60 mg/L | Tol= 0.61 | Effect= 7.20%
+t=478.00h | A=  0.00 mg | C=  0.43 mg/L | P=  0.40 mg/L | Ce=  0.57 mg/L | Tol= 0.61 | Effect= 6.74%
+t=479.00h | A=  0.00 mg | C=  0.40 mg/L | P=  0.37 mg/L | Ce=  0.53 mg/L | Tol= 0.61 | Effect= 6.29%
+
+========== PATIENT ASSESSMENT at t=480.00 hours ==========
+Current Effect: 5.85%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 29.41 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.61
+Escalation Factor: 3.83%
+Old Dose: 29.41 mg
+New Dose: 30.54 mg
+Dose Increase: +1.13 mg (+3.83%)
+
+--- DOSE ADMINISTERED ---
+Time: 480.00 h
+Dose: 30.54 mg
+C(t): 0.37 mg/L
+Ce(t): 0.50 mg/L
+Tol(t): 0.61
+Effect: 5.85%
+Total doses given: 39
+================================================
+t=480.00h | A= 30.54 mg | C=  0.37 mg/L | P=  0.34 mg/L | Ce=  0.50 mg/L | Tol= 0.61 | Effect= 5.85%
+t=481.00h | A=  4.13 mg | C=  1.09 mg/L | P=  0.46 mg/L | Ce=  0.59 mg/L | Tol= 0.61 | Effect= 7.04%
+t=482.00h | A=  0.56 mg | C=  0.99 mg/L | P=  0.56 mg/L | Ce=  0.69 mg/L | Tol= 0.61 | Effect= 8.37%
+t=483.00h | A=  0.08 mg | C=  0.85 mg/L | P=  0.60 mg/L | Ce=  0.74 mg/L | Tol= 0.62 | Effect= 9.01%
+t=484.00h | A=  0.01 mg | C=  0.75 mg/L | P=  0.60 mg/L | Ce=  0.75 mg/L | Tol= 0.62 | Effect= 9.16%
+t=485.00h | A=  0.00 mg | C=  0.68 mg/L | P=  0.58 mg/L | Ce=  0.74 mg/L | Tol= 0.62 | Effect= 9.03%
+t=486.00h | A=  0.00 mg | C=  0.62 mg/L | P=  0.55 mg/L | Ce=  0.72 mg/L | Tol= 0.62 | Effect= 8.75%
+t=487.00h | A=  0.00 mg | C=  0.57 mg/L | P=  0.52 mg/L | Ce=  0.70 mg/L | Tol= 0.63 | Effect= 8.37%
+t=488.00h | A=  0.00 mg | C=  0.53 mg/L | P=  0.48 mg/L | Ce=  0.66 mg/L | Tol= 0.63 | Effect= 7.94%
+t=489.00h | A=  0.00 mg | C=  0.49 mg/L | P=  0.45 mg/L | Ce=  0.63 mg/L | Tol= 0.63 | Effect= 7.48%
+t=490.00h | A=  0.00 mg | C=  0.45 mg/L | P=  0.42 mg/L | Ce=  0.59 mg/L | Tol= 0.63 | Effect= 7.02%
+t=491.00h | A=  0.00 mg | C=  0.42 mg/L | P=  0.39 mg/L | Ce=  0.56 mg/L | Tol= 0.63 | Effect= 6.55%
+
+========== PATIENT ASSESSMENT at t=492.00 hours ==========
+Current Effect: 6.10%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 30.54 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.63
+Escalation Factor: 3.90%
+Old Dose: 30.54 mg
+New Dose: 31.73 mg
+Dose Increase: +1.19 mg (+3.90%)
+
+--- DOSE ADMINISTERED ---
+Time: 492.00 h
+Dose: 31.73 mg
+C(t): 0.39 mg/L
+Ce(t): 0.53 mg/L
+Tol(t): 0.63
+Effect: 6.10%
+Total doses given: 40
+================================================
+t=492.00h | A= 31.73 mg | C=  0.39 mg/L | P=  0.36 mg/L | Ce=  0.53 mg/L | Tol= 0.63 | Effect= 6.10%
+t=493.00h | A=  4.29 mg | C=  1.14 mg/L | P=  0.48 mg/L | Ce=  0.62 mg/L | Tol= 0.63 | Effect= 7.31%
+t=494.00h | A=  0.58 mg | C=  1.03 mg/L | P=  0.59 mg/L | Ce=  0.72 mg/L | Tol= 0.64 | Effect= 8.68%
+t=495.00h | A=  0.08 mg | C=  0.89 mg/L | P=  0.63 mg/L | Ce=  0.78 mg/L | Tol= 0.64 | Effect= 9.34%
+t=496.00h | A=  0.01 mg | C=  0.79 mg/L | P=  0.63 mg/L | Ce=  0.79 mg/L | Tol= 0.64 | Effect= 9.50%
+t=497.00h | A=  0.00 mg | C=  0.72 mg/L | P=  0.61 mg/L | Ce=  0.78 mg/L | Tol= 0.64 | Effect= 9.37%
+t=498.00h | A=  0.00 mg | C=  0.66 mg/L | P=  0.58 mg/L | Ce=  0.76 mg/L | Tol= 0.65 | Effect= 9.08%
+t=499.00h | A=  0.00 mg | C=  0.61 mg/L | P=  0.54 mg/L | Ce=  0.73 mg/L | Tol= 0.65 | Effect= 8.70%
+t=500.00h | A=  0.00 mg | C=  0.56 mg/L | P=  0.51 mg/L | Ce=  0.70 mg/L | Tol= 0.65 | Effect= 8.26%
+t=501.00h | A=  0.00 mg | C=  0.52 mg/L | P=  0.47 mg/L | Ce=  0.66 mg/L | Tol= 0.65 | Effect= 7.79%
+t=502.00h | A=  0.00 mg | C=  0.48 mg/L | P=  0.44 mg/L | Ce=  0.63 mg/L | Tol= 0.65 | Effect= 7.31%
+t=503.00h | A=  0.00 mg | C=  0.44 mg/L | P=  0.41 mg/L | Ce=  0.59 mg/L | Tol= 0.65 | Effect= 6.83%
+
+========== PATIENT ASSESSMENT at t=504.00 hours ==========
+Current Effect: 6.36%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 31.73 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.66
+Escalation Factor: 3.97%
+Old Dose: 31.73 mg
+New Dose: 32.99 mg
+Dose Increase: +1.26 mg (+3.97%)
+
+--- DOSE ADMINISTERED ---
+Time: 504.00 h
+Dose: 32.99 mg
+C(t): 0.41 mg/L
+Ce(t): 0.55 mg/L
+Tol(t): 0.66
+Effect: 6.36%
+Total doses given: 41
+================================================
+t=504.00h | A= 32.99 mg | C=  0.41 mg/L | P=  0.38 mg/L | Ce=  0.55 mg/L | Tol= 0.66 | Effect= 6.36%
+t=505.00h | A=  4.46 mg | C=  1.19 mg/L | P=  0.50 mg/L | Ce=  0.65 mg/L | Tol= 0.66 | Effect= 7.61%
+t=506.00h | A=  0.60 mg | C=  1.08 mg/L | P=  0.62 mg/L | Ce=  0.76 mg/L | Tol= 0.66 | Effect= 9.02%
+t=507.00h | A=  0.08 mg | C=  0.94 mg/L | P=  0.66 mg/L | Ce=  0.81 mg/L | Tol= 0.66 | Effect= 9.69%
+t=508.00h | A=  0.01 mg | C=  0.83 mg/L | P=  0.66 mg/L | Ce=  0.83 mg/L | Tol= 0.66 | Effect= 9.86%
+t=509.00h | A=  0.00 mg | C=  0.75 mg/L | P=  0.64 mg/L | Ce=  0.82 mg/L | Tol= 0.67 | Effect= 9.73%
+t=510.00h | A=  0.00 mg | C=  0.69 mg/L | P=  0.61 mg/L | Ce=  0.80 mg/L | Tol= 0.67 | Effect= 9.44%
+t=511.00h | A=  0.00 mg | C=  0.64 mg/L | P=  0.57 mg/L | Ce=  0.77 mg/L | Tol= 0.67 | Effect= 9.05%
+t=512.00h | A=  0.00 mg | C=  0.59 mg/L | P=  0.53 mg/L | Ce=  0.73 mg/L | Tol= 0.67 | Effect= 8.60%
+t=513.00h | A=  0.00 mg | C=  0.55 mg/L | P=  0.50 mg/L | Ce=  0.70 mg/L | Tol= 0.68 | Effect= 8.12%
+t=514.00h | A=  0.00 mg | C=  0.51 mg/L | P=  0.46 mg/L | Ce=  0.66 mg/L | Tol= 0.68 | Effect= 7.62%
+t=515.00h | A=  0.00 mg | C=  0.47 mg/L | P=  0.43 mg/L | Ce=  0.62 mg/L | Tol= 0.68 | Effect= 7.13%
+
+========== PATIENT ASSESSMENT at t=516.00 hours ==========
+Current Effect: 6.65%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 32.99 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.68
+Escalation Factor: 4.04%
+Old Dose: 32.99 mg
+New Dose: 34.32 mg
+Dose Increase: +1.33 mg (+4.04%)
+
+--- DOSE ADMINISTERED ---
+Time: 516.00 h
+Dose: 34.32 mg
+C(t): 0.43 mg/L
+Ce(t): 0.58 mg/L
+Tol(t): 0.68
+Effect: 6.65%
+Total doses given: 42
+================================================
+t=516.00h | A= 34.32 mg | C=  0.43 mg/L | P=  0.40 mg/L | Ce=  0.58 mg/L | Tol= 0.68 | Effect= 6.65%
+t=517.00h | A=  4.65 mg | C=  1.25 mg/L | P=  0.53 mg/L | Ce=  0.68 mg/L | Tol= 0.68 | Effect= 7.93%
+t=518.00h | A=  0.63 mg | C=  1.13 mg/L | P=  0.65 mg/L | Ce=  0.80 mg/L | Tol= 0.68 | Effect= 9.37%
+t=519.00h | A=  0.09 mg | C=  0.98 mg/L | P=  0.70 mg/L | Ce=  0.86 mg/L | Tol= 0.69 | Effect=10.07%
+t=520.00h | A=  0.01 mg | C=  0.88 mg/L | P=  0.69 mg/L | Ce=  0.87 mg/L | Tol= 0.69 | Effect=10.24%
+t=521.00h | A=  0.00 mg | C=  0.79 mg/L | P=  0.67 mg/L | Ce=  0.86 mg/L | Tol= 0.69 | Effect=10.12%
+t=522.00h | A=  0.00 mg | C=  0.73 mg/L | P=  0.64 mg/L | Ce=  0.84 mg/L | Tol= 0.69 | Effect= 9.82%
+t=523.00h | A=  0.00 mg | C=  0.67 mg/L | P=  0.60 mg/L | Ce=  0.81 mg/L | Tol= 0.70 | Effect= 9.42%
+t=524.00h | A=  0.00 mg | C=  0.62 mg/L | P=  0.56 mg/L | Ce=  0.77 mg/L | Tol= 0.70 | Effect= 8.96%
+t=525.00h | A=  0.00 mg | C=  0.58 mg/L | P=  0.53 mg/L | Ce=  0.73 mg/L | Tol= 0.70 | Effect= 8.46%
+t=526.00h | A=  0.00 mg | C=  0.54 mg/L | P=  0.49 mg/L | Ce=  0.70 mg/L | Tol= 0.70 | Effect= 7.96%
+t=527.00h | A=  0.00 mg | C=  0.50 mg/L | P=  0.46 mg/L | Ce=  0.66 mg/L | Tol= 0.70 | Effect= 7.45%
+
+========== PATIENT ASSESSMENT at t=528.00 hours ==========
+Current Effect: 6.95%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 34.32 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.70
+Escalation Factor: 4.11%
+Old Dose: 34.32 mg
+New Dose: 35.74 mg
+Dose Increase: +1.41 mg (+4.11%)
+
+--- DOSE ADMINISTERED ---
+Time: 528.00 h
+Dose: 35.74 mg
+C(t): 0.46 mg/L
+Ce(t): 0.62 mg/L
+Tol(t): 0.70
+Effect: 6.95%
+Total doses given: 43
+================================================
+t=528.00h | A= 35.74 mg | C=  0.46 mg/L | P=  0.42 mg/L | Ce=  0.62 mg/L | Tol= 0.70 | Effect= 6.95%
+t=529.00h | A=  4.84 mg | C=  1.31 mg/L | P=  0.56 mg/L | Ce=  0.72 mg/L | Tol= 0.71 | Effect= 8.27%
+t=530.00h | A=  0.65 mg | C=  1.19 mg/L | P=  0.68 mg/L | Ce=  0.84 mg/L | Tol= 0.71 | Effect= 9.75%
+t=531.00h | A=  0.09 mg | C=  1.04 mg/L | P=  0.73 mg/L | Ce=  0.90 mg/L | Tol= 0.71 | Effect=10.47%
+t=532.00h | A=  0.01 mg | C=  0.92 mg/L | P=  0.73 mg/L | Ce=  0.92 mg/L | Tol= 0.71 | Effect=10.65%
+t=533.00h | A=  0.00 mg | C=  0.84 mg/L | P=  0.71 mg/L | Ce=  0.91 mg/L | Tol= 0.72 | Effect=10.53%
+t=534.00h | A=  0.00 mg | C=  0.77 mg/L | P=  0.67 mg/L | Ce=  0.88 mg/L | Tol= 0.72 | Effect=10.22%
+t=535.00h | A=  0.00 mg | C=  0.71 mg/L | P=  0.63 mg/L | Ce=  0.85 mg/L | Tol= 0.72 | Effect= 9.81%
+t=536.00h | A=  0.00 mg | C=  0.66 mg/L | P=  0.59 mg/L | Ce=  0.82 mg/L | Tol= 0.72 | Effect= 9.34%
+t=537.00h | A=  0.00 mg | C=  0.61 mg/L | P=  0.56 mg/L | Ce=  0.78 mg/L | Tol= 0.73 | Effect= 8.84%
+t=538.00h | A=  0.00 mg | C=  0.57 mg/L | P=  0.52 mg/L | Ce=  0.73 mg/L | Tol= 0.73 | Effect= 8.32%
+t=539.00h | A=  0.00 mg | C=  0.53 mg/L | P=  0.48 mg/L | Ce=  0.69 mg/L | Tol= 0.73 | Effect= 7.79%
+
+========== PATIENT ASSESSMENT at t=540.00 hours ==========
+Current Effect: 7.28%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 35.74 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.73
+Escalation Factor: 4.19%
+Old Dose: 35.74 mg
+New Dose: 37.23 mg
+Dose Increase: +1.50 mg (+4.19%)
+
+--- DOSE ADMINISTERED ---
+Time: 540.00 h
+Dose: 37.23 mg
+C(t): 0.49 mg/L
+Ce(t): 0.65 mg/L
+Tol(t): 0.73
+Effect: 7.28%
+Total doses given: 44
+================================================
+t=540.00h | A= 37.23 mg | C=  0.49 mg/L | P=  0.45 mg/L | Ce=  0.65 mg/L | Tol= 0.73 | Effect= 7.28%
+t=541.00h | A=  5.04 mg | C=  1.37 mg/L | P=  0.59 mg/L | Ce=  0.76 mg/L | Tol= 0.73 | Effect= 8.63%
+t=542.00h | A=  0.68 mg | C=  1.25 mg/L | P=  0.72 mg/L | Ce=  0.89 mg/L | Tol= 0.73 | Effect=10.15%
+t=543.00h | A=  0.09 mg | C=  1.09 mg/L | P=  0.77 mg/L | Ce=  0.95 mg/L | Tol= 0.74 | Effect=10.89%
+t=544.00h | A=  0.01 mg | C=  0.97 mg/L | P=  0.77 mg/L | Ce=  0.97 mg/L | Tol= 0.74 | Effect=11.08%
+t=545.00h | A=  0.00 mg | C=  0.89 mg/L | P=  0.75 mg/L | Ce=  0.96 mg/L | Tol= 0.74 | Effect=10.96%
+t=546.00h | A=  0.00 mg | C=  0.82 mg/L | P=  0.71 mg/L | Ce=  0.93 mg/L | Tol= 0.74 | Effect=10.65%
+t=547.00h | A=  0.00 mg | C=  0.76 mg/L | P=  0.67 mg/L | Ce=  0.90 mg/L | Tol= 0.75 | Effect=10.23%
+t=548.00h | A=  0.00 mg | C=  0.70 mg/L | P=  0.63 mg/L | Ce=  0.86 mg/L | Tol= 0.75 | Effect= 9.75%
+t=549.00h | A=  0.00 mg | C=  0.65 mg/L | P=  0.59 mg/L | Ce=  0.82 mg/L | Tol= 0.75 | Effect= 9.23%
+t=550.00h | A=  0.00 mg | C=  0.60 mg/L | P=  0.55 mg/L | Ce=  0.78 mg/L | Tol= 0.75 | Effect= 8.70%
+t=551.00h | A=  0.00 mg | C=  0.56 mg/L | P=  0.51 mg/L | Ce=  0.73 mg/L | Tol= 0.76 | Effect= 8.16%
+
+========== PATIENT ASSESSMENT at t=552.00 hours ==========
+Current Effect: 7.63%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 37.23 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.76
+Escalation Factor: 4.27%
+Old Dose: 37.23 mg
+New Dose: 38.82 mg
+Dose Increase: +1.59 mg (+4.27%)
+
+--- DOSE ADMINISTERED ---
+Time: 552.00 h
+Dose: 38.82 mg
+C(t): 0.52 mg/L
+Ce(t): 0.69 mg/L
+Tol(t): 0.76
+Effect: 7.63%
+Total doses given: 45
+================================================
+t=552.00h | A= 38.82 mg | C=  0.52 mg/L | P=  0.48 mg/L | Ce=  0.69 mg/L | Tol= 0.76 | Effect= 7.63%
+t=553.00h | A=  5.25 mg | C=  1.44 mg/L | P=  0.62 mg/L | Ce=  0.81 mg/L | Tol= 0.76 | Effect= 9.02%
+t=554.00h | A=  0.71 mg | C=  1.32 mg/L | P=  0.76 mg/L | Ce=  0.94 mg/L | Tol= 0.76 | Effect=10.58%
+t=555.00h | A=  0.10 mg | C=  1.15 mg/L | P=  0.81 mg/L | Ce=  1.00 mg/L | Tol= 0.76 | Effect=11.34%
+t=556.00h | A=  0.01 mg | C=  1.03 mg/L | P=  0.81 mg/L | Ce=  1.02 mg/L | Tol= 0.77 | Effect=11.54%
+t=557.00h | A=  0.00 mg | C=  0.94 mg/L | P=  0.79 mg/L | Ce=  1.01 mg/L | Tol= 0.77 | Effect=11.42%
+t=558.00h | A=  0.00 mg | C=  0.86 mg/L | P=  0.75 mg/L | Ce=  0.99 mg/L | Tol= 0.77 | Effect=11.11%
+t=559.00h | A=  0.00 mg | C=  0.80 mg/L | P=  0.71 mg/L | Ce=  0.95 mg/L | Tol= 0.77 | Effect=10.68%
+t=560.00h | A=  0.00 mg | C=  0.74 mg/L | P=  0.67 mg/L | Ce=  0.91 mg/L | Tol= 0.78 | Effect=10.19%
+t=561.00h | A=  0.00 mg | C=  0.69 mg/L | P=  0.62 mg/L | Ce=  0.87 mg/L | Tol= 0.78 | Effect= 9.66%
+t=562.00h | A=  0.00 mg | C=  0.64 mg/L | P=  0.58 mg/L | Ce=  0.82 mg/L | Tol= 0.78 | Effect= 9.11%
+t=563.00h | A=  0.00 mg | C=  0.60 mg/L | P=  0.54 mg/L | Ce=  0.78 mg/L | Tol= 0.78 | Effect= 8.56%
+
+========== PATIENT ASSESSMENT at t=564.00 hours ==========
+Current Effect: 8.01%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 38.82 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.79
+Escalation Factor: 4.36%
+Old Dose: 38.82 mg
+New Dose: 40.51 mg
+Dose Increase: +1.69 mg (+4.36%)
+
+--- DOSE ADMINISTERED ---
+Time: 564.00 h
+Dose: 40.51 mg
+C(t): 0.56 mg/L
+Ce(t): 0.73 mg/L
+Tol(t): 0.79
+Effect: 8.01%
+Total doses given: 46
+================================================
+t=564.00h | A= 40.51 mg | C=  0.56 mg/L | P=  0.51 mg/L | Ce=  0.73 mg/L | Tol= 0.79 | Effect= 8.01%
+t=565.00h | A=  5.48 mg | C=  1.52 mg/L | P=  0.66 mg/L | Ce=  0.85 mg/L | Tol= 0.79 | Effect= 9.43%
+t=566.00h | A=  0.74 mg | C=  1.39 mg/L | P=  0.80 mg/L | Ce=  0.99 mg/L | Tol= 0.79 | Effect=11.04%
+t=567.00h | A=  0.10 mg | C=  1.22 mg/L | P=  0.86 mg/L | Ce=  1.06 mg/L | Tol= 0.79 | Effect=11.82%
+t=568.00h | A=  0.01 mg | C=  1.09 mg/L | P=  0.86 mg/L | Ce=  1.08 mg/L | Tol= 0.79 | Effect=12.04%
+t=569.00h | A=  0.00 mg | C=  1.00 mg/L | P=  0.83 mg/L | Ce=  1.07 mg/L | Tol= 0.80 | Effect=11.91%
+t=570.00h | A=  0.00 mg | C=  0.92 mg/L | P=  0.79 mg/L | Ce=  1.04 mg/L | Tol= 0.80 | Effect=11.60%
+t=571.00h | A=  0.00 mg | C=  0.85 mg/L | P=  0.75 mg/L | Ce=  1.01 mg/L | Tol= 0.80 | Effect=11.16%
+t=572.00h | A=  0.00 mg | C=  0.79 mg/L | P=  0.71 mg/L | Ce=  0.97 mg/L | Tol= 0.81 | Effect=10.66%
+t=573.00h | A=  0.00 mg | C=  0.74 mg/L | P=  0.66 mg/L | Ce=  0.92 mg/L | Tol= 0.81 | Effect=10.12%
+t=574.00h | A=  0.00 mg | C=  0.69 mg/L | P=  0.62 mg/L | Ce=  0.88 mg/L | Tol= 0.81 | Effect= 9.56%
+t=575.00h | A=  0.00 mg | C=  0.64 mg/L | P=  0.58 mg/L | Ce=  0.83 mg/L | Tol= 0.81 | Effect= 8.99%
+
+========== PATIENT ASSESSMENT at t=576.00 hours ==========
+Current Effect: 8.42%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 40.51 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.81
+Escalation Factor: 4.44%
+Old Dose: 40.51 mg
+New Dose: 42.31 mg
+Dose Increase: +1.80 mg (+4.44%)
+
+--- DOSE ADMINISTERED ---
+Time: 576.00 h
+Dose: 42.31 mg
+C(t): 0.59 mg/L
+Ce(t): 0.78 mg/L
+Tol(t): 0.81
+Effect: 8.42%
+Total doses given: 47
+================================================
+t=576.00h | A= 42.31 mg | C=  0.59 mg/L | P=  0.54 mg/L | Ce=  0.78 mg/L | Tol= 0.81 | Effect= 8.42%
+t=577.00h | A=  5.73 mg | C=  1.60 mg/L | P=  0.70 mg/L | Ce=  0.91 mg/L | Tol= 0.82 | Effect= 9.88%
+t=578.00h | A=  0.78 mg | C=  1.47 mg/L | P=  0.85 mg/L | Ce=  1.05 mg/L | Tol= 0.82 | Effect=11.53%
+t=579.00h | A=  0.10 mg | C=  1.29 mg/L | P=  0.91 mg/L | Ce=  1.12 mg/L | Tol= 0.82 | Effect=12.34%
+t=580.00h | A=  0.01 mg | C=  1.16 mg/L | P=  0.91 mg/L | Ce=  1.14 mg/L | Tol= 0.82 | Effect=12.56%
+t=581.00h | A=  0.00 mg | C=  1.06 mg/L | P=  0.88 mg/L | Ce=  1.13 mg/L | Tol= 0.83 | Effect=12.44%
+t=582.00h | A=  0.00 mg | C=  0.98 mg/L | P=  0.84 mg/L | Ce=  1.11 mg/L | Tol= 0.83 | Effect=12.12%
+t=583.00h | A=  0.00 mg | C=  0.91 mg/L | P=  0.80 mg/L | Ce=  1.07 mg/L | Tol= 0.83 | Effect=11.68%
+t=584.00h | A=  0.00 mg | C=  0.85 mg/L | P=  0.75 mg/L | Ce=  1.03 mg/L | Tol= 0.84 | Effect=11.17%
+t=585.00h | A=  0.00 mg | C=  0.79 mg/L | P=  0.70 mg/L | Ce=  0.98 mg/L | Tol= 0.84 | Effect=10.61%
+t=586.00h | A=  0.00 mg | C=  0.73 mg/L | P=  0.66 mg/L | Ce=  0.93 mg/L | Tol= 0.84 | Effect=10.04%
+t=587.00h | A=  0.00 mg | C=  0.68 mg/L | P=  0.62 mg/L | Ce=  0.88 mg/L | Tol= 0.84 | Effect= 9.45%
+
+========== PATIENT ASSESSMENT at t=588.00 hours ==========
+Current Effect: 8.87%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 42.31 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.85
+Escalation Factor: 4.54%
+Old Dose: 42.31 mg
+New Dose: 44.23 mg
+Dose Increase: +1.92 mg (+4.54%)
+
+--- DOSE ADMINISTERED ---
+Time: 588.00 h
+Dose: 44.23 mg
+C(t): 0.64 mg/L
+Ce(t): 0.83 mg/L
+Tol(t): 0.85
+Effect: 8.87%
+Total doses given: 48
+================================================
+t=588.00h | A= 44.23 mg | C=  0.64 mg/L | P=  0.58 mg/L | Ce=  0.83 mg/L | Tol= 0.85 | Effect= 8.87%
+t=589.00h | A=  5.99 mg | C=  1.69 mg/L | P=  0.74 mg/L | Ce=  0.96 mg/L | Tol= 0.85 | Effect=10.36%
+t=590.00h | A=  0.81 mg | C=  1.56 mg/L | P=  0.90 mg/L | Ce=  1.11 mg/L | Tol= 0.85 | Effect=12.06%
+t=591.00h | A=  0.11 mg | C=  1.37 mg/L | P=  0.96 mg/L | Ce=  1.19 mg/L | Tol= 0.85 | Effect=12.89%
+t=592.00h | A=  0.01 mg | C=  1.23 mg/L | P=  0.96 mg/L | Ce=  1.21 mg/L | Tol= 0.86 | Effect=13.13%
+t=593.00h | A=  0.00 mg | C=  1.13 mg/L | P=  0.94 mg/L | Ce=  1.20 mg/L | Tol= 0.86 | Effect=13.01%
+t=594.00h | A=  0.00 mg | C=  1.04 mg/L | P=  0.89 mg/L | Ce=  1.18 mg/L | Tol= 0.86 | Effect=12.69%
+t=595.00h | A=  0.00 mg | C=  0.97 mg/L | P=  0.85 mg/L | Ce=  1.14 mg/L | Tol= 0.87 | Effect=12.24%
+t=596.00h | A=  0.00 mg | C=  0.90 mg/L | P=  0.80 mg/L | Ce=  1.09 mg/L | Tol= 0.87 | Effect=11.71%
+t=597.00h | A=  0.00 mg | C=  0.84 mg/L | P=  0.75 mg/L | Ce=  1.04 mg/L | Tol= 0.87 | Effect=11.15%
+t=598.00h | A=  0.00 mg | C=  0.79 mg/L | P=  0.70 mg/L | Ce=  0.99 mg/L | Tol= 0.87 | Effect=10.55%
+t=599.00h | A=  0.00 mg | C=  0.73 mg/L | P=  0.66 mg/L | Ce=  0.94 mg/L | Tol= 0.88 | Effect= 9.95%
+
+========== PATIENT ASSESSMENT at t=600.00 hours ==========
+Current Effect: 9.35%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 44.23 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.88
+Escalation Factor: 4.63%
+Old Dose: 44.23 mg
+New Dose: 46.28 mg
+Dose Increase: +2.05 mg (+4.63%)
+
+--- DOSE ADMINISTERED ---
+Time: 600.00 h
+Dose: 46.28 mg
+C(t): 0.68 mg/L
+Ce(t): 0.89 mg/L
+Tol(t): 0.88
+Effect: 9.35%
+Total doses given: 49
+================================================
+t=600.00h | A= 46.28 mg | C=  0.68 mg/L | P=  0.62 mg/L | Ce=  0.89 mg/L | Tol= 0.88 | Effect= 9.35%
+t=601.00h | A=  6.26 mg | C=  1.79 mg/L | P=  0.79 mg/L | Ce=  1.03 mg/L | Tol= 0.88 | Effect=10.88%
+t=602.00h | A=  0.85 mg | C=  1.65 mg/L | P=  0.96 mg/L | Ce=  1.18 mg/L | Tol= 0.88 | Effect=12.63%
+t=603.00h | A=  0.11 mg | C=  1.45 mg/L | P=  1.02 mg/L | Ce=  1.26 mg/L | Tol= 0.89 | Effect=13.48%
+t=604.00h | A=  0.02 mg | C=  1.31 mg/L | P=  1.03 mg/L | Ce=  1.29 mg/L | Tol= 0.89 | Effect=13.73%
+t=605.00h | A=  0.00 mg | C=  1.20 mg/L | P=  1.00 mg/L | Ce=  1.28 mg/L | Tol= 0.89 | Effect=13.62%
+t=606.00h | A=  0.00 mg | C=  1.11 mg/L | P=  0.95 mg/L | Ce=  1.25 mg/L | Tol= 0.90 | Effect=13.29%
+t=607.00h | A=  0.00 mg | C=  1.04 mg/L | P=  0.90 mg/L | Ce=  1.21 mg/L | Tol= 0.90 | Effect=12.84%
+t=608.00h | A=  0.00 mg | C=  0.97 mg/L | P=  0.85 mg/L | Ce=  1.17 mg/L | Tol= 0.90 | Effect=12.30%
+t=609.00h | A=  0.00 mg | C=  0.91 mg/L | P=  0.80 mg/L | Ce=  1.11 mg/L | Tol= 0.90 | Effect=11.72%
+t=610.00h | A=  0.00 mg | C=  0.85 mg/L | P=  0.75 mg/L | Ce=  1.06 mg/L | Tol= 0.91 | Effect=11.12%
+t=611.00h | A=  0.00 mg | C=  0.79 mg/L | P=  0.71 mg/L | Ce=  1.01 mg/L | Tol= 0.91 | Effect=10.50%
+
+========== PATIENT ASSESSMENT at t=612.00 hours ==========
+Current Effect: 9.88%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 46.28 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.91
+Escalation Factor: 4.73%
+Old Dose: 46.28 mg
+New Dose: 48.47 mg
+Dose Increase: +2.19 mg (+4.73%)
+
+--- DOSE ADMINISTERED ---
+Time: 612.00 h
+Dose: 48.47 mg
+C(t): 0.74 mg/L
+Ce(t): 0.95 mg/L
+Tol(t): 0.91
+Effect: 9.88%
+Total doses given: 50
+================================================
+t=612.00h | A= 48.47 mg | C=  0.74 mg/L | P=  0.66 mg/L | Ce=  0.95 mg/L | Tol= 0.91 | Effect= 9.88%
+t=613.00h | A=  6.56 mg | C=  1.90 mg/L | P=  0.84 mg/L | Ce=  1.10 mg/L | Tol= 0.91 | Effect=11.45%
+t=614.00h | A=  0.89 mg | C=  1.75 mg/L | P=  1.02 mg/L | Ce=  1.26 mg/L | Tol= 0.92 | Effect=13.24%
+t=615.00h | A=  0.12 mg | C=  1.55 mg/L | P=  1.09 mg/L | Ce=  1.34 mg/L | Tol= 0.92 | Effect=14.12%
+t=616.00h | A=  0.02 mg | C=  1.40 mg/L | P=  1.09 mg/L | Ce=  1.37 mg/L | Tol= 0.92 | Effect=14.38%
+t=617.00h | A=  0.00 mg | C=  1.28 mg/L | P=  1.06 mg/L | Ce=  1.36 mg/L | Tol= 0.93 | Effect=14.27%
+t=618.00h | A=  0.00 mg | C=  1.19 mg/L | P=  1.02 mg/L | Ce=  1.34 mg/L | Tol= 0.93 | Effect=13.95%
+t=619.00h | A=  0.00 mg | C=  1.11 mg/L | P=  0.97 mg/L | Ce=  1.29 mg/L | Tol= 0.93 | Effect=13.48%
+t=620.00h | A=  0.00 mg | C=  1.04 mg/L | P=  0.91 mg/L | Ce=  1.25 mg/L | Tol= 0.94 | Effect=12.94%
+t=621.00h | A=  0.00 mg | C=  0.97 mg/L | P=  0.86 mg/L | Ce=  1.19 mg/L | Tol= 0.94 | Effect=12.35%
+t=622.00h | A=  0.00 mg | C=  0.91 mg/L | P=  0.81 mg/L | Ce=  1.14 mg/L | Tol= 0.94 | Effect=11.73%
+t=623.00h | A=  0.00 mg | C=  0.85 mg/L | P=  0.76 mg/L | Ce=  1.08 mg/L | Tol= 0.94 | Effect=11.09%
+
+========== PATIENT ASSESSMENT at t=624.00 hours ==========
+Current Effect: 10.46%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 48.47 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.95
+Escalation Factor: 4.84%
+Old Dose: 48.47 mg
+New Dose: 50.82 mg
+Dose Increase: +2.35 mg (+4.84%)
+
+--- DOSE ADMINISTERED ---
+Time: 624.00 h
+Dose: 50.82 mg
+C(t): 0.79 mg/L
+Ce(t): 1.02 mg/L
+Tol(t): 0.95
+Effect: 10.46%
+Total doses given: 51
+================================================
+t=624.00h | A= 50.82 mg | C=  0.79 mg/L | P=  0.71 mg/L | Ce=  1.02 mg/L | Tol= 0.95 | Effect=10.46%
+t=625.00h | A=  6.88 mg | C=  2.01 mg/L | P=  0.90 mg/L | Ce=  1.17 mg/L | Tol= 0.95 | Effect=12.07%
+t=626.00h | A=  0.93 mg | C=  1.86 mg/L | P=  1.09 mg/L | Ce=  1.35 mg/L | Tol= 0.95 | Effect=13.90%
+t=627.00h | A=  0.13 mg | C=  1.65 mg/L | P=  1.16 mg/L | Ce=  1.44 mg/L | Tol= 0.95 | Effect=14.81%
+t=628.00h | A=  0.02 mg | C=  1.49 mg/L | P=  1.16 mg/L | Ce=  1.46 mg/L | Tol= 0.96 | Effect=15.09%
+t=629.00h | A=  0.00 mg | C=  1.38 mg/L | P=  1.13 mg/L | Ce=  1.46 mg/L | Tol= 0.96 | Effect=14.98%
+t=630.00h | A=  0.00 mg | C=  1.28 mg/L | P=  1.09 mg/L | Ce=  1.43 mg/L | Tol= 0.97 | Effect=14.65%
+t=631.00h | A=  0.00 mg | C=  1.20 mg/L | P=  1.03 mg/L | Ce=  1.39 mg/L | Tol= 0.97 | Effect=14.18%
+t=632.00h | A=  0.00 mg | C=  1.12 mg/L | P=  0.98 mg/L | Ce=  1.34 mg/L | Tol= 0.97 | Effect=13.63%
+t=633.00h | A=  0.00 mg | C=  1.05 mg/L | P=  0.92 mg/L | Ce=  1.28 mg/L | Tol= 0.98 | Effect=13.03%
+t=634.00h | A=  0.00 mg | C=  0.98 mg/L | P=  0.87 mg/L | Ce=  1.22 mg/L | Tol= 0.98 | Effect=12.39%
+t=635.00h | A=  0.00 mg | C=  0.92 mg/L | P=  0.82 mg/L | Ce=  1.16 mg/L | Tol= 0.98 | Effect=11.74%
+
+========== PATIENT ASSESSMENT at t=636.00 hours ==========
+Current Effect: 11.09%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 50.82 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 0.98
+Escalation Factor: 4.95%
+Old Dose: 50.82 mg
+New Dose: 53.33 mg
+Dose Increase: +2.51 mg (+4.95%)
+
+--- DOSE ADMINISTERED ---
+Time: 636.00 h
+Dose: 53.33 mg
+C(t): 0.86 mg/L
+Ce(t): 1.10 mg/L
+Tol(t): 0.98
+Effect: 11.09%
+Total doses given: 52
+================================================
+t=636.00h | A= 53.33 mg | C=  0.86 mg/L | P=  0.77 mg/L | Ce=  1.10 mg/L | Tol= 0.98 | Effect=11.09%
+t=637.00h | A=  7.22 mg | C=  2.14 mg/L | P=  0.97 mg/L | Ce=  1.26 mg/L | Tol= 0.99 | Effect=12.74%
+t=638.00h | A=  0.98 mg | C=  1.99 mg/L | P=  1.16 mg/L | Ce=  1.44 mg/L | Tol= 0.99 | Effect=14.62%
+t=639.00h | A=  0.13 mg | C=  1.77 mg/L | P=  1.24 mg/L | Ce=  1.54 mg/L | Tol= 0.99 | Effect=15.56%
+t=640.00h | A=  0.02 mg | C=  1.60 mg/L | P=  1.25 mg/L | Ce=  1.57 mg/L | Tol= 1.00 | Effect=15.85%
+t=641.00h | A=  0.00 mg | C=  1.48 mg/L | P=  1.21 mg/L | Ce=  1.56 mg/L | Tol= 1.00 | Effect=15.75%
+t=642.00h | A=  0.00 mg | C=  1.38 mg/L | P=  1.17 mg/L | Ce=  1.53 mg/L | Tol= 1.00 | Effect=15.42%
+t=643.00h | A=  0.00 mg | C=  1.29 mg/L | P=  1.11 mg/L | Ce=  1.49 mg/L | Tol= 1.01 | Effect=14.95%
+t=644.00h | A=  0.00 mg | C=  1.21 mg/L | P=  1.05 mg/L | Ce=  1.43 mg/L | Tol= 1.01 | Effect=14.39%
+t=645.00h | A=  0.00 mg | C=  1.14 mg/L | P=  1.00 mg/L | Ce=  1.38 mg/L | Tol= 1.01 | Effect=13.77%
+t=646.00h | A=  0.00 mg | C=  1.07 mg/L | P=  0.94 mg/L | Ce=  1.32 mg/L | Tol= 1.02 | Effect=13.12%
+t=647.00h | A=  0.00 mg | C=  1.00 mg/L | P=  0.88 mg/L | Ce=  1.25 mg/L | Tol= 1.02 | Effect=12.45%
+
+========== PATIENT ASSESSMENT at t=648.00 hours ==========
+Current Effect: 11.78%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 53.33 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 1.02
+Escalation Factor: 5.07%
+Old Dose: 53.33 mg
+New Dose: 56.03 mg
+Dose Increase: +2.70 mg (+5.07%)
+
+--- DOSE ADMINISTERED ---
+Time: 648.00 h
+Dose: 56.03 mg
+C(t): 0.94 mg/L
+Ce(t): 1.19 mg/L
+Tol(t): 1.02
+Effect: 11.78%
+Total doses given: 53
+================================================
+t=648.00h | A= 56.03 mg | C=  0.94 mg/L | P=  0.83 mg/L | Ce=  1.19 mg/L | Tol= 1.02 | Effect=11.78%
+t=649.00h | A=  7.58 mg | C=  2.29 mg/L | P=  1.04 mg/L | Ce=  1.35 mg/L | Tol= 1.02 | Effect=13.47%
+t=650.00h | A=  1.03 mg | C=  2.12 mg/L | P=  1.25 mg/L | Ce=  1.55 mg/L | Tol= 1.03 | Effect=15.40%
+t=651.00h | A=  0.14 mg | C=  1.90 mg/L | P=  1.33 mg/L | Ce=  1.65 mg/L | Tol= 1.03 | Effect=16.37%
+t=652.00h | A=  0.02 mg | C=  1.72 mg/L | P=  1.34 mg/L | Ce=  1.68 mg/L | Tol= 1.04 | Effect=16.67%
+t=653.00h | A=  0.00 mg | C=  1.59 mg/L | P=  1.30 mg/L | Ce=  1.68 mg/L | Tol= 1.04 | Effect=16.58%
+t=654.00h | A=  0.00 mg | C=  1.49 mg/L | P=  1.25 mg/L | Ce=  1.65 mg/L | Tol= 1.04 | Effect=16.25%
+t=655.00h | A=  0.00 mg | C=  1.40 mg/L | P=  1.20 mg/L | Ce=  1.60 mg/L | Tol= 1.05 | Effect=15.77%
+t=656.00h | A=  0.00 mg | C=  1.31 mg/L | P=  1.14 mg/L | Ce=  1.55 mg/L | Tol= 1.05 | Effect=15.20%
+t=657.00h | A=  0.00 mg | C=  1.23 mg/L | P=  1.08 mg/L | Ce=  1.48 mg/L | Tol= 1.05 | Effect=14.58%
+t=658.00h | A=  0.00 mg | C=  1.16 mg/L | P=  1.02 mg/L | Ce=  1.42 mg/L | Tol= 1.06 | Effect=13.92%
+t=659.00h | A=  0.00 mg | C=  1.09 mg/L | P=  0.96 mg/L | Ce=  1.35 mg/L | Tol= 1.06 | Effect=13.23%
+
+========== PATIENT ASSESSMENT at t=660.00 hours ==========
+Current Effect: 12.54%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 56.03 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 1.06
+Escalation Factor: 5.19%
+Old Dose: 56.03 mg
+New Dose: 58.94 mg
+Dose Increase: +2.91 mg (+5.19%)
+
+--- DOSE ADMINISTERED ---
+Time: 660.00 h
+Dose: 58.94 mg
+C(t): 1.02 mg/L
+Ce(t): 1.29 mg/L
+Tol(t): 1.06
+Effect: 12.54%
+Total doses given: 54
+================================================
+t=660.00h | A= 58.94 mg | C=  1.02 mg/L | P=  0.90 mg/L | Ce=  1.29 mg/L | Tol= 1.06 | Effect=12.54%
+t=661.00h | A=  7.98 mg | C=  2.44 mg/L | P=  1.12 mg/L | Ce=  1.46 mg/L | Tol= 1.07 | Effect=14.27%
+t=662.00h | A=  1.08 mg | C=  2.28 mg/L | P=  1.34 mg/L | Ce=  1.67 mg/L | Tol= 1.07 | Effect=16.25%
+t=663.00h | A=  0.15 mg | C=  2.04 mg/L | P=  1.43 mg/L | Ce=  1.77 mg/L | Tol= 1.07 | Effect=17.24%
+t=664.00h | A=  0.02 mg | C=  1.86 mg/L | P=  1.44 mg/L | Ce=  1.81 mg/L | Tol= 1.08 | Effect=17.56%
+t=665.00h | A=  0.00 mg | C=  1.72 mg/L | P=  1.40 mg/L | Ce=  1.80 mg/L | Tol= 1.08 | Effect=17.48%
+t=666.00h | A=  0.00 mg | C=  1.61 mg/L | P=  1.35 mg/L | Ce=  1.77 mg/L | Tol= 1.08 | Effect=17.15%
+t=667.00h | A=  0.00 mg | C=  1.52 mg/L | P=  1.29 mg/L | Ce=  1.73 mg/L | Tol= 1.09 | Effect=16.67%
+t=668.00h | A=  0.00 mg | C=  1.43 mg/L | P=  1.23 mg/L | Ce=  1.67 mg/L | Tol= 1.09 | Effect=16.10%
+t=669.00h | A=  0.00 mg | C=  1.34 mg/L | P=  1.17 mg/L | Ce=  1.61 mg/L | Tol= 1.10 | Effect=15.46%
+t=670.00h | A=  0.00 mg | C=  1.27 mg/L | P=  1.10 mg/L | Ce=  1.54 mg/L | Tol= 1.10 | Effect=14.79%
+t=671.00h | A=  0.00 mg | C=  1.19 mg/L | P=  1.04 mg/L | Ce=  1.47 mg/L | Tol= 1.10 | Effect=14.09%
+
+========== PATIENT ASSESSMENT at t=672.00 hours ==========
+Current Effect: 13.39%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 58.94 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 1.11
+Escalation Factor: 5.32%
+Old Dose: 58.94 mg
+New Dose: 62.07 mg
+Dose Increase: +3.13 mg (+5.32%)
+
+--- DOSE ADMINISTERED ---
+Time: 672.00 h
+Dose: 62.07 mg
+C(t): 1.12 mg/L
+Ce(t): 1.40 mg/L
+Tol(t): 1.11
+Effect: 13.39%
+Total doses given: 55
+================================================
+t=672.00h | A= 62.07 mg | C=  1.12 mg/L | P=  0.98 mg/L | Ce=  1.40 mg/L | Tol= 1.11 | Effect=13.39%
+t=673.00h | A=  8.40 mg | C=  2.62 mg/L | P=  1.21 mg/L | Ce=  1.58 mg/L | Tol= 1.11 | Effect=15.15%
+t=674.00h | A=  1.14 mg | C=  2.45 mg/L | P=  1.45 mg/L | Ce=  1.80 mg/L | Tol= 1.11 | Effect=17.18%
+t=675.00h | A=  0.15 mg | C=  2.20 mg/L | P=  1.54 mg/L | Ce=  1.91 mg/L | Tol= 1.12 | Effect=18.20%
+t=676.00h | A=  0.02 mg | C=  2.01 mg/L | P=  1.55 mg/L | Ce=  1.95 mg/L | Tol= 1.12 | Effect=18.54%
+t=677.00h | A=  0.00 mg | C=  1.87 mg/L | P=  1.52 mg/L | Ce=  1.95 mg/L | Tol= 1.12 | Effect=18.46%
+t=678.00h | A=  0.00 mg | C=  1.75 mg/L | P=  1.46 mg/L | Ce=  1.92 mg/L | Tol= 1.13 | Effect=18.14%
+t=679.00h | A=  0.00 mg | C=  1.65 mg/L | P=  1.40 mg/L | Ce=  1.87 mg/L | Tol= 1.13 | Effect=17.66%
+t=680.00h | A=  0.00 mg | C=  1.56 mg/L | P=  1.33 mg/L | Ce=  1.81 mg/L | Tol= 1.14 | Effect=17.08%
+t=681.00h | A=  0.00 mg | C=  1.47 mg/L | P=  1.27 mg/L | Ce=  1.74 mg/L | Tol= 1.14 | Effect=16.44%
+t=682.00h | A=  0.00 mg | C=  1.39 mg/L | P=  1.20 mg/L | Ce=  1.67 mg/L | Tol= 1.14 | Effect=15.75%
+t=683.00h | A=  0.00 mg | C=  1.31 mg/L | P=  1.14 mg/L | Ce=  1.60 mg/L | Tol= 1.15 | Effect=15.04%
+
+========== PATIENT ASSESSMENT at t=684.00 hours ==========
+Current Effect: 14.32%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 62.07 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 1.15
+Escalation Factor: 5.45%
+Old Dose: 62.07 mg
+New Dose: 65.46 mg
+Dose Increase: +3.38 mg (+5.45%)
+
+--- DOSE ADMINISTERED ---
+Time: 684.00 h
+Dose: 65.46 mg
+C(t): 1.23 mg/L
+Ce(t): 1.53 mg/L
+Tol(t): 1.15
+Effect: 14.32%
+Total doses given: 56
+================================================
+t=684.00h | A= 65.46 mg | C=  1.23 mg/L | P=  1.08 mg/L | Ce=  1.53 mg/L | Tol= 1.15 | Effect=14.32%
+t=685.00h | A=  8.86 mg | C=  2.82 mg/L | P=  1.32 mg/L | Ce=  1.72 mg/L | Tol= 1.15 | Effect=16.12%
+t=686.00h | A=  1.20 mg | C=  2.64 mg/L | P=  1.56 mg/L | Ce=  1.95 mg/L | Tol= 1.16 | Effect=18.19%
+t=687.00h | A=  0.16 mg | C=  2.38 mg/L | P=  1.67 mg/L | Ce=  2.07 mg/L | Tol= 1.16 | Effect=19.25%
+t=688.00h | A=  0.02 mg | C=  2.18 mg/L | P=  1.68 mg/L | Ce=  2.11 mg/L | Tol= 1.17 | Effect=19.60%
+t=689.00h | A=  0.00 mg | C=  2.03 mg/L | P=  1.64 mg/L | Ce=  2.11 mg/L | Tol= 1.17 | Effect=19.53%
+t=690.00h | A=  0.00 mg | C=  1.91 mg/L | P=  1.59 mg/L | Ce=  2.08 mg/L | Tol= 1.17 | Effect=19.21%
+t=691.00h | A=  0.00 mg | C=  1.80 mg/L | P=  1.52 mg/L | Ce=  2.03 mg/L | Tol= 1.18 | Effect=18.74%
+t=692.00h | A=  0.00 mg | C=  1.71 mg/L | P=  1.45 mg/L | Ce=  1.97 mg/L | Tol= 1.18 | Effect=18.15%
+t=693.00h | A=  0.00 mg | C=  1.61 mg/L | P=  1.38 mg/L | Ce=  1.90 mg/L | Tol= 1.19 | Effect=17.51%
+t=694.00h | A=  0.00 mg | C=  1.53 mg/L | P=  1.31 mg/L | Ce=  1.83 mg/L | Tol= 1.19 | Effect=16.81%
+t=695.00h | A=  0.00 mg | C=  1.44 mg/L | P=  1.25 mg/L | Ce=  1.75 mg/L | Tol= 1.19 | Effect=16.09%
+
+========== PATIENT ASSESSMENT at t=696.00 hours ==========
+Current Effect: 15.35%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 65.46 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 1.20
+Escalation Factor: 5.59%
+Old Dose: 65.46 mg
+New Dose: 69.12 mg
+Dose Increase: +3.66 mg (+5.59%)
+
+--- DOSE ADMINISTERED ---
+Time: 696.00 h
+Dose: 69.12 mg
+C(t): 1.36 mg/L
+Ce(t): 1.67 mg/L
+Tol(t): 1.20
+Effect: 15.35%
+Total doses given: 57
+================================================
+t=696.00h | A= 69.12 mg | C=  1.36 mg/L | P=  1.18 mg/L | Ce=  1.67 mg/L | Tol= 1.20 | Effect=15.35%
+t=697.00h | A=  9.35 mg | C=  3.04 mg/L | P=  1.44 mg/L | Ce=  1.88 mg/L | Tol= 1.20 | Effect=17.19%
+t=698.00h | A=  1.27 mg | C=  2.85 mg/L | P=  1.70 mg/L | Ce=  2.12 mg/L | Tol= 1.20 | Effect=19.31%
+t=699.00h | A=  0.17 mg | C=  2.58 mg/L | P=  1.81 mg/L | Ce=  2.25 mg/L | Tol= 1.21 | Effect=20.39%
+t=700.00h | A=  0.02 mg | C=  2.37 mg/L | P=  1.82 mg/L | Ce=  2.30 mg/L | Tol= 1.21 | Effect=20.76%
+t=701.00h | A=  0.00 mg | C=  2.22 mg/L | P=  1.79 mg/L | Ce=  2.29 mg/L | Tol= 1.22 | Effect=20.71%
+t=702.00h | A=  0.00 mg | C=  2.09 mg/L | P=  1.73 mg/L | Ce=  2.26 mg/L | Tol= 1.22 | Effect=20.39%
+t=703.00h | A=  0.00 mg | C=  1.98 mg/L | P=  1.66 mg/L | Ce=  2.21 mg/L | Tol= 1.23 | Effect=19.92%
+t=704.00h | A=  0.00 mg | C=  1.87 mg/L | P=  1.59 mg/L | Ce=  2.15 mg/L | Tol= 1.23 | Effect=19.34%
+t=705.00h | A=  0.00 mg | C=  1.78 mg/L | P=  1.52 mg/L | Ce=  2.08 mg/L | Tol= 1.24 | Effect=18.68%
+t=706.00h | A=  0.00 mg | C=  1.68 mg/L | P=  1.44 mg/L | Ce=  2.00 mg/L | Tol= 1.24 | Effect=17.98%
+t=707.00h | A=  0.00 mg | C=  1.59 mg/L | P=  1.37 mg/L | Ce=  1.92 mg/L | Tol= 1.24 | Effect=17.25%
+
+========== PATIENT ASSESSMENT at t=708.00 hours ==========
+Current Effect: 16.50%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 69.12 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 1.25
+Escalation Factor: 5.74%
+Old Dose: 69.12 mg
+New Dose: 73.08 mg
+Dose Increase: +3.97 mg (+5.74%)
+
+--- DOSE ADMINISTERED ---
+Time: 708.00 h
+Dose: 73.08 mg
+C(t): 1.51 mg/L
+Ce(t): 1.84 mg/L
+Tol(t): 1.25
+Effect: 16.50%
+Total doses given: 58
+================================================
+t=708.00h | A= 73.08 mg | C=  1.51 mg/L | P=  1.30 mg/L | Ce=  1.84 mg/L | Tol= 1.25 | Effect=16.50%
+t=709.00h | A=  9.89 mg | C=  3.29 mg/L | P=  1.57 mg/L | Ce=  2.05 mg/L | Tol= 1.25 | Effect=18.38%
+t=710.00h | A=  1.34 mg | C=  3.10 mg/L | P=  1.85 mg/L | Ce=  2.31 mg/L | Tol= 1.25 | Effect=20.54%
+t=711.00h | A=  0.18 mg | C=  2.81 mg/L | P=  1.97 mg/L | Ce=  2.45 mg/L | Tol= 1.26 | Effect=21.64%
+t=712.00h | A=  0.02 mg | C=  2.59 mg/L | P=  1.98 mg/L | Ce=  2.50 mg/L | Tol= 1.26 | Effect=22.03%
+t=713.00h | A=  0.00 mg | C=  2.43 mg/L | P=  1.95 mg/L | Ce=  2.50 mg/L | Tol= 1.27 | Effect=21.99%
+t=714.00h | A=  0.00 mg | C=  2.30 mg/L | P=  1.89 mg/L | Ce=  2.47 mg/L | Tol= 1.27 | Effect=21.69%
+t=715.00h | A=  0.00 mg | C=  2.18 mg/L | P=  1.82 mg/L | Ce=  2.42 mg/L | Tol= 1.28 | Effect=21.22%
+t=716.00h | A=  0.00 mg | C=  2.07 mg/L | P=  1.74 mg/L | Ce=  2.35 mg/L | Tol= 1.28 | Effect=20.64%
+t=717.00h | A=  0.00 mg | C=  1.97 mg/L | P=  1.67 mg/L | Ce=  2.28 mg/L | Tol= 1.29 | Effect=19.98%
+t=718.00h | A=  0.00 mg | C=  1.87 mg/L | P=  1.59 mg/L | Ce=  2.20 mg/L | Tol= 1.29 | Effect=19.28%
+t=719.00h | A=  0.00 mg | C=  1.77 mg/L | P=  1.51 mg/L | Ce=  2.11 mg/L | Tol= 1.29 | Effect=18.54%
+
+========== PATIENT ASSESSMENT at t=720.00 hours ==========
+Current Effect: 17.78%
+Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+Relief State: NO
+Motivation: 5.00
+Current Dose: 73.08 mg
+
+>>> DECISION: INCREASE DOSE (Transition T2) <<<
+Tolerance Level: 1.30
+Escalation Factor: 5.90%
+Old Dose: 73.08 mg
+New Dose: 77.39 mg
+Dose Increase: +4.31 mg (+5.90%)
+
+--- DOSE ADMINISTERED ---
+Time: 720.00 h
+Dose: 77.39 mg
+C(t): 1.68 mg/L
+Ce(t): 2.03 mg/L
+Tol(t): 1.30
+Effect: 17.78%
+Total doses given: 59
+================================================
+t=720.00h | A= 77.39 mg | C=  1.68 mg/L | P=  1.44 mg/L | Ce=  2.03 mg/L | Tol= 1.30 | Effect=17.78%
+
+========================================================================
+                        SIMULATION SUMMARY
+========================================================================
+
+Final State (t=720.00 hours):
+  A(t) = 77.39 mg
+  C(t) = 1.68 mg/L
+  P(t) = 1.44 mg/L
+  Ce(t) = 2.03 mg/L
+  Tol(t) = 1.30
+  Effect = 17.78%
+
+Pharmacokinetic Analysis:
+  Saturation ratio (C/Km) = 0.84
+  Status: SATURATION ZONE - Nonlinear kinetics active
+  WARNING: Approaching dangerous territory!
+
+Pharmacodynamic Analysis:
+  Current EC50 = 6.90 mg/L (baseline: 3.00 mg/L)
+  Tolerance multiplier = 2.30x
+  Required dose for same effect = 177.88 mg
+
+Behavioral Analysis (Petri Net):
+  Patient Status: ALIVE
+  Final Pain Level: 3 (0=None, 1=Mild, 2=Moderate, 3=Severe)
+  Total Dose Escalations: 59
+  Dose Escalation: 10.20 mg → 77.39 mg (658.40% increase)
+
+========================================================================

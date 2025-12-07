@@ -5,6 +5,7 @@
 #include <string>
 
 #include "config/config_reader.hpp"
+#include "simulation/behavior.hpp"
 #include "simulation/dynamics.hpp"
 #include "simulation/monitoring.hpp"
 #include "simulation/parameters.hpp"
@@ -56,6 +57,11 @@ int main(int argc, char* argv[]) {
     state.Ce = &Ce;
     state.Tol = &Tol;
 
+    PetriNetState petri_state{};
+    petri_state.pain_level = 2;  // Start with moderate pain
+    petri_state.motivation = 1.0;
+    petri_state.relief_state = false;
+
     std::cout << "Initial Conditions:" << std::endl;
     std::cout << "  A(0) = " << A.Value() << " mg (first dose)" << std::endl;
     std::cout << "  C(0) = " << C.Value() << " mg/L" << std::endl;
@@ -69,7 +75,7 @@ int main(int argc, char* argv[]) {
     std::cout << std::endl;
 
     (new StatusMonitor(params, state))->Activate(Time + params.output_interval);
-    (new DosingEvent(params, state))->Activate(Time + params.dosing_interval);
+    (new PatientAssessment(params, state, petri_state))->Activate(Time + params.assessment_interval);
 
     Run();
 
@@ -107,6 +113,18 @@ int main(int argc, char* argv[]) {
     std::cout << "  Current EC50 = " << EC50_current << " mg/L (baseline: " << params.EC50_base << " mg/L)" << std::endl;
     std::cout << "  Tolerance multiplier = " << tolerance_factor << "x" << std::endl;
     std::cout << "  Required dose for same effect = " << tolerance_factor * params.current_dose << " mg" << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "Behavioral Analysis (Petri Net):" << std::endl;
+    std::cout << "  Patient Status: " << (petri_state.patient_alive ? "ALIVE" : "DECEASED") << std::endl;
+    std::cout << "  Final Pain Level: " << petri_state.pain_level << " (0=None, 1=Mild, 2=Moderate, 3=Severe)" << std::endl;
+    std::cout << "  Total Dose Escalations: " << petri_state.dose_history.size() << std::endl;
+    if (!petri_state.dose_history.empty()) {
+        auto first_dose = petri_state.dose_history.front().dose;
+        auto last_dose = petri_state.dose_history.back().dose;
+        std::cout << "  Dose Escalation: " << first_dose << " mg → " << last_dose << " mg (" 
+                  << ((last_dose / first_dose - 1.0) * 100) << "% increase)" << std::endl;
+    }
     std::cout << std::endl;
 
     std::cout << "========================================================================" << std::endl;

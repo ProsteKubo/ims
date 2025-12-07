@@ -30,6 +30,16 @@ struct ModelParameters {
     double sim_step_max{};
     double sim_accuracy{};
     double output_interval{};
+    
+    // Behavioral parameters (Petri net / discrete subsystem)
+    double assessment_interval{};
+    double effect_relief_threshold{};
+    double motivation_threshold{};
+    double motivation_pain_rate{};
+    double motivation_dose_reduction{};
+    double min_dosing_interval{};
+    double base_escalation_factor{};
+    double tolerance_escalation_factor{};
 };
 
 ModelParameters LoadModelParameters(const ConfigReader& config);
