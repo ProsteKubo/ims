@@ -47,6 +47,8 @@ void StatusMonitor::Behavior() {
          << "Effect=" << setw(5) << effect << "%" << endl;
 
     if (CheckToxicity(state_, params_)) {
+        petri_state_.patient_alive = false;
+        petri_state_.time_overdose_detected = Time;
         Stop();
         return;
     }

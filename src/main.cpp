@@ -75,7 +75,7 @@ int main(int argc, char* argv[]) {
     std::cout << "========================================================================" << std::endl;
     std::cout << std::endl;
 
-    (new StatusMonitor(params, state))->Activate(Time + params.output_interval);
+    (new StatusMonitor(params, state, petri_state))->Activate(Time + params.output_interval);
     (new PatientAssessment(params, state, petri_state))->Activate(Time + params.assessment_interval);
 
     Run();

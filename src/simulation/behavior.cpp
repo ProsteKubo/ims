@@ -26,6 +26,8 @@ void PatientAssessment::Behavior() {
     UpdatePainLevel(effect);
     UpdateMotivation(params_.assessment_interval);
     
+    MonitorSaturation();
+
     cout << "\n========== PATIENT ASSESSMENT at t=" << Time << " hours ==========" << endl;
     cout << "Current Effect: " << fixed << setprecision(2) << effect << "%" << endl;
     cout << "Pain Level: " << petri_state_.pain_level
