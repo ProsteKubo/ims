@@ -180,32 +180,35 @@ Parameters & \texttt{parameters.*} & Parameter data structures \\ \bottomrule
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[node distance=2cm, auto, thick]
-    \tikzstyle{data} = [rectangle, draw, fill=yellow!20, text width=6em, text centered, minimum height=2.5em]
-    \tikzstyle{proc} = [rectangle, draw, fill=green!20, text width=6em, text centered, minimum height=2.5em, rounded corners]
-    \tikzstyle{store} = [cylinder, draw, fill=blue!20, text width=4em, text centered, minimum height=2.5em, shape border rotate=90]
+\begin{tikzpicture}[node distance=3cm, auto, thick, scale=0.85, transform shape]
+    \tikzstyle{data} = [rectangle, draw, fill=yellow!20, text width=7em, text centered, minimum height=3em]
+    \tikzstyle{proc} = [rectangle, draw, fill=green!20, text width=7em, text centered, minimum height=3em, rounded corners]
+    \tikzstyle{store} = [cylinder, draw, fill=blue!20, text width=5em, text centered, minimum height=3em, shape border rotate=90]
     
     \node [store] (config) {Config\\File};
-    \node [proc, right of=config, node distance=3.5cm] (reader) {Config\\Reader};
-    \node [data, right of=reader, node distance=3.5cm] (params) {Model\\Parameters};
-    \node [proc, below of=params, node distance=2.5cm] (integrators) {Integrators\\(A,C,P,Ce,Tol)};
-    \node [proc, left of=integrators, node distance=3.5cm] (dynamics) {Dynamics\\Classes};
-    \node [proc, below of=integrators, node distance=2.5cm] (assessment) {Patient\\Assessment};
-    \node [data, right of=assessment, node distance=3.5cm] (petri) {Petri Net\\State};
-    \node [proc, below of=assessment, node distance=2.5cm] (monitor) {Status\\Monitor};
-    \node [store, below of=monitor, node distance=2.5cm] (output) {Output\\Log};
+    \node [proc, right of=config, node distance=4.5cm] (reader) {Config\\Reader};
+    \node [data, right of=reader, node distance=4.5cm] (params) {Model\\Parameters};
+    
+    \node [proc, below of=params, node distance=3.5cm] (integrators) {Integrators\\(A,C,P,Ce,Tol)};
+    \node [proc, left of=integrators, node distance=4.5cm] (dynamics) {Dynamics\\Classes};
+    
+    \node [proc, below of=integrators, node distance=3.5cm] (assessment) {Patient\\Assessment};
+    \node [data, right of=assessment, node distance=4.5cm] (petri) {Petri Net\\State};
+    
+    \node [proc, below of=assessment, node distance=3.5cm] (monitor) {Status\\Monitor};
+    % Increased distance to 4cm to prevent obfuscation
+    \node [store, below of=monitor, node distance=4cm] (output) {Output\\Log};
     
     \draw [->] (config) -- (reader);
     \draw [->] (reader) -- (params);
     \draw [->] (params) -- (integrators);
     \draw [->] (params) -- (dynamics);
-    \draw [->] (dynamics) -- node[left] {$dX/dt$} (integrators);
-    \draw [->] (integrators) -- node[left] {$X(t)$} (assessment);
-    \draw [->] (petri) -- (assessment);
-    \draw [->] (assessment) -- node[right] {Dose events} (integrators);
+    \draw [->] (dynamics) -- node[above] {$dX/dt$} (integrators);
+    \draw [->] (integrators) -- node[right] {$X(t)$} (assessment);
+    \draw [->] (assessment) to [bend left=20] node[left] {Dose events} (integrators);
     \draw [<->] (assessment) -- (petri);
-    \draw [->] (integrators) -- (monitor);
-    \draw [->] (petri) -- (monitor);
+    \draw [->] (integrators) to [bend right=45] (monitor);
+    \draw [->] (petri) to [bend left=45] (monitor);
     \draw [->] (monitor) -- (output);
 \end{tikzpicture}
 \caption{Data Flow Architecture. Configuration parameters flow through the system, dynamics classes compute derivatives for integrators, behavioral processes read continuous state and inject discrete events, and monitors generate output.}

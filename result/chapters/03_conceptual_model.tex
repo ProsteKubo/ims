@@ -283,35 +283,41 @@ The escalation factor increases with tolerance, modeling the patient's unconscio
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[node distance=3cm,>=stealth',bend angle=45,auto]
-    \tikzstyle{place}=[circle,thick,draw=blue!75,fill=blue!20,minimum size=10mm]
-    \tikzstyle{transition}=[rectangle,thick,draw=black!75,fill=black!20,minimum width=8mm,minimum height=8mm]
+\begin{tikzpicture}[node distance=4cm,>=stealth',bend angle=45,auto, scale=0.9, transform shape]
+    \tikzstyle{place}=[circle,thick,draw=blue!75,fill=blue!20,minimum size=12mm]
+    \tikzstyle{transition}=[rectangle,thick,draw=black!75,fill=black!20,minimum width=10mm,minimum height=10mm]
     
-    \node [place,tokens=2] (pain) {$P_1$};
-    \node [place] (relief) [right of=pain] {$P_2$};
-    \node [place,tokens=1] (motiv) [below of=pain] {$P_3$};
-    \node [place,tokens=1] (alive) [below of=relief] {$P_6$};
+    % Places
+    \node [place,tokens=2, label=above:Pain Level] (pain) {$P_1$};
+    \node [place, label=above:Relief State] (relief) [right of=pain] {$P_2$};
+    \node [place,tokens=1, label=left:Motivation] (motiv) [below of=pain] {$P_3$};
     
-    \node [transition] (assess) [right of=motiv] {$T_1$} 
-        edge [pre] (alive)
-        edge [post] (pain)
-        edge [post] (relief);
+    % Transitions
+    \node [transition, label=right:Assessment] (assess) [below of=relief] {$T_1$};
+    \node [transition, label=left:Increase Dose] (increase) [below of=motiv] {$T_2$};
     
-    \node [transition] (increase) [below of=motiv] {$T_2$}
-        edge [pre] (pain)
-        edge [pre] (motiv)
-        edge [post,bend right] (relief);
+    % Alive place moved below Assessment to avoid collision
+    \node [place,tokens=1, label=left:Patient Alive] (alive) [below of=assess] {$P_6$};
     
-    \node [transition] (toxic) [right of=alive] {$T_4$}
-        edge [pre] (alive);
+    % Toxicity transition
+    \node [transition, label=right:Toxicity] (toxic) [right of=alive] {$T_4$};
     
-    \draw [->] (assess) to [bend left] node[above] {measure $E$} (relief);
-    \draw [->] (increase) to [bend right] node[below] {$A \mathrel{+{=}} D$} (motiv);
+    % Edges for Assessment (T1)
+    \draw [->] (alive) -- (assess);
+    \draw [->] (assess) -- (pain);
+    \draw [->] (assess) -- (relief);
     
-    \node at (0,-4.5) {\small Pain Level};
-    \node at (2.5,-4.5) {\small Relief};
-    \node at (0,-2.5) {\small Motivation};
-    \node at (2.5,-2.5) {\small Alive};
+    % Edges for Increase Dose (T2)
+    \draw [->] (pain) -- (increase);
+    \draw [->] (motiv) -- (increase);
+    \draw [->] (increase) to [bend right] (relief);
+    
+    % Edges for Toxicity (T4)
+    \draw [->] (alive) -- (toxic);
+    
+    % Additional explanatory edges
+    \draw [->, dashed] (assess) to [bend right=20] node[right, font=\small] {measure $E$} (relief);
+    \draw [->, dashed] (increase) to [bend left=20] node[left, font=\small] {$A \mathrel{+{=}} D$} (motiv);
 \end{tikzpicture}
 \caption{Simplified Petri Net Structure. $T_1$ (Assessment) fires periodically, reading continuous state $E(t)$ to update discrete places. $T_2$ (Increase\_Dose) triggers when pain and motivation exceed thresholds, injecting a dose pulse into the continuous system. $T_4$ (Toxicity) fires when concentration exceeds safety limit, terminating the simulation.}
 \label{fig:petri_net}
@@ -338,18 +344,19 @@ The deadly spiral emerges from the coupling between continuous and discrete subs
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[node distance=2.5cm, auto, thick]
-    \tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=5em, text centered, rounded corners, minimum height=3em]
-    \tikzstyle{cloud} = [ellipse, draw, fill=red!20, text width=5em, text centered, minimum height=3em]
+\begin{tikzpicture}[node distance=3cm, auto, thick, scale=1.0, transform shape]
+    \tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=8em, text centered, rounded corners, minimum height=4em]
+    \tikzstyle{cloud} = [ellipse, draw, fill=red!20, text width=6em, text centered, minimum height=4em]
     
     \node [block] (cont) {Continuous\\ODEs};
-    \node [block, right of=cont, node distance=5cm] (disc) {Discrete\\Petri Net};
-    \node [cloud, below of=cont, node distance=3cm] (sat) {Saturation\\Zone};
+    \node [block, right of=cont, node distance=7cm] (disc) {Discrete\\Petri Net};
+    \node [cloud, below of=cont, node distance=4cm] (sat) {Saturation\\Zone};
     
-    \draw [->] (cont) -- node[above] {$E(t), C(t)$} (disc);
-    \draw [->] (disc) -- node[below] {$D_i \cdot \delta(t-t_i)$} (cont);
+    \draw [->] (cont.10) -- node[above] {$E(t), C(t)$} (disc.170);
+    \draw [->] (disc.190) -- node[below] {$D_i \cdot \delta(t-t_i)$} (cont.350);
     \draw [->] (cont) -- node[left] {$C \approx K_m$} (sat);
-    \draw [->, red, thick] (sat) to [bend left=60] node[right] {Runaway} (cont);
+    % Changed bend direction to right to avoid overlapping with the vertical arrow
+    \draw [->, red, ultra thick] (sat) to [bend right=60] node[right, font=\bfseries] {Runaway Accumulation} (cont);
 \end{tikzpicture}
 \caption{Hybrid System Feedback Loop. The continuous system computes physiological state, which the discrete system observes to make dosing decisions. When concentration enters the saturation zone, the feedback loop becomes unstable, producing the deadly spiral.}
 \label{fig:hybrid_loop}
