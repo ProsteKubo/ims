@@ -50,17 +50,14 @@ void StatusMonitor::Behavior() {
         petri_state_.patient_alive = false;
         petri_state_.time_overdose_detected = Time;
         
-        // Attempt naloxone rescue if available
         if (params_.naloxone_available) {
             double response_time = params_.naloxone_response_delay;
             cout << "\n>>> EMERGENCY RESPONSE DISPATCHED (ETA: " 
                  << (response_time * 60) << " minutes) <<<" << endl;
             
-            // Schedule naloxone administration after response delay
             NaloxoneRescue* rescue_event = new NaloxoneRescue(params_, state_, petri_state_);
             rescue_event->Activate(Time + response_time);
             
-            // Continue monitoring to see if rescue arrives in time
             Activate(Time + params_.output_interval);
             return;
         }
@@ -88,7 +85,6 @@ void NaloxoneRescue::Behavior() {
     cout << "Time since overdose: " << fixed << setprecision(2) 
          << (time_since_OD * 60) << " minutes" << endl;
     
-    // Check if still within effective window
     if (time_since_OD > params_.naloxone_effective_window) {
         cout << "\n!!! NALOXONE WINDOW EXPIRED (>" 
              << (params_.naloxone_effective_window * 60)
@@ -100,7 +96,6 @@ void NaloxoneRescue::Behavior() {
         return;
     }
     
-    // Apply naloxone - create PatientAssessment to use existing logic
     PatientAssessment* assessment = new PatientAssessment(params_, state_, petri_state_);
     assessment->CheckAndApplyNaloxonePublic();
     delete assessment;
